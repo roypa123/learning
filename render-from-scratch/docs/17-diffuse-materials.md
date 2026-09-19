@@ -2,6 +2,8 @@
 
 [← Random numbers & anti-aliasing](16-random-and-antialiasing.md) · [Contents](README.md) · [Next: Metal →](18-metal.md)
 
+> 📖 **Line by line:** [camera explained line by line](line-by-line/camera.md) · [material explained line by line](line-by-line/material.md) · [ch17_diffuse explained line by line](line-by-line/ch17_diffuse.md)
+
 ---
 
 ## Goal

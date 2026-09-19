@@ -2,6 +2,8 @@
 
 [← Monte Carlo](29-monte-carlo.md) · [Contents](README.md) · [Next: Light sampling →](31-light-sampling.md)
 
+> 📖 **Line by line:** [pdf explained line by line](line-by-line/pdf.md)
+
 ---
 
 ## Goal

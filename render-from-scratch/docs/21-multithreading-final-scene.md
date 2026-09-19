@@ -2,6 +2,8 @@
 
 [← Positionable camera](20-positionable-camera.md) · [Contents](README.md) · [Next: Motion blur →](22-motion-blur.md)
 
+> 📖 **Line by line:** [ch21_first_masterpiece explained line by line](line-by-line/ch21_first_masterpiece.md)
+
 ---
 
 ## Goal

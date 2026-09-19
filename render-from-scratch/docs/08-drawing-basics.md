@@ -2,6 +2,8 @@
 
 [← PNG part 2](07-png-part2.md) · [Contents](README.md) · [Next: Circles & anti-aliasing →](09-circles-antialiasing.md)
 
+> 📖 **Line by line:** [canvas explained line by line](line-by-line/canvas.md) · [ch08_drawing explained line by line](line-by-line/ch08_drawing.md)
+
 ---
 
 ## Goal

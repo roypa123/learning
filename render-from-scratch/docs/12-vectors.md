@@ -2,6 +2,8 @@
 
 [← Procedural noise](11-procedural-noise.md) · [Contents](README.md) · [Next: Rays & camera →](13-rays-and-camera.md)
 
+> 📖 **Line by line:** [vec3 explained line by line](line-by-line/vec3.md) · [ch12_vectors explained line by line](line-by-line/ch12_vectors.md)
+
 ---
 
 ## Goal

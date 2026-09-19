@@ -2,6 +2,8 @@
 
 [← Vectors](12-vectors.md) · [Contents](README.md) · [Next: Hitting a sphere →](14-hitting-a-sphere.md)
 
+> 📖 **Line by line:** [ray explained line by line](line-by-line/ray.md) · [ch13_rays_sky explained line by line](line-by-line/ch13_rays_sky.md)
+
 ---
 
 ## Goal

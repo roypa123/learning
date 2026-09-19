@@ -2,6 +2,8 @@
 
 [← Metal](18-metal.md) · [Contents](README.md) · [Next: Positionable camera →](20-positionable-camera.md)
 
+> 📖 **Line by line:** [ch19_glass explained line by line](line-by-line/ch19_glass.md)
+
 ---
 
 ## Goal

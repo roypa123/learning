@@ -2,6 +2,8 @@
 
 [← Microfacet materials](32-microfacet-materials.md) · [Contents](README.md) · [Next: HDR & tone mapping →](34-hdr-tonemapping.md)
 
+> 📖 **Line by line:** [sky explained line by line](line-by-line/sky.md)
+
 ---
 
 ## Goal

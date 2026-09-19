@@ -2,6 +2,8 @@
 
 [← Rays & camera](13-rays-and-camera.md) · [Contents](README.md) · [Next: Normals & many objects →](15-normals-and-lists.md)
 
+> 📖 **Line by line:** [ch14_sphere explained line by line](line-by-line/ch14_sphere.md)
+
 ---
 
 ## Goal

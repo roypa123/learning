@@ -2,6 +2,8 @@
 
 [← Circles & anti-aliasing](09-circles-antialiasing.md) · [Contents](README.md) · [Next: Procedural noise →](11-procedural-noise.md)
 
+> 📖 **Line by line:** [ch10_triangles explained line by line](line-by-line/ch10_triangles.md)
+
 ---
 
 ## Goal

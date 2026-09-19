@@ -2,6 +2,8 @@
 
 [← Triangles & gradients](10-triangles-gradients.md) · [Contents](README.md) · [Next: Vectors →](12-vectors.md)
 
+> 📖 **Line by line:** [noise explained line by line](line-by-line/noise.md) · [ch11_procedural_noise explained line by line](line-by-line/ch11_procedural_noise.md)
+
 ---
 
 ## Goal

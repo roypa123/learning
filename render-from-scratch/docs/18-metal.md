@@ -2,6 +2,8 @@
 
 [← Diffuse materials](17-diffuse-materials.md) · [Contents](README.md) · [Next: Glass →](19-glass.md)
 
+> 📖 **Line by line:** [ch18_metal explained line by line](line-by-line/ch18_metal.md)
+
 ---
 
 ## Goal

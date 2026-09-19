@@ -2,6 +2,8 @@
 
 [← Drawing basics](08-drawing-basics.md) · [Contents](README.md) · [Next: Triangles & gradients →](10-triangles-gradients.md)
 
+> 📖 **Line by line:** [ch09_circles_antialiasing explained line by line](line-by-line/ch09_circles_antialiasing.md)
+
 ---
 
 ## Goal

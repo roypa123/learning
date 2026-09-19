@@ -2,6 +2,8 @@
 
 [← Normals & many objects](15-normals-and-lists.md) · [Contents](README.md) · [Next: Diffuse materials →](17-diffuse-materials.md)
 
+> 📖 **Line by line:** [random explained line by line](line-by-line/random.md) · [ch16_antialiasing explained line by line](line-by-line/ch16_antialiasing.md)
+
 ---
 
 ## Goal

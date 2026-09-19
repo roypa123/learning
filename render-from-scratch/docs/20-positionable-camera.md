@@ -2,6 +2,8 @@
 
 [← Glass](19-glass.md) · [Contents](README.md) · [Next: Multithreading & first masterpiece →](21-multithreading-final-scene.md)
 
+> 📖 **Line by line:** [ch20_camera explained line by line](line-by-line/ch20_camera.md)
+
 ---
 
 ## Goal

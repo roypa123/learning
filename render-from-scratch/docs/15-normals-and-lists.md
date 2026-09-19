@@ -2,6 +2,8 @@
 
 [← Hitting a sphere](14-hitting-a-sphere.md) · [Contents](README.md) · [Next: Random numbers & anti-aliasing →](16-random-and-antialiasing.md)
 
+> 📖 **Line by line:** [hittable explained line by line](line-by-line/hittable.md) · [sphere explained line by line](line-by-line/sphere.md) · [ch15_normals explained line by line](line-by-line/ch15_normals.md)
+
 ---
 
 ## Goal
