@@ -104,6 +104,9 @@ preview (Ctrl+Shift+V) and the images will appear in place.
 * [Chapter 39 — Animation](39-animation.md)
 * [Chapter 40 — Where to go next](40-next-steps.md)
 
+### Line-by-line explanations
+* [Every line of code explained, block by block](line-by-line/README.md)
+
 ### Appendices
 * [Appendix A — Library reference (every class and function)](appendix-a-library-reference.md)
 * [Appendix B — Troubleshooting](appendix-b-troubleshooting.md)

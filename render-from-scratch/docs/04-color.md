@@ -2,6 +2,8 @@
 
 [← Your first image](03-first-image.md) · [Contents](README.md) · [Next: The Image class →](05-image-class.md)
 
+> 📖 **Line by line:** [vec3 explained line by line](line-by-line/vec3.md) · [color explained line by line](line-by-line/color.md) · [ch04_color explained line by line](line-by-line/ch04_color.md)
+
 ---
 
 ## Goal

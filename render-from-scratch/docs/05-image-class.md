@@ -2,6 +2,8 @@
 
 [← Color](04-color.md) · [Contents](README.md) · [Next: PNG part 1 →](06-png-part1.md)
 
+> 📖 **Line by line:** [image explained line by line](line-by-line/image.md) · [ch05_image_class explained line by line](line-by-line/ch05_image_class.md)
+
 ---
 
 ## Goal

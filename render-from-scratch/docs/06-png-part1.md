@@ -2,6 +2,8 @@
 
 [← The Image class](05-image-class.md) · [Contents](README.md) · [Next: PNG part 2 →](07-png-part2.md)
 
+> 📖 **Line by line:** [ch06_png_stored explained line by line](line-by-line/ch06_png_stored.md)
+
 ---
 
 ## Goal

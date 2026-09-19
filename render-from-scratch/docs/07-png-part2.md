@@ -2,6 +2,8 @@
 
 [← PNG part 1](06-png-part1.md) · [Contents](README.md) · [Next: Drawing basics →](08-drawing-basics.md)
 
+> 📖 **Line by line:** [png explained line by line](line-by-line/png.md) · [ch07_png_compressed explained line by line](line-by-line/ch07_png_compressed.md)
+
 ---
 
 ## Goal
@@ -162,11 +164,11 @@ DEFLATE uses one alphabet of **288 symbols** for literals and lengths:
 
 and a second alphabet of **30 symbols** for **distances** (plus extra bits).
 
-Lengths and distances use "base + extra bits". For example length symbol **269** means "length 23 to
+Lengths and distances use "base + extra bits". For example length symbol **270** means "length 23 to
 26", followed by **2 extra bits** giving 0–3 to add to 23:
 
 ```
-length 25  ->  symbol 269 (base 23)  +  extra bits "10" (value 2)
+length 25  ->  symbol 270 (base 23)  +  extra bits "10" (value 2)
 ```
 
 ### 4.3 Fixed Huffman codes

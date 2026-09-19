@@ -2,6 +2,8 @@
 
 [← C++ crash course](02-cpp-crash-course.md) · [Contents](README.md) · [Next: Color →](04-color.md)
 
+> 📖 **Line by line:** [ch03_first_image explained line by line](line-by-line/ch03_first_image.md)
+
 ---
 
 ## Goal
