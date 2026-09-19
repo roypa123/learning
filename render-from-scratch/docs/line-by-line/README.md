@@ -26,4 +26,17 @@ explains the *code*), with the source file open next to it.
 | `include/pixel/png.h` | [png.md](png.md) | [7](../07-png-part2.md) |
 | `chapters/ch07_png_compressed.cpp` | [ch07_png_compressed.md](ch07_png_compressed.md) | [7](../07-png-part2.md) |
 
-More parts (2D drawing, the ray tracer, and so on) will be added in the same style.
+## Part 2 — 2D graphics
+
+| Code file | Line-by-line page | Book chapter |
+|-----------|-------------------|--------------|
+| `include/pixel/random.h` | [random.md](random.md) | [16](../16-random-and-antialiasing.md) (used from ch. 7) |
+| `include/pixel/canvas.h` | [canvas.md](canvas.md) | [8](../08-drawing-basics.md), [9](../09-circles-antialiasing.md), [10](../10-triangles-gradients.md) |
+| `chapters/ch08_drawing.cpp` | [ch08_drawing.md](ch08_drawing.md) | [8](../08-drawing-basics.md) |
+| `chapters/ch09_circles_antialiasing.cpp` | [ch09_circles_antialiasing.md](ch09_circles_antialiasing.md) | [9](../09-circles-antialiasing.md) |
+| `chapters/ch10_triangles.cpp` | [ch10_triangles.md](ch10_triangles.md) | [10](../10-triangles-gradients.md) |
+| `include/pixel/noise.h` | [noise.md](noise.md) | [11](../11-procedural-noise.md) |
+| `chapters/ch11_procedural_noise.cpp` | [ch11_procedural_noise.md](ch11_procedural_noise.md) | [11](../11-procedural-noise.md) |
+| `chapters/ch12_vectors.cpp` | [ch12_vectors.md](ch12_vectors.md) | [12](../12-vectors.md) |
+
+More parts will be added in the same style.
