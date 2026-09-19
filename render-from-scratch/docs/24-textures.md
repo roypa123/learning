@@ -2,7 +2,7 @@
 
 [← BVH](23-bvh.md) · [Contents](README.md) · [Next: Quads, triangles & meshes →](25-quads-triangles-meshes.md)
 
-> 📖 **Line by line:** [texture explained line by line](line-by-line/texture.md)
+> 📖 **Line by line:** [texture explained line by line](line-by-line/texture.md) · [ch24_textures explained line by line](line-by-line/ch24_textures.md)
 
 ---
 

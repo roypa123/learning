@@ -2,6 +2,8 @@
 
 [← Lights & the Cornell box](26-lights-cornell-box.md) · [Contents](README.md) · [Next: Volumes →](28-volumes.md)
 
+> 📖 **Line by line:** [instance explained line by line](line-by-line/instance.md) · [ch27_instances explained line by line](line-by-line/ch27_instances.md)
+
 ---
 
 ## Goal

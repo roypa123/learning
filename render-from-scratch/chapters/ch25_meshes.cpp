@@ -40,6 +40,7 @@ int main() {
     // ---------- 2. Triangle meshes: write an OBJ, read it back -------------
     {
         Mesh torus = make_torus(1.0, 0.4, 48, 24);
+        ensure_parent_folder("models/torus.obj");   // make the "models" folder if needed
         save_obj("models/torus.obj", torus);   // look at this file in a text editor!
 
         Mesh loaded;

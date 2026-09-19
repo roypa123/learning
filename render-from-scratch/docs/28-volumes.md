@@ -2,6 +2,8 @@
 
 [← Instances](27-instances.md) · [Contents](README.md) · [Next: Monte Carlo →](29-monte-carlo.md)
 
+> 📖 **Line by line:** [volume explained line by line](line-by-line/volume.md) · [ch28_volumes explained line by line](line-by-line/ch28_volumes.md)
+
 ---
 
 ## Goal

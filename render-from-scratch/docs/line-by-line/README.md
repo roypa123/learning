@@ -61,4 +61,22 @@ explains the *code*), with the source file open next to it.
 | `chapters/ch20_camera.cpp` | [ch20_camera.md](ch20_camera.md) | [20](../20-positionable-camera.md) |
 | `chapters/ch21_first_masterpiece.cpp` | [ch21_first_masterpiece.md](ch21_first_masterpiece.md) | [21](../21-multithreading-final-scene.md) |
 
+## Part 5 — Building real scenes
+
+| Code file | Line-by-line page | Book chapter |
+|-----------|-------------------|--------------|
+| `chapters/ch22_motion_blur.cpp` | [ch22_motion_blur.md](ch22_motion_blur.md) | [22](../22-motion-blur.md) |
+| `include/pixel/aabb.h` | [aabb.md](aabb.md) | [23](../23-bvh.md) |
+| `include/pixel/bvh.h` | [bvh.md](bvh.md) | [23](../23-bvh.md) |
+| `chapters/ch23_bvh.cpp` | [ch23_bvh.md](ch23_bvh.md) | [23](../23-bvh.md) |
+| `chapters/ch24_textures.cpp` | [ch24_textures.md](ch24_textures.md) | [24](../24-textures.md) |
+| `include/pixel/quad.h` | [quad.md](quad.md) | [25](../25-quads-triangles-meshes.md) |
+| `include/pixel/triangle.h` | [triangle.md](triangle.md) | [25](../25-quads-triangles-meshes.md) |
+| `chapters/ch25_meshes.cpp` | [ch25_meshes.md](ch25_meshes.md) | [25](../25-quads-triangles-meshes.md) |
+| `chapters/ch26_cornell_box.cpp` | [ch26_cornell_box.md](ch26_cornell_box.md) | [26](../26-lights-cornell-box.md) |
+| `include/pixel/instance.h` | [instance.md](instance.md) | [27](../27-instances.md) |
+| `chapters/ch27_instances.cpp` | [ch27_instances.md](ch27_instances.md) | [27](../27-instances.md) |
+| `include/pixel/volume.h` | [volume.md](volume.md) | [28](../28-volumes.md) |
+| `chapters/ch28_volumes.cpp` | [ch28_volumes.md](ch28_volumes.md) | [28](../28-volumes.md) |
+
 More parts will be added in the same style.

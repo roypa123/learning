@@ -2,6 +2,8 @@
 
 [← Quads, triangles & meshes](25-quads-triangles-meshes.md) · [Contents](README.md) · [Next: Instances →](27-instances.md)
 
+> 📖 **Line by line:** [ch26_cornell_box explained line by line](line-by-line/ch26_cornell_box.md)
+
 ---
 
 ## Goal

@@ -2,6 +2,8 @@
 
 [← Multithreading & first masterpiece](21-multithreading-final-scene.md) · [Contents](README.md) · [Next: BVH →](23-bvh.md)
 
+> 📖 **Line by line:** [ch22_motion_blur explained line by line](line-by-line/ch22_motion_blur.md)
+
 ---
 
 ## Goal

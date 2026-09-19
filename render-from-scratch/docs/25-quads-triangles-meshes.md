@@ -2,6 +2,8 @@
 
 [← Textures](24-textures.md) · [Contents](README.md) · [Next: Lights & the Cornell box →](26-lights-cornell-box.md)
 
+> 📖 **Line by line:** [quad explained line by line](line-by-line/quad.md) · [triangle explained line by line](line-by-line/triangle.md) · [ch25_meshes explained line by line](line-by-line/ch25_meshes.md)
+
 ---
 
 ## Goal
@@ -659,6 +661,7 @@ int main() {
     // ---------- 2. Triangle meshes: write an OBJ, read it back -------------
     {
         Mesh torus = make_torus(1.0, 0.4, 48, 24);
+        ensure_parent_folder("models/torus.obj");   // make the "models" folder if needed
         save_obj("models/torus.obj", torus);   // look at this file in a text editor!
 
         Mesh loaded;
