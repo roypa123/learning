@@ -1,0 +1,18 @@
+// lex_errors.peb - every LEXICAL error the lexer can report.
+// Run:  run ch07_lexer examples\lex_errors.peb
+fn main() -> int {
+    let a = 123abc;                 // identifier straight after a number
+    let b = 99999999999999999999;   // too large for int
+    let c = 0x;                     // no hex digits
+    let d = 0b1012;                 // 2 is not a binary digit
+    let e = "unterminated
+    let f = "bad escape \q";
+    let g = "\u{110000}";           // not a valid code point
+    let h = "\xZZ";                 // \x needs two hex digits
+    let i = '';                     // empty character literal
+    let j = 'too many';             // more than one character
+    let k = 5 # 3;                  // '#' is not a Pebble operator
+    let m = naïve;                  // non-ASCII in an identifier
+    /* unterminated block comment
+    return 0;
+}

@@ -1,0 +1,5 @@
+// hello.peb - the smallest complete Pebble program.
+fn main() -> int {
+    print_str("hello, pebble");
+    return 0;
+}

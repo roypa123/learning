@@ -29,6 +29,7 @@ enum class TokenKind {
     // --- end and error ---
     Eof,          // one of these always terminates the stream
     Unknown,      // a character we could not lex; the lexer reported it already
+    Comment,      // only produced when Lexer::keep_comments is true
 
     // --- literals and names ---
     Ident,
@@ -106,6 +107,7 @@ inline const char* token_name(TokenKind k) {
     switch (k) {
         case TokenKind::Eof:        return "end of file";
         case TokenKind::Unknown:    return "unknown character";
+        case TokenKind::Comment:    return "comment";
         case TokenKind::Ident:      return "identifier";
         case TokenKind::IntLit:     return "integer literal";
         case TokenKind::FloatLit:   return "float literal";

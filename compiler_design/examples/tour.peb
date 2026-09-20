@@ -1,0 +1,51 @@
+// tour.peb - one of nearly every token in the language.
+// Used by the lexer chapters. It is not required to type-check yet.
+import math;
+
+type Meters = float;
+
+struct Point {
+    x: float,
+    y: float,
+}
+
+enum Shape { Circle, Square }
+
+fn area(p: Point, r: float) -> float {
+    let two = 2.0;
+    let pi  = 3.14159_26535;
+    var acc = 0.0;
+    acc += pi * r * r;
+    acc -= p.x * p.y / two;
+    return acc;
+}
+
+fn bits(n: int) -> int {
+    let mask  = 0xFF_00;
+    let flags = 0b1010_0101;
+    let perms = 0o755;
+    var v = n & mask | flags ^ perms;
+    v <<= 2;
+    v >>= 1;
+    return v;
+}
+
+fn main() -> int {
+    let name  = "pebble \u{1F4A1}";
+    let tab   = "a\tb\c\"d";
+    let ch    = 'x';
+    let nl    = '\n';
+    let big   = 9223372036854775807;
+    let ok    = true && !false || 1 <= 2;
+    let cmp   = 1 == 2 || 3 != 4 || 5 >= 6 || 7 > 8 || 9 < 10;
+    let cast  = big as float;
+    let range = 0..10;
+    /* a block comment
+       /* that nests */
+       and continues */
+    for i in range {
+        if i % 2 == 0 { continue; } else { break; }
+    }
+    loop { break; }
+    return 0;
+}
