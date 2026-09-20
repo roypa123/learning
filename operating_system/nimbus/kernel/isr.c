@@ -19,6 +19,8 @@
 #include <nimbus/syscall.h>
 #include <nimbus/paging.h>
 #include <nimbus/task.h>
+#include <nimbus/sched.h>
+#include <nimbus/timer.h>
 #include <nimbus/string.h>
 #include <nimbus/io.h>
 
@@ -180,6 +182,27 @@ void interrupt_dispatch(registers_t *regs)
     /*  End of interrupt. Only for hardware IRQs -- sending an EOI for a CPU
      *  exception tells the PIC to un-stack an interrupt that was never
      *  stacked, and corrupts its priority state.                              */
-    if (vector >= IRQ_BASE && vector < IRQ_BASE + 16)
+    if (vector >= IRQ_BASE && vector < IRQ_BASE + 16) {
         pic_send_eoi((uint8_t)(vector - IRQ_BASE));
+
+        /*  Preemption.
+         *
+         *  The timer handler set a flag; this is where it is acted on. The
+         *  ordering is the whole point: the EOI has already gone out, so the
+         *  PIC is free to deliver the next interrupt no matter which task we
+         *  switch to. Switching first and acknowledging afterwards would mean
+         *  the acknowledgement does not happen until this task is scheduled
+         *  again, and in the meantime no device in the system can interrupt.
+         *
+         *  Switching here rather than inside timer_callback() is also what
+         *  keeps the stack honest. We are on this task's kernel stack, holding
+         *  a complete trap frame. schedule() saves that stack pointer in the
+         *  task's context; when the task is picked again it returns from
+         *  schedule() right here, walks back out through isr_common_stub, and
+         *  irets to exactly the instruction that was interrupted.             */
+        if (timer_need_resched && sched_enabled) {
+            timer_need_resched = false;
+            schedule();
+        }
+    }
 }

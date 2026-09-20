@@ -104,6 +104,18 @@ task_t *task_spawn_kernel(const char *name, void (*entry)(void));
  *  explains exactly how the second return is manufactured.                    */
 pid_t   task_fork(void);
 int     task_exec(const char *path, char *const argv[]);
+
+/*  The real implementations. Both need the trap frame of the system call that
+ *  invoked them -- fork to copy it for the child, exec to rewrite it so that
+ *  the `iret` at the end of the syscall lands in the new program. The two
+ *  wrappers above exist only to give a clear panic if something calls them
+ *  from a context that has no trap frame.                                     */
+struct registers;
+pid_t   task_fork_regs(struct registers *regs);
+int     task_exec_regs(struct registers *regs, const char *path, char *const argv[]);
+
+/*  The process table, for the scheduler and for `ps`.                         */
+task_t *task_table(void);
 void    task_exit(int status) NORETURN;
 pid_t   task_wait(int *status);
 

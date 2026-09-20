@@ -168,6 +168,15 @@ isr_common_stub:
     add  esp, 4                    ; discard the argument
 
     ; ---- Unwind, exactly in reverse ------------------------------------------
+    ;
+    ; This label is not just a comment marker. task.c builds a brand-new kernel
+    ; stack for a forked child whose topmost contents are a copy of its
+    ; parent's `registers_t`, and arranges for the child's very first scheduled
+    ; instruction to be this one. The child then unwinds a trap frame it never
+    ; pushed and `iret`s into userland as if it had just made a system call --
+    ; which, from its point of view, it had. Chapter 34 walks through it.
+global isr_return
+isr_return:
     pop  eax
     mov  ds, ax
     mov  es, ax
