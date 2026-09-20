@@ -2,6 +2,8 @@
 
 [← Importance sampling](30-importance-sampling.md) · [Contents](README.md) · [Next: Microfacet materials →](32-microfacet-materials.md)
 
+> 📖 **Line by line:** [ch31_light_sampling explained line by line](line-by-line/ch31_light_sampling.md)
+
 ---
 
 ## Goal

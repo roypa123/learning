@@ -2,6 +2,8 @@
 
 [← Light sampling](31-light-sampling.md) · [Contents](README.md) · [Next: Skies →](33-sky-and-environment.md)
 
+> 📖 **Line by line:** [ch32_microfacets explained line by line](line-by-line/ch32_microfacets.md)
+
 ---
 
 ## Goal

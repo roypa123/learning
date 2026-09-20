@@ -2,6 +2,8 @@
 
 [← SDFs & ray marching](37-sdf-raymarching.md) · [Contents](README.md) · [Next: Animation →](39-animation.md)
 
+> 📖 **Line by line:** [ch38_final_shot explained line by line](line-by-line/ch38_final_shot.md)
+
 ---
 
 ## Goal

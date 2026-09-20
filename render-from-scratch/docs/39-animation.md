@@ -2,6 +2,8 @@
 
 [← The final shot](38-final-shot.md) · [Contents](README.md) · [Next: Where to go next →](40-next-steps.md)
 
+> 📖 **Line by line:** [gif explained line by line](line-by-line/gif.md) · [ch39_animation explained line by line](line-by-line/ch39_animation.md)
+
 ---
 
 ## Goal

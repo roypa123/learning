@@ -2,6 +2,8 @@
 
 [← Denoising](36-denoising.md) · [Contents](README.md) · [Next: The final shot →](38-final-shot.md)
 
+> 📖 **Line by line:** [sdf explained line by line](line-by-line/sdf.md) · [ch37_sdf explained line by line](line-by-line/ch37_sdf.md)
+
 ---
 
 ## Goal

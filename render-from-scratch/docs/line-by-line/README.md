@@ -79,4 +79,25 @@ explains the *code*), with the source file open next to it.
 | `include/pixel/volume.h` | [volume.md](volume.md) | [28](../28-volumes.md) |
 | `chapters/ch28_volumes.cpp` | [ch28_volumes.md](ch28_volumes.md) | [28](../28-volumes.md) |
 
-More parts will be added in the same style.
+## Parts 6 and 7 — Physically based rendering, and cinema
+
+| Code file | Line-by-line page | Book chapter |
+|-----------|-------------------|--------------|
+| `chapters/ch29_monte_carlo.cpp` | [ch29_monte_carlo.md](ch29_monte_carlo.md) | [29](../29-monte-carlo.md) |
+| `chapters/ch30_importance_sampling.cpp` | [ch30_importance_sampling.md](ch30_importance_sampling.md) | [30](../30-importance-sampling.md) |
+| `chapters/ch31_light_sampling.cpp` | [ch31_light_sampling.md](ch31_light_sampling.md) | [31](../31-light-sampling.md) |
+| `chapters/ch32_microfacets.cpp` | [ch32_microfacets.md](ch32_microfacets.md) | [32](../32-microfacet-materials.md) |
+| `chapters/ch33_sky.cpp` | [ch33_sky.md](ch33_sky.md) | [33](../33-sky-and-environment.md) |
+| `chapters/ch34_hdr_tonemapping.cpp` | [ch34_hdr_tonemapping.md](ch34_hdr_tonemapping.md) | [34](../34-hdr-tonemapping.md) |
+| `include/pixel/post.h` | [post.md](post.md) | [34](../34-hdr-tonemapping.md)–[36](../36-denoising.md) |
+| `chapters/ch35_post_effects.cpp` | [ch35_post_effects.md](ch35_post_effects.md) | [35](../35-post-processing.md) |
+| `chapters/ch36_denoise.cpp` | [ch36_denoise.md](ch36_denoise.md) | [36](../36-denoising.md) |
+| `include/pixel/sdf.h` | [sdf.md](sdf.md) | [37](../37-sdf-raymarching.md) |
+| `chapters/ch37_sdf.cpp` | [ch37_sdf.md](ch37_sdf.md) | [37](../37-sdf-raymarching.md) |
+| `chapters/ch38_final_shot.cpp` | [ch38_final_shot.md](ch38_final_shot.md) | [38](../38-final-shot.md) |
+| `include/pixel/gif.h` | [gif.md](gif.md) | [39](../39-animation.md) |
+| `chapters/ch39_animation.cpp` | [ch39_animation.md](ch39_animation.md) | [39](../39-animation.md) |
+| `include/pixel/pixel.h` | [pixel.md](pixel.md) | (the umbrella header) |
+
+**That is every file of the project.** 24 library headers and 37 chapter programs, all explained line by line.
+

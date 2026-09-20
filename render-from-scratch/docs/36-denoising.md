@@ -2,6 +2,8 @@
 
 [← Post-processing](35-post-processing.md) · [Contents](README.md) · [Next: SDFs & ray marching →](37-sdf-raymarching.md)
 
+> 📖 **Line by line:** [ch36_denoise explained line by line](line-by-line/ch36_denoise.md)
+
 ---
 
 ## Goal

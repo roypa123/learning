@@ -2,6 +2,8 @@
 
 [← Volumes](28-volumes.md) · [Contents](README.md) · [Next: Importance sampling →](30-importance-sampling.md)
 
+> 📖 **Line by line:** [ch29_monte_carlo explained line by line](line-by-line/ch29_monte_carlo.md)
+
 ---
 
 ## Goal

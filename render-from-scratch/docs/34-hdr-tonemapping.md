@@ -2,6 +2,8 @@
 
 [← Skies](33-sky-and-environment.md) · [Contents](README.md) · [Next: Post-processing →](35-post-processing.md)
 
+> 📖 **Line by line:** [post explained line by line](line-by-line/post.md) · [ch34_hdr_tonemapping explained line by line](line-by-line/ch34_hdr_tonemapping.md)
+
 ---
 
 ## Goal

@@ -2,6 +2,8 @@
 
 [← HDR & tone mapping](34-hdr-tonemapping.md) · [Contents](README.md) · [Next: Denoising →](36-denoising.md)
 
+> 📖 **Line by line:** [post explained line by line](line-by-line/post.md) · [ch35_post_effects explained line by line](line-by-line/ch35_post_effects.md)
+
 ---
 
 ## Goal
