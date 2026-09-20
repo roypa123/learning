@@ -394,6 +394,108 @@ int task_exec(const char *path, char *const argv[])
 }
 
 /* ---------------------------------------------------------------------------
+ *  task_spawn_user -- the first user process, created from nothing
+ *
+ *  Every other user process comes from fork(), which copies one that already
+ *  exists. Somebody has to be first, and that one has to be assembled by hand:
+ *  a fresh address space, a program loaded into it, a stack, and a trap frame
+ *  describing a return-from-interrupt that never had a matching interrupt.
+ *
+ *  This is the same manufactured-frame trick fork uses, which is the point --
+ *  once you have seen it once, "starting a process" and "resuming a process"
+ *  stop being two different things.
+ * ------------------------------------------------------------------------- */
+task_t *task_spawn_user(const char *path)
+{
+    vfs_node_t *node = vfs_lookup(path);
+    if (!node) { LOG_ERR("spawn: %s not found", path); return NULL; }
+
+    uint8_t *image = (uint8_t *)kmalloc(node->length);
+    if (!image) return NULL;
+
+    if (vfs_read(node, 0, node->length, image) != (ssize_t)node->length) {
+        kfree(image);
+        LOG_ERR("spawn: short read on %s", path);
+        return NULL;
+    }
+
+    task_t *t = task_alloc();
+    if (!t) { kfree(image); return NULL; }
+
+    strlcpy(t->name, path, TASK_NAME_LEN);
+
+    t->directory = paging_new_directory();
+    if (!t->directory) { kfree(image); t->state = TASK_UNUSED; return NULL; }
+
+    vaddr_t  brk   = 0;
+    uint32_t entry = elf_load(t->directory, image, node->length, &brk);
+    kfree(image);
+
+    if (!entry) { paging_free_directory(t->directory); t->state = TASK_UNUSED; return NULL; }
+
+    /* ---- The user stack ------------------------------------------------------
+     * One page, mapped user-writable. We are not running in this address
+     * space, so to write the initial argc/argv we translate through the
+     * kernel's direct map rather than switching CR3 -- cheaper, and it leaves
+     * the currently running task undisturbed.
+     */
+    vaddr_t stack_bottom = USER_STACK_TOP - PAGE_SIZE;
+    paging_map_range(t->directory, stack_bottom, PAGE_SIZE, PTE_WRITABLE | PTE_USER);
+
+    paddr_t  stack_phys = paging_virt_to_phys(t->directory, stack_bottom);
+    uint8_t *stack_kv   = (uint8_t *)P2V(stack_phys & PTE_FRAME_MASK);
+
+    /*  Lay out, at the very top of the page:   [argc=0][argv=NULL]           */
+    uint32_t *top = (uint32_t *)(stack_kv + PAGE_SIZE);
+    *--top = 0;                                   /* argv = NULL              */
+    *--top = 0;                                   /* argc = 0                 */
+
+    uint32_t user_esp = USER_STACK_TOP - 2 * sizeof(uint32_t);
+
+    /* ---- The kernel stack and the fake trap frame ---------------------------- */
+    uint8_t *kstack = (uint8_t *)kmalloc(KERNEL_STACK_SIZE);
+    if (!kstack) { paging_free_directory(t->directory); t->state = TASK_UNUSED; return NULL; }
+
+    t->kernel_stack = (uint32_t)(kstack + KERNEL_STACK_SIZE);
+
+    registers_t *frame = (registers_t *)(t->kernel_stack - sizeof(registers_t));
+    memset(frame, 0, sizeof(registers_t));
+
+    frame->eip     = entry;
+    frame->cs      = SEL_UCODE;
+    frame->eflags  = 0x202;          /* IF set, plus the always-1 bit 1       */
+    frame->useresp = user_esp;
+    frame->ss      = SEL_UDATA;
+    frame->ds      = SEL_UDATA;
+
+    uint32_t *sp = (uint32_t *)frame;
+    *--sp = (uint32_t)isr_return;
+    *--sp = 0; *--sp = 0; *--sp = 0; *--sp = 0;
+    t->context = (context_t *)sp;
+
+    t->brk               = brk;
+    t->user_stack_bottom = stack_bottom;
+    t->priority          = PRIORITY_NORMAL;
+    t->time_slice        = SCHED_TIME_SLICE;
+    t->ppid              = current_task ? current_task->pid : 0;
+    t->cwd               = vfs_root;
+
+    /*  stdin, stdout and stderr all point at the console. They are not magic
+     *  -- they are simply the first three descriptors, and they are inherited
+     *  by every child, which is the entire mechanism behind `>` and `|`.      */
+    vfs_node_t *con = console_device_node();
+    for (int i = 0; i < 3; i++)
+        t->fds[i] = file_open_node(con, i == 0 ? O_RDONLY : O_WRONLY);
+
+    t->state = TASK_READY;
+    sched_add(t);
+
+    LOG_INFO("task: pid %d (%s) entry %08x, user esp %08x",
+             t->pid, t->name, entry, user_esp);
+    return t;
+}
+
+/* ---------------------------------------------------------------------------
  *  exit and wait
  *
  *  A process cannot free everything about itself, because it is still using

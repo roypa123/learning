@@ -99,6 +99,10 @@ void    task_init(void);
  *  for kernel worker threads; a user process is made with task_fork/task_exec. */
 task_t *task_spawn_kernel(const char *name, void (*entry)(void));
 
+/*  Build a user process from an executable, with no parent to copy from. Used
+ *  exactly once, for pid 1; everything after it arrives via fork + exec.      */
+task_t *task_spawn_user(const char *path);
+
 /*  The classic three. fork() returns twice -- 0 in the child, the child's pid
  *  in the parent -- which is the strangest interface in Unix and Chapter 34
  *  explains exactly how the second return is manufactured.                    */
