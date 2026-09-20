@@ -32,6 +32,7 @@
 #include <nimbus/elf.h>
 #include <nimbus/vfs.h>
 #include <nimbus/fs.h>
+#include <nimbus/console.h>
 #include <nimbus/syscall.h>
 
 task_t *current_task = NULL;
