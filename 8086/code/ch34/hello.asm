@@ -1,7 +1,5 @@
 ; hello.asm — the complete first program
 ; nasm -f bin hello.asm -o hello.com -l hello.lst
-;
-; 28 bytes. Chapter 34 accounts for every one of them.
         cpu  8086
         org  0x100
 

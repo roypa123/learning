@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 520" width="820" height="520" font-family="Georgia, 'Times New Roman', serif">
+  <rect width="820" height="520" fill="#fbfaf7"/>
+  <text x="410" y="30" text-anchor="middle" font-size="18" fill="#23303c">8259A initialisation — the ICWs, in this exact order</text>
+
+  <defs>
+    <marker id="d49" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto">
+      <path d="M0 0 L9 4.5 L0 9 z" fill="#b4562d"/>
+    </marker>
+  </defs>
+
+  <!-- ICW1 -->
+  <rect x="80" y="56" width="660" height="72" rx="4" fill="#f2e7df" stroke="#23303c" stroke-width="1.5"/>
+  <text x="104" y="80" font-size="14" fill="#b4562d">ICW1</text>
+  <text x="104" y="98" font-size="11" fill="#6b747e">port A0 = 0</text>
+  <text x="104" y="114" font-size="11" fill="#6b747e">(0x20)</text>
+  <g font-size="12" font-family="monospace" fill="#23303c">
+    <text x="200" y="80">bit 4 = 1   identifies this as ICW1 — must be set</text>
+    <text x="200" y="98">bit 3 LTIM  0 = edge triggered    bit 1 SNGL  1 = single 8259A</text>
+    <text x="200" y="116">bit 0 IC4   1 = ICW4 will follow (required for the 8086)</text>
+  </g>
+  <text x="640" y="80" font-size="15" fill="#b4562d" font-family="monospace">0x13</text>
+  <text x="640" y="98" font-size="10.5" fill="#6b747e">single</text>
+  <text x="640" y="114" font-size="10.5" fill="#6b747e">0x11 cascaded</text>
+
+  <line x1="410" y1="130" x2="410" y2="150" stroke="#b4562d" stroke-width="2" marker-end="url(#d49)"/>
+
+  <!-- ICW2 -->
+  <rect x="80" y="152" width="660" height="66" rx="4" fill="#dfe6ea" stroke="#23303c" stroke-width="1.5"/>
+  <text x="104" y="176" font-size="14" fill="#b4562d">ICW2</text>
+  <text x="104" y="194" font-size="11" fill="#6b747e">port A0 = 1</text>
+  <text x="104" y="210" font-size="11" fill="#6b747e">(0x21)</text>
+  <g font-size="12" font-family="monospace" fill="#23303c">
+    <text x="200" y="176">the interrupt TYPE NUMBER for IR0</text>
+    <text x="200" y="194">the other seven follow consecutively; must be a multiple of 8</text>
+    <text x="200" y="212">the low three bits are supplied by the chip from the IR number</text>
+  </g>
+  <text x="640" y="176" font-size="15" fill="#b4562d" font-family="monospace">0x08</text>
+  <text x="628" y="194" font-size="10.5" fill="#6b747e">on a PC:</text>
+  <text x="628" y="210" font-size="10.5" fill="#6b747e">IRQ0 → INT 08h</text>
+
+  <line x1="410" y1="220" x2="410" y2="240" stroke="#b4562d" stroke-width="2" marker-end="url(#d49)"/>
+
+  <!-- ICW3 -->
+  <rect x="80" y="242" width="660" height="66" rx="4" fill="#eceae4" stroke="#9aa4ae" stroke-width="1.5" stroke-dasharray="5 3"/>
+  <text x="104" y="266" font-size="14" fill="#6b747e">ICW3</text>
+  <text x="104" y="284" font-size="11" fill="#6b747e">port A0 = 1</text>
+  <text x="104" y="300" font-size="11" fill="#b4562d">only if cascaded</text>
+  <g font-size="12" font-family="monospace" fill="#23303c">
+    <text x="200" y="266">MASTER: a bit mask of which IR lines have a slave</text>
+    <text x="200" y="284">SLAVE:  its own cascade identity, 0–7</text>
+    <text x="200" y="302">skipped entirely when SNGL = 1</text>
+  </g>
+  <text x="620" y="266" font-size="13" fill="#6b747e" font-family="monospace">0x04 master</text>
+  <text x="620" y="284" font-size="13" fill="#6b747e" font-family="monospace">0x02 slave</text>
+
+  <line x1="410" y1="310" x2="410" y2="330" stroke="#b4562d" stroke-width="2" marker-end="url(#d49)"/>
+
+  <!-- ICW4 -->
+  <rect x="80" y="332" width="660" height="72" rx="4" fill="#f4e3d6" stroke="#23303c" stroke-width="1.5"/>
+  <text x="104" y="356" font-size="14" fill="#b4562d">ICW4</text>
+  <text x="104" y="374" font-size="11" fill="#6b747e">port A0 = 1</text>
+  <g font-size="12" font-family="monospace" fill="#23303c">
+    <text x="200" y="356">bit 0 µPM   1 = 8086 MODE — MUST BE 1, or nothing works</text>
+    <text x="200" y="374">bit 1 AEOI  1 = automatic EOI (the chip clears ISR itself)</text>
+    <text x="200" y="392">bits 2–4 buffered / master-slave / special fully nested</text>
+  </g>
+  <text x="640" y="356" font-size="15" fill="#b4562d" font-family="monospace">0x01</text>
+  <text x="628" y="392" font-size="10.5" fill="#6b747e">0x03 for AEOI</text>
+
+  <!-- OCWs -->
+  <text x="80" y="440" font-size="14" fill="#2f6f6b">Then, at run time — the OCWs</text>
+  <g font-size="12.5" font-family="monospace" fill="#23303c">
+    <text x="104" y="462">OCW1  port A0=1   the interrupt mask. 1 = DISABLED. Readable.</text>
+    <text x="104" y="482">OCW2  port A0=0   0x20 = non-specific EOI — every handler must send this</text>
+    <text x="104" y="502">OCW3  port A0=0   write 0x0A then read = IRR;  write 0x0B then read = ISR</text>
+  </g>
+</svg>

@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 460" width="800" height="460" font-family="Georgia, 'Times New Roman', serif">
+  <rect width="800" height="460" fill="#fbfaf7"/>
+  <text x="400" y="30" text-anchor="middle" font-size="18" fill="#23303c">8255A — 24 I/O pins in three ports</text>
+
+  <defs>
+    <marker id="a47" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto">
+      <path d="M0 0 L9 4.5 L0 9 z" fill="#23303c"/>
+    </marker>
+  </defs>
+
+  <!-- chip -->
+  <rect x="250" y="70" width="300" height="300" rx="5" fill="#eceae4" stroke="#23303c" stroke-width="2"/>
+  <text x="400" y="98" text-anchor="middle" font-size="17" fill="#23303c">8255A</text>
+  <line x1="250" y1="110" x2="550" y2="110" stroke="#9aa4ae"/>
+
+  <!-- internal blocks -->
+  <rect x="272" y="126" width="120" height="46" rx="3" fill="#dfe6ea" stroke="#8a939d"/>
+  <text x="332" y="146" text-anchor="middle" font-size="12" fill="#23303c">data bus buffer</text>
+  <text x="332" y="163" text-anchor="middle" font-size="10.5" fill="#6b747e">D7–D0</text>
+
+  <rect x="272" y="184" width="120" height="60" rx="3" fill="#f2e7df" stroke="#8a939d"/>
+  <text x="332" y="204" text-anchor="middle" font-size="12" fill="#23303c">control register</text>
+  <text x="332" y="221" text-anchor="middle" font-size="10.5" fill="#b4562d">WRITE ONLY</text>
+  <text x="332" y="236" text-anchor="middle" font-size="10.5" fill="#6b747e">A1 A0 = 11</text>
+
+  <rect x="272" y="256" width="120" height="96" rx="3" fill="#dfe6ea" stroke="#8a939d"/>
+  <text x="332" y="276" text-anchor="middle" font-size="12" fill="#23303c">read/write and</text>
+  <text x="332" y="292" text-anchor="middle" font-size="12" fill="#23303c">group control</text>
+  <text x="332" y="314" text-anchor="middle" font-size="10.5" fill="#6b747e">CS  RD  WR</text>
+  <text x="332" y="330" text-anchor="middle" font-size="10.5" fill="#6b747e">A1  A0  RESET</text>
+
+  <!-- ports -->
+  <rect x="412" y="126" width="118" height="62" rx="3" fill="#e4eaee" stroke="#23303c" stroke-width="1.4"/>
+  <text x="471" y="150" text-anchor="middle" font-size="13.5" fill="#23303c">Port A</text>
+  <text x="471" y="170" text-anchor="middle" font-size="11" fill="#6b747e">PA7–PA0</text>
+
+  <rect x="412" y="200" width="118" height="82" rx="3" fill="#e4eaee" stroke="#23303c" stroke-width="1.4"/>
+  <text x="471" y="222" text-anchor="middle" font-size="13.5" fill="#23303c">Port C</text>
+  <text x="471" y="242" text-anchor="middle" font-size="11" fill="#6b747e">PC7–PC4 upper</text>
+  <text x="471" y="260" text-anchor="middle" font-size="11" fill="#6b747e">PC3–PC0 lower</text>
+  <text x="471" y="276" text-anchor="middle" font-size="10" fill="#b4562d">halves configured separately</text>
+
+  <rect x="412" y="294" width="118" height="58" rx="3" fill="#e4eaee" stroke="#23303c" stroke-width="1.4"/>
+  <text x="471" y="318" text-anchor="middle" font-size="13.5" fill="#23303c">Port B</text>
+  <text x="471" y="338" text-anchor="middle" font-size="11" fill="#6b747e">PB7–PB0</text>
+
+  <!-- left connections -->
+  <g stroke="#23303c" stroke-width="2" marker-end="url(#a47)">
+    <line x1="150" y1="148" x2="268" y2="148"/>
+    <line x1="150" y1="284" x2="268" y2="284"/>
+    <line x1="150" y1="306" x2="268" y2="306"/>
+    <line x1="150" y1="328" x2="268" y2="328"/>
+  </g>
+  <g font-size="12" fill="#23303c" text-anchor="end" font-family="monospace">
+    <text x="144" y="152">D7–D0</text>
+    <text x="144" y="288">A1 A0</text>
+    <text x="144" y="310">CS RD WR</text>
+    <text x="144" y="332">RESET</text>
+  </g>
+  <text x="80" y="176" font-size="11" fill="#6b747e">from the low half</text>
+  <text x="80" y="192" font-size="11" fill="#6b747e">of the 8086 data bus</text>
+  <text x="60" y="264" font-size="11" fill="#b4562d">A1 A0 ← system A2 A1</text>
+
+  <!-- right connections -->
+  <g stroke="#2f6f6b" stroke-width="3" marker-end="url(#a47)">
+    <line x1="532" y1="157" x2="640" y2="157"/>
+    <line x1="532" y1="241" x2="640" y2="241"/>
+    <line x1="532" y1="323" x2="640" y2="323"/>
+  </g>
+  <g font-size="12" fill="#2f6f6b">
+    <text x="648" y="161">8 pins</text>
+    <text x="648" y="245">8 pins</text>
+    <text x="648" y="327">8 pins</text>
+  </g>
+  <text x="694" y="241" font-size="11" fill="#6b747e">24 in total</text>
+
+  <!-- register table -->
+  <rect x="60" y="392" width="680" height="52" rx="4" fill="#f4f2ec" stroke="#cfd5da"/>
+  <g font-size="12.5" font-family="monospace" fill="#23303c">
+    <text x="84" y="414">A1 A0 = 00 Port A   01 Port B   10 Port C   11 Control (write only)</text>
+    <text x="84" y="434">on a 16-bit 8086 bus, these appear at even ports: 0x00  0x02  0x04  0x06</text>
+  </g>
+</svg>

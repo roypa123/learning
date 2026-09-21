@@ -1,4 +1,4 @@
-; first.asm - prints a message and exits
+; first.asm — prints a message and exits
 ; Assemble:  nasm -f bin first.asm -o first.com
 ; Run:       first.com      (inside DOSBox)
 
@@ -11,6 +11,6 @@ start:
 
         mov  ah, 0x4C           ; DOS service 4Ch = terminate program
         mov  al, 0              ; exit code 0
-        int  0x21               ; invoke DOS - does not return
+        int  0x21               ; invoke DOS — does not return
 
 msg:    db   'The toolchain works.', 0x0D, 0x0A, '$'

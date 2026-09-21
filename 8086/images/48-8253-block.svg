@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 420" width="800" height="420" font-family="Georgia, 'Times New Roman', serif">
+  <rect width="800" height="420" fill="#fbfaf7"/>
+  <text x="400" y="30" text-anchor="middle" font-size="18" fill="#23303c">8253/8254 — three independent 16-bit down-counters</text>
+
+  <defs>
+    <marker id="a48" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto">
+      <path d="M0 0 L9 4.5 L0 9 z" fill="#23303c"/>
+    </marker>
+  </defs>
+
+  <rect x="230" y="62" width="330" height="290" rx="5" fill="#eceae4" stroke="#23303c" stroke-width="2"/>
+  <text x="395" y="88" text-anchor="middle" font-size="16" fill="#23303c">8253 / 8254</text>
+  <line x1="230" y1="98" x2="560" y2="98" stroke="#9aa4ae"/>
+
+  <rect x="248" y="110" width="120" height="44" rx="3" fill="#dfe6ea" stroke="#8a939d"/>
+  <text x="308" y="128" text-anchor="middle" font-size="11.5" fill="#23303c">data bus buffer</text>
+  <text x="308" y="145" text-anchor="middle" font-size="10" fill="#6b747e">D7–D0</text>
+
+  <rect x="248" y="164" width="120" height="58" rx="3" fill="#f2e7df" stroke="#8a939d"/>
+  <text x="308" y="184" text-anchor="middle" font-size="11.5" fill="#23303c">control word</text>
+  <text x="308" y="200" text-anchor="middle" font-size="10" fill="#b4562d">WRITE ONLY</text>
+  <text x="308" y="214" text-anchor="middle" font-size="10" fill="#6b747e">A1 A0 = 11</text>
+
+  <rect x="248" y="232" width="120" height="50" rx="3" fill="#dfe6ea" stroke="#8a939d"/>
+  <text x="308" y="252" text-anchor="middle" font-size="11.5" fill="#23303c">read / write</text>
+  <text x="308" y="268" text-anchor="middle" font-size="10" fill="#6b747e">CS RD WR A1 A0</text>
+
+  <!-- counters -->
+  <g stroke="#23303c" stroke-width="1.4">
+    <rect x="392" y="110" width="150" height="66" rx="3" fill="#e4eaee"/>
+    <rect x="392" y="186" width="150" height="66" rx="3" fill="#e4eaee"/>
+    <rect x="392" y="262" width="150" height="66" rx="3" fill="#e4eaee"/>
+  </g>
+  <g text-anchor="middle" fill="#23303c">
+    <text x="467" y="134" font-size="13.5">Counter 0</text>
+    <text x="467" y="154" font-size="10.5" fill="#6b747e">16-bit down-counter</text>
+    <text x="467" y="210" font-size="13.5">Counter 1</text>
+    <text x="467" y="230" font-size="10.5" fill="#6b747e">16-bit down-counter</text>
+    <text x="467" y="286" font-size="13.5">Counter 2</text>
+    <text x="467" y="306" font-size="10.5" fill="#6b747e">16-bit down-counter</text>
+  </g>
+
+  <!-- left in -->
+  <g stroke="#23303c" stroke-width="2" marker-end="url(#a48)">
+    <line x1="140" y1="132" x2="246" y2="132"/>
+    <line x1="140" y1="256" x2="246" y2="256"/>
+  </g>
+  <g font-size="12" font-family="monospace" fill="#23303c" text-anchor="end">
+    <text x="134" y="136">D7–D0</text>
+    <text x="134" y="260">CS RD WR A1 A0</text>
+  </g>
+
+  <!-- right out -->
+  <g stroke="#2f6f6b" stroke-width="2" marker-end="url(#a48)">
+    <line x1="544" y1="128" x2="640" y2="128"/>
+    <line x1="544" y1="204" x2="640" y2="204"/>
+    <line x1="544" y1="280" x2="640" y2="280"/>
+  </g>
+  <g stroke="#b4562d" stroke-width="2" marker-end="url(#a48)">
+    <line x1="640" y1="152" x2="544" y2="152"/>
+    <line x1="640" y1="228" x2="544" y2="228"/>
+    <line x1="640" y1="304" x2="544" y2="304"/>
+  </g>
+  <g font-size="11.5" font-family="monospace" fill="#2f6f6b">
+    <text x="648" y="132">OUT 0</text>
+    <text x="648" y="208">OUT 1</text>
+    <text x="648" y="284">OUT 2</text>
+  </g>
+  <g font-size="11.5" font-family="monospace" fill="#b4562d">
+    <text x="648" y="156">CLK 0 · GATE 0</text>
+    <text x="648" y="232">CLK 1 · GATE 1</text>
+    <text x="648" y="308">CLK 2 · GATE 2</text>
+  </g>
+
+  <rect x="60" y="366" width="680" height="42" rx="4" fill="#f4f2ec" stroke="#cfd5da"/>
+  <text x="400" y="384" text-anchor="middle" font-size="12.5" fill="#23303c">
+    On a PC: counter 0 = the 18.2 Hz system tick · counter 1 = DRAM refresh (never touch it) · counter 2 = the speaker
+  </text>
+  <text x="400" y="401" text-anchor="middle" font-size="12" fill="#6b747e">
+    Ports 0x40, 0x41, 0x42 and 0x43. Input clock 1,193,182 Hz. Frequency out = 1,193,182 ÷ N.
+  </text>
+</svg>

@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 340" width="820" height="340" font-family="Georgia, 'Times New Roman', serif">
+  <rect width="820" height="340" fill="#fbfaf7"/>
+  <text x="410" y="30" text-anchor="middle" font-size="18" fill="#23303c">An asynchronous serial frame — one character, 8-N-1</text>
+
+  <!-- bit boundaries -->
+  <g stroke="#dcd7cd" stroke-width="1">
+    <line x1="120" y1="56" x2="120" y2="230"/>
+    <line x1="180" y1="56" x2="180" y2="230"/>
+    <line x1="240" y1="56" x2="240" y2="230"/>
+    <line x1="300" y1="56" x2="300" y2="230"/>
+    <line x1="360" y1="56" x2="360" y2="230"/>
+    <line x1="420" y1="56" x2="420" y2="230"/>
+    <line x1="480" y1="56" x2="480" y2="230"/>
+    <line x1="540" y1="56" x2="540" y2="230"/>
+    <line x1="600" y1="56" x2="600" y2="230"/>
+    <line x1="660" y1="56" x2="660" y2="230"/>
+    <line x1="720" y1="56" x2="720" y2="230"/>
+  </g>
+
+  <!-- the waveform for 0x41 = 'A' = 0100 0001, sent LSB first: 1 0 0 0 0 0 1 0 -->
+  <polyline points="60,100 120,100 120,160 180,160 180,100 240,100 240,160 540,160 540,100 600,100 600,160 660,160 660,100 780,100"
+            fill="none" stroke="#23303c" stroke-width="2.4"/>
+
+  <!-- labels under each bit -->
+  <g font-size="12" text-anchor="middle" fill="#23303c">
+    <text x="90" y="250">idle</text>
+    <text x="150" y="250">START</text>
+    <text x="210" y="250">d0</text>
+    <text x="270" y="250">d1</text>
+    <text x="330" y="250">d2</text>
+    <text x="390" y="250">d3</text>
+    <text x="450" y="250">d4</text>
+    <text x="510" y="250">d5</text>
+    <text x="570" y="250">d6</text>
+    <text x="630" y="250">d7</text>
+    <text x="690" y="250">STOP</text>
+    <text x="750" y="250">idle</text>
+  </g>
+  <g font-size="11" text-anchor="middle" fill="#6b747e" font-family="monospace">
+    <text x="90" y="268">1</text>
+    <text x="150" y="268">0</text>
+    <text x="210" y="268">1</text>
+    <text x="270" y="268">0</text>
+    <text x="330" y="268">0</text>
+    <text x="390" y="268">0</text>
+    <text x="450" y="268">0</text>
+    <text x="510" y="268">0</text>
+    <text x="570" y="268">1</text>
+    <text x="630" y="268">0</text>
+    <text x="690" y="268">1</text>
+    <text x="750" y="268">1</text>
+  </g>
+
+  <!-- level labels -->
+  <text x="52" y="104" text-anchor="end" font-size="11" fill="#6b747e">1 (mark)</text>
+  <text x="52" y="164" text-anchor="end" font-size="11" fill="#6b747e">0 (space)</text>
+
+  <!-- markers -->
+  <line x1="120" y1="76" x2="120" y2="96" stroke="#b4562d" stroke-width="2"/>
+  <text x="120" y="70" text-anchor="middle" font-size="11" fill="#b4562d">falling edge starts the frame</text>
+
+  <line x1="660" y1="76" x2="720" y2="76" stroke="#2f6f6b" stroke-width="1.6"/>
+  <text x="690" y="70" text-anchor="middle" font-size="11" fill="#2f6f6b">stop bit — guarantees the next edge</text>
+
+  <!-- frame bracket -->
+  <line x1="120" y1="288" x2="720" y2="288" stroke="#b4562d" stroke-width="1.6"/>
+  <text x="420" y="306" text-anchor="middle" font-size="12.5" fill="#b4562d">
+    ten bit-times per character — so 9600 baud carries 960 characters per second
+  </text>
+
+  <text x="410" y="328" text-anchor="middle" font-size="12" fill="#6b747e" font-style="italic">
+    Data bits go LEAST SIGNIFICANT FIRST. This frame carries 0x41 = 'A' = 0100 0001.
+  </text>
+</svg>

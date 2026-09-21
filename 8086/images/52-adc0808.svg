@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 480" width="820" height="480" font-family="Georgia, 'Times New Roman', serif">
+  <rect width="820" height="480" fill="#fbfaf7"/>
+  <text x="410" y="30" text-anchor="middle" font-size="18" fill="#23303c">ADC0808 connected through an 8255</text>
+
+  <defs>
+    <marker id="a52" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto">
+      <path d="M0 0 L9 4.5 L0 9 z" fill="#23303c"/>
+    </marker>
+  </defs>
+
+  <!-- 8255 -->
+  <rect x="80" y="70" width="150" height="240" rx="4" fill="#e4eaee" stroke="#23303c" stroke-width="1.8"/>
+  <text x="155" y="96" text-anchor="middle" font-size="15" fill="#23303c">8255A</text>
+  <text x="155" y="114" text-anchor="middle" font-size="10.5" fill="#6b747e">control word 0x99</text>
+  <g font-size="12" font-family="monospace" fill="#23303c">
+    <text x="96" y="146">Port A</text>
+    <text x="96" y="162" font-size="10" fill="#b4562d">input</text>
+    <text x="96" y="200">Port B</text>
+    <text x="96" y="216" font-size="10" fill="#2f6f6b">output</text>
+    <text x="96" y="264">Port C</text>
+    <text x="96" y="280" font-size="10" fill="#b4562d">input</text>
+  </g>
+
+  <!-- ADC -->
+  <rect x="440" y="70" width="180" height="300" rx="4" fill="#eceae4" stroke="#23303c" stroke-width="1.8"/>
+  <text x="530" y="96" text-anchor="middle" font-size="15" fill="#23303c">ADC0808</text>
+  <text x="530" y="114" text-anchor="middle" font-size="10.5" fill="#6b747e">8 bits · 8 channels</text>
+  <text x="530" y="130" text-anchor="middle" font-size="10.5" fill="#6b747e">successive approximation</text>
+  <text x="530" y="150" text-anchor="middle" font-size="10.5" fill="#b4562d">~100 µs per conversion</text>
+
+  <!-- connections -->
+  <line x1="438" y1="150" x2="232" y2="150" stroke="#b4562d" stroke-width="2.6" marker-end="url(#a52)"/>
+  <text x="335" y="144" text-anchor="middle" font-size="11" font-family="monospace" fill="#b4562d">D7–D0 (result)</text>
+
+  <line x1="232" y1="196" x2="438" y2="196" stroke="#2f6f6b" stroke-width="2" marker-end="url(#a52)"/>
+  <text x="335" y="190" text-anchor="middle" font-size="11" font-family="monospace" fill="#2f6f6b">ALE · START · OE</text>
+  <line x1="232" y1="222" x2="438" y2="222" stroke="#2f6f6b" stroke-width="2" marker-end="url(#a52)"/>
+  <text x="335" y="216" text-anchor="middle" font-size="11" font-family="monospace" fill="#2f6f6b">ADD C B A (channel)</text>
+
+  <line x1="438" y1="268" x2="232" y2="268" stroke="#b4562d" stroke-width="2" marker-end="url(#a52)"/>
+  <text x="335" y="262" text-anchor="middle" font-size="11" font-family="monospace" fill="#b4562d">EOC</text>
+  <text x="335" y="284" text-anchor="middle" font-size="10" fill="#6b747e">poll this — never use a fixed delay</text>
+
+  <!-- analogue inputs -->
+  <g stroke="#2f6f6b" stroke-width="1.8" marker-end="url(#a52)">
+    <line x1="720" y1="190" x2="622" y2="190"/>
+    <line x1="720" y1="214" x2="622" y2="214"/>
+    <line x1="720" y1="262" x2="622" y2="262"/>
+  </g>
+  <g font-size="11.5" font-family="monospace" fill="#2f6f6b">
+    <text x="728" y="194">IN0</text>
+    <text x="728" y="218">IN1</text>
+    <text x="728" y="266">IN7</text>
+  </g>
+  <text x="742" y="240" font-size="13" fill="#9aa4ae">⋮</text>
+  <text x="700" y="300" font-size="10.5" fill="#6b747e">sensors, 0–5 V</text>
+
+  <line x1="530" y1="372" x2="530" y2="398" stroke="#23303c" stroke-width="1.6" marker-end="url(#a52)"/>
+  <text x="540" y="392" font-size="11" font-family="monospace" fill="#23303c">CLK 640 kHz · VREF+ = 5 V</text>
+
+  <!-- sequence -->
+  <rect x="60" y="404" width="700" height="62" rx="4" fill="#f4f2ec" stroke="#cfd5da"/>
+  <text x="410" y="424" text-anchor="middle" font-size="12.5" fill="#23303c">
+    1 put the channel on ADD C/B/A → 2 pulse ALE → 3 pulse START → 4 WAIT FOR EOC → 5 assert OE and read → 6 release OE
+  </text>
+  <text x="410" y="446" text-anchor="middle" font-size="12" fill="#b4562d">
+    Step 4 needs a timeout. Without one, a faulty or disconnected ADC hangs the program for ever.
+  </text>
+  <text x="410" y="462" text-anchor="middle" font-size="11.5" fill="#6b747e">
+    voltage = reading × Vref ÷ 256 — multiply first, then divide
+  </text>
+</svg>

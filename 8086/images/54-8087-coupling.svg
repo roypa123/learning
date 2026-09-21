@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 480" width="820" height="480" font-family="Georgia, 'Times New Roman', serif">
+  <rect width="820" height="480" fill="#fbfaf7"/>
+  <text x="410" y="30" text-anchor="middle" font-size="18" fill="#23303c">How the 8087 rides along with the 8086</text>
+
+  <defs>
+    <marker id="a54" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto">
+      <path d="M0 0 L9 4.5 L0 9 z" fill="#b4562d"/>
+    </marker>
+  </defs>
+
+  <!-- 8086 -->
+  <rect x="70" y="72" width="180" height="150" rx="5" fill="#2b3440" stroke="#151c24" stroke-width="2"/>
+  <text x="160" y="102" text-anchor="middle" font-size="16" fill="#f2efe8">8086</text>
+  <text x="160" y="122" text-anchor="middle" font-size="11" fill="#b4562d">MAXIMUM MODE</text>
+  <text x="160" y="146" text-anchor="middle" font-size="11" fill="#b9c2cc">29,000 transistors</text>
+  <text x="160" y="168" text-anchor="middle" font-size="11" fill="#b9c2cc">executes ESC as</text>
+  <text x="160" y="184" text-anchor="middle" font-size="11" fill="#b9c2cc">"compute the address,</text>
+  <text x="160" y="200" text-anchor="middle" font-size="11" fill="#b9c2cc">read, discard"</text>
+
+  <!-- 8087 -->
+  <rect x="570" y="72" width="180" height="150" rx="5" fill="#f2e7df" stroke="#23303c" stroke-width="2"/>
+  <text x="660" y="102" text-anchor="middle" font-size="16" fill="#23303c">8087</text>
+  <text x="660" y="122" text-anchor="middle" font-size="11" fill="#b4562d">45,000 transistors</text>
+  <text x="660" y="146" text-anchor="middle" font-size="11" fill="#3a4653">shadows the queue</text>
+  <text x="660" y="164" text-anchor="middle" font-size="11" fill="#3a4653">recognises D8–DF</text>
+  <text x="660" y="182" text-anchor="middle" font-size="11" fill="#3a4653">captures the address</text>
+  <text x="660" y="202" text-anchor="middle" font-size="11" fill="#3a4653">does the arithmetic</text>
+
+  <!-- links -->
+  <line x1="252" y1="104" x2="568" y2="104" stroke="#b4562d" stroke-width="2" marker-end="url(#a54)"/>
+  <text x="410" y="98" text-anchor="middle" font-size="11.5" font-family="monospace" fill="#b4562d">QS1 QS0 — queue status</text>
+
+  <line x1="252" y1="140" x2="568" y2="140" stroke="#23303c" stroke-width="3"/>
+  <line x1="568" y1="140" x2="252" y2="140" stroke="#23303c" stroke-width="3"/>
+  <text x="410" y="134" text-anchor="middle" font-size="11.5" font-family="monospace" fill="#23303c">AD15–AD0, A19–A16, S2–S0 — the shared bus</text>
+
+  <line x1="568" y1="178" x2="252" y2="178" stroke="#2f6f6b" stroke-width="2" marker-end="url(#a54)"/>
+  <text x="410" y="172" text-anchor="middle" font-size="11.5" font-family="monospace" fill="#2f6f6b">BUSY → TEST — read by WAIT</text>
+
+  <line x1="568" y1="208" x2="252" y2="208" stroke="#2f6f6b" stroke-width="2" marker-end="url(#a54)"/>
+  <text x="410" y="202" text-anchor="middle" font-size="11.5" font-family="monospace" fill="#2f6f6b">RQ/GT0 — "lend me the bus"</text>
+
+  <!-- register stack -->
+  <text x="150" y="278" font-size="14" fill="#b4562d">Eight 80-bit registers, as a stack</text>
+  <g stroke="#23303c" stroke-width="1.4">
+    <rect x="80" y="292" width="190" height="24" fill="#f4e3d6"/>
+    <rect x="80" y="316" width="190" height="24" fill="#e4eaee"/>
+    <rect x="80" y="340" width="190" height="24" fill="#e4eaee"/>
+    <rect x="80" y="364" width="190" height="24" fill="#eceae4"/>
+  </g>
+  <g font-size="12" font-family="monospace" fill="#23303c">
+    <text x="94" y="309">ST0  ← the top</text>
+    <text x="94" y="333">ST1</text>
+    <text x="94" y="357">ST2</text>
+    <text x="94" y="381">…  ST7</text>
+  </g>
+  <text x="80" y="406" font-size="11" fill="#6b747e">ST0 is wherever the top currently is —</text>
+  <text x="80" y="422" font-size="11" fill="#6b747e">a push renames everything one place down</text>
+
+  <!-- example -->
+  <rect x="320" y="266" width="440" height="130" rx="4" fill="#f4f2ec" stroke="#cfd5da"/>
+  <text x="540" y="288" text-anchor="middle" font-size="13" fill="#23303c">(a + b) × c — four instructions, no temporaries</text>
+  <g font-size="12.5" font-family="monospace" fill="#23303c">
+    <text x="344" y="312">fld   qword [a]        ST0 = a</text>
+    <text x="344" y="332">fadd  qword [b]        ST0 = a + b</text>
+    <text x="344" y="352">fmul  qword [c]        ST0 = (a+b) × c</text>
+    <text x="344" y="372">fstp  qword [result]   store and pop</text>
+  </g>
+
+  <rect x="60" y="440" width="700" height="28" rx="3" fill="#f4e3d6" stroke="#dcc3b4"/>
+  <text x="410" y="459" text-anchor="middle" font-size="12.5" fill="#b4562d">
+    Both chips execute the same instruction stream. No command queue, no doorbell — you just write FADD.
+  </text>
+</svg>

@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 620" width="820" height="620" font-family="Georgia, 'Times New Roman', serif">
+  <rect width="820" height="620" fill="#fbfaf7"/>
+  <text x="410" y="30" text-anchor="middle" font-size="18" fill="#23303c">The six 8253 modes — what OUT does</text>
+
+  <!-- mode 0 -->
+  <text x="40" y="70" font-size="13.5" fill="#b4562d">Mode 0</text>
+  <text x="40" y="86" font-size="11" fill="#6b747e">interrupt on</text>
+  <text x="40" y="100" font-size="11" fill="#6b747e">terminal count</text>
+  <polyline points="160,62 200,62 200,86 460,86 460,62 740,62" fill="none" stroke="#23303c" stroke-width="2"/>
+  <text x="200" y="56" font-size="10" fill="#b4562d">control written</text>
+  <text x="330" y="104" font-size="10.5" fill="#6b747e">low for N counts</text>
+  <text x="470" y="56" font-size="10" fill="#2f6f6b">count reaches 0</text>
+
+  <!-- mode 1 -->
+  <text x="40" y="150" font-size="13.5" fill="#b4562d">Mode 1</text>
+  <text x="40" y="166" font-size="11" fill="#6b747e">hardware</text>
+  <text x="40" y="180" font-size="11" fill="#6b747e">one-shot</text>
+  <polyline points="160,150 210,150 210,132 250,132 250,150 740,150" fill="none" stroke="#2f6f6b" stroke-width="1.8"/>
+  <text x="150" y="128" font-size="10" fill="#2f6f6b" text-anchor="end">GATE</text>
+  <polyline points="160,178 250,178 250,200 490,200 490,178 740,178" fill="none" stroke="#23303c" stroke-width="2"/>
+  <text x="150" y="182" font-size="10" fill="#23303c" text-anchor="end">OUT</text>
+  <text x="360" y="218" font-size="10.5" fill="#6b747e">N counts, retriggerable by another GATE edge</text>
+
+  <!-- mode 2 -->
+  <text x="40" y="264" font-size="13.5" fill="#b4562d">Mode 2</text>
+  <text x="40" y="280" font-size="11" fill="#6b747e">rate generator</text>
+  <text x="40" y="294" font-size="11" fill="#6b747e">÷ N</text>
+  <polyline points="160,256 330,256 330,278 348,278 348,256 518,256 518,278 536,278 536,256 706,256 706,278 724,278 724,256 740,256"
+            fill="none" stroke="#23303c" stroke-width="2"/>
+  <text x="440" y="296" font-size="10.5" fill="#6b747e">low for exactly ONE clock, every N — perfectly periodic</text>
+  <line x1="330" y1="240" x2="518" y2="240" stroke="#2f6f6b" stroke-width="1.2"/>
+  <text x="424" y="236" text-anchor="middle" font-size="10" fill="#2f6f6b">N counts</text>
+
+  <!-- mode 3 -->
+  <text x="40" y="360" font-size="13.5" fill="#b4562d">Mode 3</text>
+  <text x="40" y="376" font-size="11" fill="#6b747e">square wave</text>
+  <text x="40" y="390" font-size="11" fill="#b4562d">the one for tones</text>
+  <polyline points="160,352 260,352 260,374 360,374 360,352 460,352 460,374 560,374 560,352 660,352 660,374 740,374"
+            fill="none" stroke="#23303c" stroke-width="2.4"/>
+  <line x1="260" y1="336" x2="460" y2="336" stroke="#2f6f6b" stroke-width="1.2"/>
+  <text x="360" y="332" text-anchor="middle" font-size="10" fill="#2f6f6b">N counts</text>
+  <text x="440" y="392" font-size="10.5" fill="#6b747e">50% duty cycle: high N/2, low N/2. Odd N gives one extra count high.</text>
+
+  <!-- mode 4 -->
+  <text x="40" y="452" font-size="13.5" fill="#b4562d">Mode 4</text>
+  <text x="40" y="468" font-size="11" fill="#6b747e">software strobe</text>
+  <polyline points="160,444 470,444 470,466 488,466 488,444 740,444" fill="none" stroke="#23303c" stroke-width="2"/>
+  <text x="200" y="438" font-size="10" fill="#b4562d">count written</text>
+  <text x="500" y="482" font-size="10.5" fill="#6b747e">one clock low after N counts, then nothing — it does not reload</text>
+
+  <!-- mode 5 -->
+  <text x="40" y="530" font-size="13.5" fill="#b4562d">Mode 5</text>
+  <text x="40" y="546" font-size="11" fill="#6b747e">hardware strobe</text>
+  <polyline points="160,512 230,512 230,494 270,494 270,512 740,512" fill="none" stroke="#2f6f6b" stroke-width="1.8"/>
+  <text x="150" y="498" font-size="10" fill="#2f6f6b" text-anchor="end">GATE</text>
+  <polyline points="160,540 530,540 530,562 548,562 548,540 740,540" fill="none" stroke="#23303c" stroke-width="2"/>
+  <text x="150" y="544" font-size="10" fill="#23303c" text-anchor="end">OUT</text>
+  <text x="300" y="578" font-size="10.5" fill="#6b747e">like mode 4, but the count starts on the GATE edge — and is retriggerable</text>
+
+  <rect x="60" y="590" width="700" height="24" rx="3" fill="#f4f2ec" stroke="#cfd5da"/>
+  <text x="410" y="607" text-anchor="middle" font-size="12" fill="#23303c">
+    Modes 2 and 3 are the ones you will actually use: a periodic interrupt, and a tone.
+  </text>
+</svg>

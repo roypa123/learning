@@ -219,7 +219,8 @@ early 8086 steppings: the prefix is lost if an interrupt occurs mid-repeat. Chap
 
 ## 5. Aliasing: many addresses, one byte
 
-Because segments start every 16 bytes, **each physical address can be named 4096 different ways**.
+Because segments start every 16 bytes, **a physical address can be named up to 4096 different ways**.
+(Up to, because near the bottom of memory the segment cannot go negative — Exercise 9.6.)
 
 Physical `0x10000`:
 

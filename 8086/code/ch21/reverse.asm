@@ -21,8 +21,8 @@ start:
 .swap:
         cmp  si, di             ; pointers met or crossed?
         jae  .done
-        mov  al, [si]
-        mov  ah, [di]
+        mov  al, [si]           ; two MOVs and an XCHG would also work;
+        mov  ah, [di]           ;   this is clearer
         mov  [si], ah
         mov  [di], al
         inc  si

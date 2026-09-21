@@ -179,14 +179,31 @@ show a form are marked `; fragment`.
 
 ## Source code
 
-Every complete program in the book is also in [`code/`](code/), organised by chapter, so you can
-assemble and run without retyping.
+All **97 complete programs** are in [`code/`](code/), organised by chapter, so you can assemble and
+run without retyping. `code/macros.inc` and `code/io.inc` hold the shared macro and number-output
+libraries; `buildall.sh` assembles everything at once.
+
+```
+cd code
+./build.sh ch34/hello            # or:  build ch34\hello
+dosbox ch34/hello.com
+```
+
+The listings were hand-verified against the Intel documentation rather than machine-assembled —
+NASM was not installed on the machine this was written on. Run `buildall.sh` first; it will find any
+syntax error immediately, and if a program does not behave as its chapter says, the chapter is what
+needs correcting.
 
 ## Figures
 
-Figures live in [`images/`](images/) as SVG. They are drawn to be read, not decorated: a timing
-diagram shows the actual transitions at the actual T-states, and a schematic shows every connection
-needed to build the thing.
+The **40 figures** live in [`images/`](images/) as SVG. They are drawn to be read, not decorated: a
+timing diagram shows the actual transitions at the actual T-states, and a schematic shows every
+connection needed to build the thing.
+
+## Size
+
+Roughly **600 pages**: 56 chapters, 8 appendices, 40 figures, 97 programs, and worked answers to all
+746 exercises.
 
 ---
 

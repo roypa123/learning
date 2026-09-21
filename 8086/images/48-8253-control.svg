@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 380" width="820" height="380" font-family="Georgia, 'Times New Roman', serif">
+  <rect width="820" height="380" fill="#fbfaf7"/>
+  <text x="410" y="30" text-anchor="middle" font-size="18" fill="#23303c">The 8253/8254 control word</text>
+
+  <g font-size="11" fill="#6b747e" font-family="monospace" text-anchor="middle">
+    <text x="130" y="66">7</text><text x="210" y="66">6</text>
+    <text x="300" y="66">5</text><text x="380" y="66">4</text>
+    <text x="470" y="66">3</text><text x="530" y="66">2</text><text x="590" y="66">1</text>
+    <text x="690" y="66">0</text>
+  </g>
+
+  <g stroke="#23303c" stroke-width="1.5">
+    <rect x="90" y="72" width="160" height="46" fill="#f2e7df"/>
+    <rect x="250" y="72" width="180" height="46" fill="#dfe6ea"/>
+    <rect x="430" y="72" width="200" height="46" fill="#e4eaee"/>
+    <rect x="630" y="72" width="120" height="46" fill="#f4e3d6"/>
+  </g>
+  <g font-size="13" text-anchor="middle" fill="#23303c">
+    <text x="170" y="94">SC1 SC0</text>
+    <text x="340" y="94">RW1 RW0</text>
+    <text x="530" y="94">M2 M1 M0</text>
+    <text x="690" y="94">BCD</text>
+  </g>
+  <g font-size="10.5" text-anchor="middle" fill="#6b747e">
+    <text x="170" y="111">which counter</text>
+    <text x="340" y="111">read/write format</text>
+    <text x="530" y="111">mode 0–5</text>
+    <text x="690" y="111">0 = binary</text>
+  </g>
+
+  <g font-size="12" fill="#23303c">
+    <text x="90" y="152">SC1 SC0</text>
+    <text x="170" y="152" font-family="monospace">00</text><text x="210" y="152">counter 0</text>
+    <text x="300" y="152" font-family="monospace">01</text><text x="340" y="152">counter 1</text>
+    <text x="430" y="152" font-family="monospace">10</text><text x="470" y="152">counter 2</text>
+    <text x="560" y="152" font-family="monospace">11</text><text x="600" y="152" fill="#b4562d">read-back (8254)</text>
+
+    <text x="90" y="184">RW1 RW0</text>
+    <text x="170" y="184" font-family="monospace">00</text><text x="210" y="184" fill="#b4562d">LATCH</text>
+    <text x="300" y="184" font-family="monospace">01</text><text x="340" y="184">LSB only</text>
+    <text x="430" y="184" font-family="monospace">10</text><text x="470" y="184">MSB only</text>
+    <text x="560" y="184" font-family="monospace">11</text><text x="600" y="184" fill="#2f6f6b">LSB then MSB</text>
+
+    <text x="90" y="216">mode</text>
+    <text x="170" y="216" font-family="monospace">000</text><text x="220" y="216">0 · terminal count</text>
+    <text x="400" y="216" font-family="monospace">x10</text><text x="450" y="216" fill="#2f6f6b">2 · rate generator</text>
+    <text x="170" y="240" font-family="monospace">001</text><text x="220" y="240">1 · one-shot</text>
+    <text x="400" y="240" font-family="monospace">x11</text><text x="450" y="240" fill="#2f6f6b">3 · square wave</text>
+    <text x="170" y="264" font-family="monospace">100</text><text x="220" y="264">4 · software strobe</text>
+    <text x="400" y="264" font-family="monospace">101</text><text x="450" y="264">5 · hardware strobe</text>
+  </g>
+
+  <rect x="60" y="292" width="700" height="70" rx="4" fill="#f4f2ec" stroke="#cfd5da"/>
+  <text x="410" y="314" text-anchor="middle" font-size="13" fill="#b4562d">0x36 = 00 11 011 0 — counter 0, LSB then MSB, mode 3, binary</text>
+  <text x="410" y="334" text-anchor="middle" font-size="12" fill="#23303c">the single most common 8253 control word: it is what the PC BIOS writes at start-up</text>
+  <text x="410" y="353" text-anchor="middle" font-size="12" fill="#6b747e">Load order is always control word, then LOW byte, then HIGH byte — and they must be consecutive.</text>
+</svg>
