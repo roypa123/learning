@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 300" width="780" height="300" font-family="Georgia, 'Times New Roman', serif">
+  <rect width="780" height="300" fill="#fbfaf7"/>
+  <text x="390" y="28" text-anchor="middle" font-size="17" fill="#23303c">The seven gates, with their standard symbols</text>
+
+  <defs>
+    <g id="andbody">
+      <path d="M0 0 h26 a26 26 0 0 1 0 52 h-26 z" fill="none" stroke="#23303c" stroke-width="2"/>
+    </g>
+    <g id="orbody">
+      <path d="M0 0 q28 26 0 52 q34 0 52 -26 q-18 -26 -52 -26 z" fill="none" stroke="#23303c" stroke-width="2"/>
+    </g>
+  </defs>
+
+  <!-- row 1 -->
+  <g transform="translate(40,60)">
+    <use href="#andbody"/>
+    <line x1="-26" y1="14" x2="0" y2="14" stroke="#23303c" stroke-width="2"/>
+    <line x1="-26" y1="38" x2="0" y2="38" stroke="#23303c" stroke-width="2"/>
+    <line x1="52" y1="26" x2="78" y2="26" stroke="#23303c" stroke-width="2"/>
+    <text x="26" y="84" text-anchor="middle" font-size="14" fill="#23303c">AND</text>
+    <text x="26" y="102" text-anchor="middle" font-size="12" fill="#6b747e">Y = A·B</text>
+  </g>
+
+  <g transform="translate(200,60)">
+    <use href="#orbody"/>
+    <line x1="-26" y1="14" x2="8" y2="14" stroke="#23303c" stroke-width="2"/>
+    <line x1="-26" y1="38" x2="8" y2="38" stroke="#23303c" stroke-width="2"/>
+    <line x1="52" y1="26" x2="78" y2="26" stroke="#23303c" stroke-width="2"/>
+    <text x="26" y="84" text-anchor="middle" font-size="14" fill="#23303c">OR</text>
+    <text x="26" y="102" text-anchor="middle" font-size="12" fill="#6b747e">Y = A + B</text>
+  </g>
+
+  <g transform="translate(360,60)">
+    <path d="M0 0 L46 26 L0 52 z" fill="none" stroke="#23303c" stroke-width="2"/>
+    <circle cx="51" cy="26" r="5" fill="#fbfaf7" stroke="#23303c" stroke-width="2"/>
+    <line x1="-26" y1="26" x2="0" y2="26" stroke="#23303c" stroke-width="2"/>
+    <line x1="56" y1="26" x2="78" y2="26" stroke="#23303c" stroke-width="2"/>
+    <text x="26" y="84" text-anchor="middle" font-size="14" fill="#23303c">NOT</text>
+    <text x="26" y="102" text-anchor="middle" font-size="12" fill="#6b747e">Y = Ā</text>
+  </g>
+
+  <g transform="translate(520,60)">
+    <path d="M0 0 q28 26 0 52 q34 0 52 -26 q-18 -26 -52 -26 z" fill="none" stroke="#23303c" stroke-width="2"/>
+    <path d="M-10 0 q28 26 0 52" fill="none" stroke="#23303c" stroke-width="2"/>
+    <line x1="-30" y1="14" x2="-2" y2="14" stroke="#23303c" stroke-width="2"/>
+    <line x1="-30" y1="38" x2="-2" y2="38" stroke="#23303c" stroke-width="2"/>
+    <line x1="52" y1="26" x2="78" y2="26" stroke="#23303c" stroke-width="2"/>
+    <text x="26" y="84" text-anchor="middle" font-size="14" fill="#23303c">XOR</text>
+    <text x="26" y="102" text-anchor="middle" font-size="12" fill="#6b747e">Y = A ⊕ B</text>
+  </g>
+
+  <!-- row 2 -->
+  <g transform="translate(120,185)">
+    <use href="#andbody"/>
+    <circle cx="57" cy="26" r="5" fill="#fbfaf7" stroke="#23303c" stroke-width="2"/>
+    <line x1="-26" y1="14" x2="0" y2="14" stroke="#23303c" stroke-width="2"/>
+    <line x1="-26" y1="38" x2="0" y2="38" stroke="#23303c" stroke-width="2"/>
+    <line x1="62" y1="26" x2="84" y2="26" stroke="#23303c" stroke-width="2"/>
+    <text x="26" y="84" text-anchor="middle" font-size="14" fill="#23303c">NAND</text>
+    <text x="26" y="101" text-anchor="middle" font-size="12" fill="#6b747e">universal gate</text>
+  </g>
+
+  <g transform="translate(320,185)">
+    <use href="#orbody"/>
+    <circle cx="57" cy="26" r="5" fill="#fbfaf7" stroke="#23303c" stroke-width="2"/>
+    <line x1="-26" y1="14" x2="8" y2="14" stroke="#23303c" stroke-width="2"/>
+    <line x1="-26" y1="38" x2="8" y2="38" stroke="#23303c" stroke-width="2"/>
+    <line x1="62" y1="26" x2="84" y2="26" stroke="#23303c" stroke-width="2"/>
+    <text x="26" y="84" text-anchor="middle" font-size="14" fill="#23303c">NOR</text>
+    <text x="26" y="101" text-anchor="middle" font-size="12" fill="#6b747e">also universal</text>
+  </g>
+
+  <g transform="translate(520,185)">
+    <path d="M0 0 q28 26 0 52 q34 0 52 -26 q-18 -26 -52 -26 z" fill="none" stroke="#23303c" stroke-width="2"/>
+    <path d="M-10 0 q28 26 0 52" fill="none" stroke="#23303c" stroke-width="2"/>
+    <circle cx="57" cy="26" r="5" fill="#fbfaf7" stroke="#23303c" stroke-width="2"/>
+    <line x1="-30" y1="14" x2="-2" y2="14" stroke="#23303c" stroke-width="2"/>
+    <line x1="-30" y1="38" x2="-2" y2="38" stroke="#23303c" stroke-width="2"/>
+    <line x1="62" y1="26" x2="84" y2="26" stroke="#23303c" stroke-width="2"/>
+    <text x="26" y="84" text-anchor="middle" font-size="14" fill="#23303c">XNOR</text>
+    <text x="26" y="101" text-anchor="middle" font-size="12" fill="#6b747e">"A equals B"</text>
+  </g>
+
+  <text x="390" y="292" text-anchor="middle" font-size="12" fill="#6b747e" font-style="italic">
+    A bubble on any pin means that pin is inverted — this is the only extra symbol you need.
+  </text>
+</svg>

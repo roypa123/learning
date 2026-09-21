@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 640" width="800" height="640" font-family="Georgia, 'Times New Roman', serif">
+  <rect width="800" height="640" fill="#fbfaf7"/>
+  <text x="400" y="30" text-anchor="middle" font-size="18" fill="#23303c">The seven bit paths</text>
+
+  <defs>
+    <marker id="s26" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0 0 L8 4 L0 8 z" fill="#b4562d"/>
+    </marker>
+  </defs>
+
+  <g id="rows">
+    <!-- SHL -->
+    <text x="40" y="82" font-size="14" fill="#23303c">SHL / SAL</text>
+    <rect x="160" y="62" width="34" height="30" fill="#f2e7df" stroke="#23303c" stroke-width="1.4"/>
+    <text x="177" y="83" text-anchor="middle" font-size="13" fill="#23303c">CF</text>
+    <rect x="230" y="62" width="300" height="30" fill="#e4eaee" stroke="#23303c" stroke-width="1.4"/>
+    <text x="380" y="83" text-anchor="middle" font-size="13" fill="#23303c" font-family="monospace">b7 b6 b5 b4 b3 b2 b1 b0</text>
+    <line x1="228" y1="77" x2="198" y2="77" stroke="#b4562d" stroke-width="2" marker-end="url(#s26)"/>
+    <line x1="596" y1="77" x2="534" y2="77" stroke="#b4562d" stroke-width="2" marker-end="url(#s26)"/>
+    <text x="606" y="82" font-size="14" fill="#b4562d">0</text>
+    <text x="640" y="82" font-size="12" fill="#6b747e">multiply by 2</text>
+
+    <!-- SHR -->
+    <text x="40" y="146" font-size="14" fill="#23303c">SHR</text>
+    <text x="164" y="146" font-size="14" fill="#b4562d">0</text>
+    <line x1="176" y1="141" x2="228" y2="141" stroke="#b4562d" stroke-width="2" marker-end="url(#s26)"/>
+    <rect x="230" y="126" width="300" height="30" fill="#e4eaee" stroke="#23303c" stroke-width="1.4"/>
+    <text x="380" y="147" text-anchor="middle" font-size="13" fill="#23303c" font-family="monospace">b7 b6 b5 b4 b3 b2 b1 b0</text>
+    <line x1="532" y1="141" x2="560" y2="141" stroke="#b4562d" stroke-width="2" marker-end="url(#s26)"/>
+    <rect x="566" y="126" width="34" height="30" fill="#f2e7df" stroke="#23303c" stroke-width="1.4"/>
+    <text x="583" y="147" text-anchor="middle" font-size="13" fill="#23303c">CF</text>
+    <text x="616" y="146" font-size="12" fill="#6b747e">unsigned divide by 2</text>
+
+    <!-- SAR -->
+    <text x="40" y="216" font-size="14" fill="#23303c">SAR</text>
+    <rect x="230" y="196" width="300" height="30" fill="#e4eaee" stroke="#23303c" stroke-width="1.4"/>
+    <text x="380" y="217" text-anchor="middle" font-size="13" fill="#23303c" font-family="monospace">b7 b6 b5 b4 b3 b2 b1 b0</text>
+    <path d="M246 196 C 236 178 214 178 206 196 L 206 211" fill="none" stroke="#b4562d" stroke-width="2" marker-end="url(#s26)"/>
+    <line x1="206" y1="211" x2="228" y2="211" stroke="#b4562d" stroke-width="2" marker-end="url(#s26)"/>
+    <text x="206" y="174" text-anchor="middle" font-size="11" fill="#b4562d">sign copied</text>
+    <line x1="532" y1="211" x2="560" y2="211" stroke="#b4562d" stroke-width="2" marker-end="url(#s26)"/>
+    <rect x="566" y="196" width="34" height="30" fill="#f2e7df" stroke="#23303c" stroke-width="1.4"/>
+    <text x="583" y="217" text-anchor="middle" font-size="13" fill="#23303c">CF</text>
+    <text x="616" y="216" font-size="12" fill="#6b747e">signed divide — rounds DOWN</text>
+
+    <!-- ROL -->
+    <text x="40" y="306" font-size="14" fill="#23303c">ROL</text>
+    <rect x="160" y="286" width="34" height="30" fill="#f2e7df" stroke="#23303c" stroke-width="1.4"/>
+    <text x="177" y="307" text-anchor="middle" font-size="13" fill="#23303c">CF</text>
+    <rect x="230" y="286" width="300" height="30" fill="#e4eaee" stroke="#23303c" stroke-width="1.4"/>
+    <text x="380" y="307" text-anchor="middle" font-size="13" fill="#23303c" font-family="monospace">b7 b6 b5 b4 b3 b2 b1 b0</text>
+    <line x1="228" y1="301" x2="198" y2="301" stroke="#b4562d" stroke-width="2" marker-end="url(#s26)"/>
+    <path d="M236 286 C 236 262 540 262 540 286 L 540 296" fill="none" stroke="#2f6f6b" stroke-width="2"/>
+    <line x1="540" y1="296" x2="534" y2="301" stroke="#2f6f6b" stroke-width="2"/>
+    <path d="M236 286 L 236 272" fill="none" stroke="#2f6f6b" stroke-width="2"/>
+    <text x="388" y="258" text-anchor="middle" font-size="11" fill="#2f6f6b">the departing bit returns at the right</text>
+    <text x="616" y="306" font-size="12" fill="#6b747e">nothing is lost</text>
+
+    <!-- ROR -->
+    <text x="40" y="376" font-size="14" fill="#23303c">ROR</text>
+    <rect x="230" y="356" width="300" height="30" fill="#e4eaee" stroke="#23303c" stroke-width="1.4"/>
+    <text x="380" y="377" text-anchor="middle" font-size="13" fill="#23303c" font-family="monospace">b7 b6 b5 b4 b3 b2 b1 b0</text>
+    <line x1="532" y1="371" x2="560" y2="371" stroke="#b4562d" stroke-width="2" marker-end="url(#s26)"/>
+    <rect x="566" y="356" width="34" height="30" fill="#f2e7df" stroke="#23303c" stroke-width="1.4"/>
+    <text x="583" y="377" text-anchor="middle" font-size="13" fill="#23303c">CF</text>
+    <path d="M524 356 C 524 332 236 332 236 356" fill="none" stroke="#2f6f6b" stroke-width="2"/>
+    <text x="380" y="328" text-anchor="middle" font-size="11" fill="#2f6f6b">the departing bit returns at the left</text>
+
+    <!-- RCL -->
+    <text x="40" y="460" font-size="14" fill="#23303c">RCL</text>
+    <rect x="160" y="440" width="34" height="30" fill="#f4e3d6" stroke="#b4562d" stroke-width="2"/>
+    <text x="177" y="461" text-anchor="middle" font-size="13" fill="#b4562d">CF</text>
+    <rect x="230" y="440" width="300" height="30" fill="#e4eaee" stroke="#23303c" stroke-width="1.4"/>
+    <text x="380" y="461" text-anchor="middle" font-size="13" fill="#23303c" font-family="monospace">b7 b6 b5 b4 b3 b2 b1 b0</text>
+    <line x1="228" y1="455" x2="198" y2="455" stroke="#b4562d" stroke-width="2" marker-end="url(#s26)"/>
+    <path d="M168 440 C 168 412 548 412 548 455 L 536 455" fill="none" stroke="#2f6f6b" stroke-width="2" marker-end="url(#s26)"/>
+    <text x="358" y="408" text-anchor="middle" font-size="11" fill="#2f6f6b">CF is part of the ring — 9 bits for a byte, 17 for a word</text>
+
+    <!-- RCR -->
+    <text x="40" y="530" font-size="14" fill="#23303c">RCR</text>
+    <rect x="230" y="510" width="300" height="30" fill="#e4eaee" stroke="#23303c" stroke-width="1.4"/>
+    <text x="380" y="531" text-anchor="middle" font-size="13" fill="#23303c" font-family="monospace">b7 b6 b5 b4 b3 b2 b1 b0</text>
+    <line x1="532" y1="525" x2="560" y2="525" stroke="#b4562d" stroke-width="2" marker-end="url(#s26)"/>
+    <rect x="566" y="510" width="34" height="30" fill="#f4e3d6" stroke="#b4562d" stroke-width="2"/>
+    <text x="583" y="531" text-anchor="middle" font-size="13" fill="#b4562d">CF</text>
+    <path d="M592 510 C 592 484 222 484 222 525 L 228 525" fill="none" stroke="#2f6f6b" stroke-width="2" marker-end="url(#s26)"/>
+  </g>
+
+  <rect x="60" y="566" width="680" height="54" rx="4" fill="#f4f2ec" stroke="#cfd5da"/>
+  <text x="400" y="588" text-anchor="middle" font-size="12.5" fill="#23303c">
+    Shifts set SF, ZF and PF from the result. Rotates do not touch them at all.
+  </text>
+  <text x="400" y="608" text-anchor="middle" font-size="12.5" fill="#23303c">
+    Multi-word shift: SHL (or SHR/SAR) on the end word, then RCL (or RCR) on each of the others.
+  </text>
+</svg>

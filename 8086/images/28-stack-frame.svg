@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 620" width="800" height="620" font-family="Georgia, 'Times New Roman', serif">
+  <rect width="800" height="620" fill="#fbfaf7"/>
+  <text x="400" y="30" text-anchor="middle" font-size="18" fill="#23303c">A stack frame, after the standard prologue</text>
+
+  <defs>
+    <marker id="f28" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto">
+      <path d="M0 0 L9 4.5 L0 9 z" fill="#b4562d"/>
+    </marker>
+  </defs>
+
+  <text x="300" y="62" text-anchor="middle" font-size="12" fill="#6b747e" font-style="italic">higher addresses</text>
+
+  <!-- cells -->
+  <g stroke="#23303c" stroke-width="1.5">
+    <rect x="220" y="72" width="220" height="44" fill="#dfe6ea"/>
+    <rect x="220" y="116" width="220" height="44" fill="#dfe6ea"/>
+    <rect x="220" y="160" width="220" height="44" fill="#f2e7df"/>
+    <rect x="220" y="204" width="220" height="44" fill="#f4e3d6"/>
+    <rect x="220" y="248" width="220" height="44" fill="#e4eaee"/>
+    <rect x="220" y="292" width="220" height="44" fill="#e4eaee"/>
+    <rect x="220" y="336" width="220" height="44" fill="#e4eaee"/>
+    <rect x="220" y="380" width="220" height="44" fill="#eceae4"/>
+    <rect x="220" y="424" width="220" height="44" fill="#eceae4"/>
+  </g>
+
+  <g text-anchor="middle" font-size="13.5" fill="#23303c">
+    <text x="330" y="99">parameter 2</text>
+    <text x="330" y="143">parameter 1</text>
+    <text x="330" y="187">return address</text>
+    <text x="330" y="231">caller's BP</text>
+    <text x="330" y="275">local variable 1</text>
+    <text x="330" y="319">local variable 2</text>
+    <text x="330" y="363">local variable 3</text>
+    <text x="330" y="407">saved AX</text>
+    <text x="330" y="451">saved BX</text>
+  </g>
+
+  <!-- offsets -->
+  <g text-anchor="end" font-size="13" font-family="monospace" fill="#b4562d">
+    <text x="210" y="99">[BP+6]</text>
+    <text x="210" y="143">[BP+4]</text>
+    <text x="210" y="187">[BP+2]</text>
+    <text x="210" y="231">[BP+0]</text>
+    <text x="210" y="275">[BP-2]</text>
+    <text x="210" y="319">[BP-4]</text>
+    <text x="210" y="363">[BP-6]</text>
+  </g>
+
+  <!-- pointers -->
+  <line x1="510" y1="226" x2="446" y2="226" stroke="#b4562d" stroke-width="2.2" marker-end="url(#f28)"/>
+  <text x="518" y="231" font-size="14" font-family="monospace" fill="#b4562d">BP</text>
+  <text x="518" y="248" font-size="11" fill="#6b747e">fixed for the whole call</text>
+
+  <line x1="510" y1="446" x2="446" y2="446" stroke="#2f6f6b" stroke-width="2.2" marker-end="url(#f28)"/>
+  <text x="518" y="451" font-size="14" font-family="monospace" fill="#2f6f6b">SP</text>
+  <text x="518" y="468" font-size="11" fill="#6b747e">moves on every push</text>
+
+  <!-- who pushed what -->
+  <g font-size="11.5" fill="#6b747e">
+    <text x="600" y="96">pushed by the caller,</text>
+    <text x="600" y="112">first parameter first</text>
+    <text x="600" y="185">pushed by CALL</text>
+    <text x="600" y="200" fill="#b4562d">4 bytes for a FAR call —</text>
+    <text x="600" y="215" fill="#b4562d">then parameters start at [BP+6]</text>
+    <text x="600" y="276">made by `sub sp, 6`</text>
+    <text x="600" y="406">pushed by the procedure</text>
+  </g>
+  <g stroke="#cfd5da" stroke-width="1" stroke-dasharray="3 3">
+    <line x1="442" y1="104" x2="594" y2="104"/>
+    <line x1="442" y1="182" x2="594" y2="182"/>
+    <line x1="442" y1="272" x2="594" y2="272"/>
+    <line x1="442" y1="402" x2="594" y2="402"/>
+  </g>
+
+  <text x="330" y="490" text-anchor="middle" font-size="12" fill="#6b747e" font-style="italic">lower addresses — the stack grows this way ↓</text>
+
+  <!-- code -->
+  <rect x="60" y="506" width="680" height="98" rx="4" fill="#f4f2ec" stroke="#cfd5da"/>
+  <g font-size="12.5" font-family="monospace" fill="#23303c">
+    <text x="88" y="528">myproc: push bp            ; save the caller's frame pointer</text>
+    <text x="88" y="546">        mov  bp, sp       ; BP now addresses this frame, and stays put</text>
+    <text x="88" y="564">        sub  sp, 6        ; make room for three word locals</text>
+    <text x="88" y="582">        ...               ; parameters at [BP+n], locals at [BP-n]</text>
+    <text x="88" y="600">        mov  sp, bp       ; discard the locals ; pop bp ; ret</text>
+  </g>
+</svg>

@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 560" width="860" height="560" font-family="Georgia, 'Times New Roman', serif">
+  <rect width="860" height="560" fill="#fbfaf7"/>
+  <text x="430" y="30" text-anchor="middle" font-size="18" fill="#23303c">The 8086 instruction format</text>
+
+  <!-- top: byte layout -->
+  <g stroke="#23303c" stroke-width="1.6">
+    <rect x="60" y="60" width="130" height="46" fill="#eceae4"/>
+    <rect x="190" y="60" width="130" height="46" fill="#dfe6ea"/>
+    <rect x="320" y="60" width="130" height="46" fill="#f2e7df"/>
+    <rect x="450" y="60" width="160" height="46" fill="#eceae4"/>
+    <rect x="610" y="60" width="160" height="46" fill="#eceae4"/>
+  </g>
+  <g text-anchor="middle" font-size="13.5" fill="#23303c">
+    <text x="125" y="82">prefix</text>
+    <text x="255" y="82">opcode</text>
+    <text x="385" y="82">ModR/M</text>
+    <text x="530" y="82">displacement</text>
+    <text x="690" y="82">immediate</text>
+  </g>
+  <g text-anchor="middle" font-size="11" fill="#6b747e">
+    <text x="125" y="100">0 or more</text>
+    <text x="255" y="100">always 1 byte</text>
+    <text x="385" y="100">0 or 1 byte</text>
+    <text x="530" y="100">0, 1 or 2 bytes</text>
+    <text x="690" y="100">0, 1 or 2 bytes</text>
+  </g>
+  <text x="430" y="128" text-anchor="middle" font-size="12" fill="#b4562d">maximum six bytes — which is exactly why the instruction queue is six bytes deep</text>
+
+  <!-- opcode detail -->
+  <text x="60" y="176" font-size="14" fill="#b4562d">The opcode byte carries two flag bits</text>
+  <g stroke="#23303c" stroke-width="1.4" font-family="monospace" font-size="13">
+    <rect x="200" y="188" width="270" height="34" fill="#dfe6ea"/>
+    <rect x="470" y="188" width="52" height="34" fill="#f4e3d6"/>
+    <rect x="522" y="188" width="52" height="34" fill="#f4e3d6"/>
+  </g>
+  <text x="335" y="210" text-anchor="middle" font-size="13" fill="#23303c">operation code</text>
+  <text x="496" y="210" text-anchor="middle" font-size="14" fill="#b4562d">d</text>
+  <text x="548" y="210" text-anchor="middle" font-size="14" fill="#b4562d">w</text>
+  <g font-size="11" fill="#6b747e" font-family="monospace">
+    <text x="204" y="184">7</text><text x="462" y="184">2</text>
+    <text x="492" y="184">1</text><text x="544" y="184">0</text>
+  </g>
+  <text x="590" y="204" font-size="11.5" fill="#23303c">d = 1 : reg field is the destination</text>
+  <text x="590" y="220" font-size="11.5" fill="#23303c">w = 1 : 16-bit operands</text>
+
+  <!-- modrm detail -->
+  <text x="60" y="268" font-size="14" fill="#b4562d">The ModR/M byte</text>
+  <g stroke="#23303c" stroke-width="1.6" font-family="monospace">
+    <rect x="200" y="280" width="104" height="38" fill="#f2e7df"/>
+    <rect x="304" y="280" width="156" height="38" fill="#e4eaee"/>
+    <rect x="460" y="280" width="156" height="38" fill="#dfe6ea"/>
+  </g>
+  <g text-anchor="middle" font-size="14" fill="#23303c">
+    <text x="252" y="305">mod</text><text x="382" y="305">reg</text><text x="538" y="305">r/m</text>
+  </g>
+  <g text-anchor="middle" font-size="10.5" fill="#6b747e">
+    <text x="252" y="334">2 bits</text><text x="382" y="334">3 bits</text><text x="538" y="334">3 bits</text>
+  </g>
+
+  <!-- mod table -->
+  <text x="60" y="372" font-size="13" fill="#23303c">mod</text>
+  <g font-size="12" font-family="monospace" fill="#23303c">
+    <text x="110" y="372">00</text><text x="160" y="372">memory, no displacement</text>
+    <text x="110" y="392">01</text><text x="160" y="392">memory + signed 8-bit displacement</text>
+    <text x="110" y="412">10</text><text x="160" y="412">memory + 16-bit displacement</text>
+    <text x="110" y="432">11</text><text x="160" y="432">r/m names a register, not memory</text>
+  </g>
+  <text x="440" y="372" font-size="11.5" fill="#b4562d">except mod=00, r/m=110,</text>
+  <text x="440" y="388" font-size="11.5" fill="#b4562d">which means [disp16] — the</text>
+  <text x="440" y="404" font-size="11.5" fill="#b4562d">slot stolen from [BP], which</text>
+  <text x="440" y="420" font-size="11.5" fill="#b4562d">is why [BP] always costs an</text>
+  <text x="440" y="436" font-size="11.5" fill="#b4562d">extra displacement byte</text>
+
+  <!-- r/m table -->
+  <text x="60" y="470" font-size="13" fill="#23303c">r/m</text>
+  <g font-size="12" font-family="monospace" fill="#23303c">
+    <text x="110" y="470">000 [BX+SI]</text><text x="250" y="470">001 [BX+DI]</text>
+    <text x="390" y="470">010 [BP+SI]</text><text x="530" y="470">011 [BP+DI]</text>
+    <text x="110" y="490">100 [SI]</text><text x="250" y="490">101 [DI]</text>
+    <text x="390" y="490">110 [BP]*</text><text x="530" y="490">111 [BX]</text>
+  </g>
+  <text x="680" y="480" font-size="11.5" fill="#6b747e">eight patterns —</text>
+  <text x="680" y="496" font-size="11.5" fill="#6b747e">and no pattern at all</text>
+  <text x="680" y="512" font-size="11.5" fill="#6b747e">for [AX], [CX], [DX], [SP]</text>
+
+  <rect x="60" y="522" width="600" height="26" rx="3" fill="#f4f2ec" stroke="#cfd5da"/>
+  <text x="360" y="540" text-anchor="middle" font-size="12" fill="#23303c">
+    registers, in encoding order: AX CX DX BX SP BP SI DI — an inheritance from the 8080
+  </text>
+</svg>

@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 560" width="860" height="560" font-family="Georgia, 'Times New Roman', serif">
+  <rect width="860" height="560" fill="#fbfaf7"/>
+  <text x="430" y="30" text-anchor="middle" font-size="18" fill="#23303c">The fourteen registers of the 8086</text>
+
+  <!-- ===== data registers ===== -->
+  <text x="40" y="70" font-size="14" fill="#b4562d">General purpose (data) — splittable into 8-bit halves</text>
+  <g font-size="11" fill="#6b747e" font-family="monospace">
+    <text x="130" y="88">15</text><text x="262" y="88">8</text>
+    <text x="284" y="88">7</text><text x="408" y="88">0</text>
+  </g>
+
+  <g stroke="#23303c" stroke-width="1.5" font-family="monospace" font-size="14">
+    <rect x="128" y="94" width="144" height="30" fill="#e4eaee"/>
+    <rect x="272" y="94" width="144" height="30" fill="#dfe6ea"/>
+    <text x="200" y="114" text-anchor="middle" fill="#23303c" stroke="none">AH</text>
+    <text x="344" y="114" text-anchor="middle" fill="#23303c" stroke="none">AL</text>
+
+    <rect x="128" y="132" width="144" height="30" fill="#e4eaee"/>
+    <rect x="272" y="132" width="144" height="30" fill="#dfe6ea"/>
+    <text x="200" y="152" text-anchor="middle" fill="#23303c" stroke="none">BH</text>
+    <text x="344" y="152" text-anchor="middle" fill="#23303c" stroke="none">BL</text>
+
+    <rect x="128" y="170" width="144" height="30" fill="#e4eaee"/>
+    <rect x="272" y="170" width="144" height="30" fill="#dfe6ea"/>
+    <text x="200" y="190" text-anchor="middle" fill="#23303c" stroke="none">CH</text>
+    <text x="344" y="190" text-anchor="middle" fill="#23303c" stroke="none">CL</text>
+
+    <rect x="128" y="208" width="144" height="30" fill="#e4eaee"/>
+    <rect x="272" y="208" width="144" height="30" fill="#dfe6ea"/>
+    <text x="200" y="228" text-anchor="middle" fill="#23303c" stroke="none">DH</text>
+    <text x="344" y="228" text-anchor="middle" fill="#23303c" stroke="none">DL</text>
+  </g>
+
+  <g font-size="15" fill="#23303c" font-family="monospace" text-anchor="end">
+    <text x="118" y="114">AX</text><text x="118" y="152">BX</text>
+    <text x="118" y="190">CX</text><text x="118" y="228">DX</text>
+  </g>
+  <g font-size="11.5" fill="#6b747e">
+    <text x="426" y="114">accumulator — MUL, DIV, IN, OUT, XLAT, strings; shortest encodings</text>
+    <text x="426" y="152">base — the only data register allowed in [brackets]</text>
+    <text x="426" y="190">counter — LOOP, REP, JCXZ; CL is the shift count</text>
+    <text x="426" y="228">data — high half of DX:AX; port number for IN/OUT &gt; 255</text>
+  </g>
+
+  <!-- ===== pointer/index ===== -->
+  <text x="40" y="278" font-size="14" fill="#b4562d">Pointer and index — 16 bits only, never split</text>
+  <g stroke="#23303c" stroke-width="1.5" font-family="monospace" font-size="14">
+    <rect x="128" y="290" width="288" height="28" fill="#e4eaee"/>
+    <rect x="128" y="324" width="288" height="28" fill="#e4eaee"/>
+    <rect x="128" y="358" width="288" height="28" fill="#e4eaee"/>
+    <rect x="128" y="392" width="288" height="28" fill="#e4eaee"/>
+  </g>
+  <g font-size="15" fill="#23303c" font-family="monospace" text-anchor="end">
+    <text x="118" y="309">SP</text><text x="118" y="343">BP</text>
+    <text x="118" y="377">SI</text><text x="118" y="411">DI</text>
+  </g>
+  <g font-size="11.5" fill="#6b747e">
+    <text x="426" y="309">stack pointer — PUSH/POP/CALL/RET; grows DOWN; not usable in [ ]</text>
+    <text x="426" y="343">base pointer — stack frames; DEFAULTS TO SS, not DS</text>
+    <text x="426" y="377">source index — string source is DS:SI</text>
+    <text x="426" y="411">destination index — string destination is ES:DI, never overridable</text>
+  </g>
+
+  <!-- ===== segment ===== -->
+  <text x="40" y="462" font-size="14" fill="#b4562d">Segment</text>
+  <g stroke="#23303c" stroke-width="1.5" font-family="monospace" font-size="13">
+    <rect x="128" y="474" width="66" height="26" fill="#f2e7df"/>
+    <rect x="202" y="474" width="66" height="26" fill="#f2e7df"/>
+    <rect x="276" y="474" width="66" height="26" fill="#f2e7df"/>
+    <rect x="350" y="474" width="66" height="26" fill="#f2e7df"/>
+    <text x="161" y="492" text-anchor="middle" fill="#23303c" stroke="none">CS</text>
+    <text x="235" y="492" text-anchor="middle" fill="#23303c" stroke="none">DS</text>
+    <text x="309" y="492" text-anchor="middle" fill="#23303c" stroke="none">SS</text>
+    <text x="383" y="492" text-anchor="middle" fill="#23303c" stroke="none">ES</text>
+  </g>
+  <g font-size="10.5" fill="#6b747e" text-anchor="middle">
+    <text x="161" y="514">code</text><text x="235" y="514">data</text>
+    <text x="309" y="514">stack</text><text x="383" y="514">extra</text>
+  </g>
+
+  <text x="440" y="462" font-size="14" fill="#b4562d">Control</text>
+  <g stroke="#23303c" stroke-width="1.5" font-family="monospace" font-size="13">
+    <rect x="530" y="474" width="76" height="26" fill="#f2e7df"/>
+    <rect x="618" y="474" width="110" height="26" fill="#f2e7df"/>
+    <text x="568" y="492" text-anchor="middle" fill="#23303c" stroke="none">IP</text>
+    <text x="673" y="492" text-anchor="middle" fill="#23303c" stroke="none">FLAGS</text>
+  </g>
+  <g font-size="10.5" fill="#6b747e" text-anchor="middle">
+    <text x="568" y="514">not readable by MOV</text>
+    <text x="673" y="514">9 meaningful bits</text>
+  </g>
+
+  <text x="430" y="546" text-anchor="middle" font-size="12" fill="#6b747e" font-style="italic">
+    Only BX, BP, SI and DI may appear inside [brackets] — one base plus one index plus a displacement, and nothing else.
+  </text>
+</svg>

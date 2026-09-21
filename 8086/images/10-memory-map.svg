@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 640" width="760" height="640" font-family="Georgia, 'Times New Roman', serif">
+  <rect width="760" height="640" fill="#fbfaf7"/>
+  <text x="380" y="30" text-anchor="middle" font-size="18" fill="#23303c">The 1 MiB address space as an IBM PC uses it</text>
+
+  <!-- column -->
+  <g stroke="#23303c" stroke-width="1.5">
+    <rect x="250" y="60" width="240" height="34" fill="#f2e7df"/>
+    <rect x="250" y="94" width="240" height="120" fill="#eceae4"/>
+    <rect x="250" y="214" width="240" height="70" fill="#eceae4"/>
+    <rect x="250" y="284" width="240" height="30" fill="#e4eaee"/>
+    <rect x="250" y="314" width="240" height="200" fill="#dfe6ea"/>
+    <rect x="250" y="514" width="240" height="24" fill="#f2e7df"/>
+    <rect x="250" y="538" width="240" height="24" fill="#f2e7df"/>
+  </g>
+
+  <!-- labels inside -->
+  <g font-size="13" fill="#23303c" text-anchor="middle">
+    <text x="370" y="82">reset vector — 16 bytes</text>
+    <text x="370" y="138">system BIOS ROM</text>
+    <text x="370" y="158" font-size="11.5" fill="#6b747e">F0000–FFFFF · 64 KiB</text>
+    <text x="370" y="186">option ROMs, video BIOS</text>
+    <text x="370" y="204" font-size="11.5" fill="#6b747e">C0000–EFFFF · 192 KiB</text>
+    <text x="370" y="244">video memory</text>
+    <text x="370" y="262" font-size="11.5" fill="#6b747e">A0000–BFFFF · 128 KiB</text>
+    <text x="370" y="303" font-size="11.5" fill="#6b747e">EBDA · 9FC00–9FFFF</text>
+    <text x="370" y="400" font-size="15">conventional memory</text>
+    <text x="370" y="424" font-size="12.5" fill="#3a4653">00500 – 9FBFF · about 637 KiB</text>
+    <text x="370" y="452" font-size="12" fill="#6b747e">DOS, drivers, then your program</text>
+    <text x="370" y="474" font-size="12" fill="#6b747e">this is the famous "640 K"</text>
+    <text x="370" y="530" font-size="11.5">BIOS data area · 00400–004FF</text>
+    <text x="370" y="554" font-size="11.5">interrupt vector table · 00000–003FF</text>
+  </g>
+
+  <!-- address labels left -->
+  <g font-size="12" font-family="monospace" fill="#6b747e" text-anchor="end">
+    <text x="240" y="64">FFFFF</text>
+    <text x="240" y="98">FFFF0</text>
+    <text x="240" y="218">F0000</text>
+    <text x="240" y="288">C0000</text>
+    <text x="240" y="318">A0000</text>
+    <text x="240" y="518">9FC00</text>
+    <text x="240" y="542">00500</text>
+    <text x="240" y="566">00000</text>
+  </g>
+
+  <!-- right annotations -->
+  <g font-size="12" fill="#b4562d">
+    <text x="504" y="82">fixed by hardware — CS:IP = FFFF:0000 at reset</text>
+    <text x="504" y="150">ROM, must be non-volatile</text>
+    <text x="504" y="250">writes go to the display adapter, not RAM</text>
+    <text x="504" y="412">yours</text>
+    <text x="504" y="558">fixed by hardware — vector n is at 4n</text>
+  </g>
+  <g stroke="#dcc3b4" stroke-width="1" stroke-dasharray="3 3">
+    <line x1="492" y1="77" x2="500" y2="77"/>
+    <line x1="492" y1="145" x2="500" y2="145"/>
+    <line x1="492" y1="245" x2="500" y2="245"/>
+    <line x1="492" y1="408" x2="500" y2="408"/>
+    <line x1="492" y1="553" x2="500" y2="553"/>
+  </g>
+
+  <text x="380" y="600" text-anchor="middle" font-size="12.5" fill="#6b747e" font-style="italic">
+    Only the top 16 bytes and the bottom 1 KiB are fixed by the processor itself.
+  </text>
+  <text x="380" y="620" text-anchor="middle" font-size="12.5" fill="#6b747e" font-style="italic">
+    Everything between them is convention — but it is convention that thousands of programs depended on.
+  </text>
+</svg>

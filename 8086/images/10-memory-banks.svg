@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 520" width="820" height="520" font-family="Georgia, 'Times New Roman', serif">
+  <rect width="820" height="520" fill="#fbfaf7"/>
+  <text x="410" y="30" text-anchor="middle" font-size="18" fill="#23303c">The two memory banks, and how A0 and BHE select them</text>
+
+  <defs>
+    <marker id="a10" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto">
+      <path d="M0 0 L9 4.5 L0 9 z" fill="#23303c"/>
+    </marker>
+  </defs>
+
+  <!-- CPU -->
+  <rect x="40" y="90" width="120" height="250" rx="5" fill="#2b3440" stroke="#151c24" stroke-width="2"/>
+  <text x="100" y="120" text-anchor="middle" font-size="16" fill="#f2efe8">8086</text>
+  <g font-size="11" fill="#b9c2cc" font-family="monospace">
+    <text x="100" y="152" text-anchor="middle">A19–A1</text>
+    <text x="100" y="200" text-anchor="middle">A0</text>
+    <text x="100" y="240" text-anchor="middle">BHE</text>
+    <text x="100" y="292" text-anchor="middle">D15–D0</text>
+  </g>
+  <line x1="94" y1="228" x2="120" y2="228" stroke="#b9c2cc" stroke-width="1.2"/>
+
+  <!-- address bus to both -->
+  <path d="M160 146 H 250 V 176 H 420" fill="none" stroke="#2f6f6b" stroke-width="3" marker-end="url(#a10)"/>
+  <path d="M250 146 V 356 H 420" fill="none" stroke="#2f6f6b" stroke-width="3" marker-end="url(#a10)"/>
+  <text x="300" y="166" font-size="11.5" fill="#2f6f6b">19 lines — both banks</text>
+
+  <!-- A0 -->
+  <path d="M160 200 H 300 V 212 H 420" fill="none" stroke="#b4562d" stroke-width="2" marker-end="url(#a10)"/>
+  <text x="330" y="204" font-size="11.5" fill="#b4562d">A0 = 0 selects even</text>
+
+  <!-- BHE -->
+  <path d="M160 240 H 320 V 392 H 420" fill="none" stroke="#b4562d" stroke-width="2" marker-end="url(#a10)"/>
+  <text x="330" y="386" font-size="11.5" fill="#b4562d">BHE = 0 selects odd</text>
+
+  <!-- even bank -->
+  <rect x="422" y="128" width="230" height="110" rx="5" fill="#e4eaee" stroke="#23303c" stroke-width="1.8"/>
+  <text x="537" y="154" text-anchor="middle" font-size="15" fill="#23303c">EVEN BANK (low)</text>
+  <text x="537" y="176" text-anchor="middle" font-size="12" fill="#3a4653">512 KiB × 8</text>
+  <text x="537" y="198" text-anchor="middle" font-size="12" fill="#3a4653" font-family="monospace">addresses 0, 2, 4, 6, …</text>
+  <text x="537" y="220" text-anchor="middle" font-size="12" fill="#b4562d" font-family="monospace">drives D7–D0</text>
+
+  <!-- odd bank -->
+  <rect x="422" y="308" width="230" height="110" rx="5" fill="#e4eaee" stroke="#23303c" stroke-width="1.8"/>
+  <text x="537" y="334" text-anchor="middle" font-size="15" fill="#23303c">ODD BANK (high)</text>
+  <text x="537" y="356" text-anchor="middle" font-size="12" fill="#3a4653">512 KiB × 8</text>
+  <text x="537" y="378" text-anchor="middle" font-size="12" fill="#3a4653" font-family="monospace">addresses 1, 3, 5, 7, …</text>
+  <text x="537" y="400" text-anchor="middle" font-size="12" fill="#b4562d" font-family="monospace">drives D15–D8</text>
+
+  <!-- data bus -->
+  <path d="M160 292 H 200 V 262 H 700 V 188" fill="none" stroke="#23303c" stroke-width="3"/>
+  <path d="M700 262 V 362" fill="none" stroke="#23303c" stroke-width="3"/>
+  <line x1="652" y1="188" x2="700" y2="188" stroke="#23303c" stroke-width="3"/>
+  <line x1="652" y1="362" x2="700" y2="362" stroke="#23303c" stroke-width="3"/>
+  <text x="716" y="228" font-size="11.5" fill="#6b747e">D15–D8</text>
+  <text x="716" y="300" font-size="11.5" fill="#6b747e">D7–D0</text>
+  <text x="400" y="278" font-size="11.5" fill="#6b747e">16-bit data bus</text>
+
+  <!-- truth table -->
+  <rect x="60" y="400" width="700" height="96" rx="4" fill="#f4f2ec" stroke="#cfd5da"/>
+  <g font-size="13" font-family="monospace" fill="#23303c">
+    <text x="82" y="424">BHE   A0    transfer                              data lines</text>
+    <text x="82" y="444"> 1     0    byte at an even address               D7–D0</text>
+    <text x="82" y="462"> 0     1    byte at an odd address                D15–D8</text>
+    <text x="82" y="480" fill="#b4562d"> 0     0    WORD at an even address — one cycle    D15–D0</text>
+  </g>
+
+  <text x="410" y="66" text-anchor="middle" font-size="12.5" fill="#6b747e" font-style="italic">
+    A0 never reaches the memory chips. It is a bank select, not an address bit — which is why a word at an odd address needs two cycles.
+  </text>
+</svg>

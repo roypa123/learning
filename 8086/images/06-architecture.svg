@@ -1,0 +1,118 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 560" width="860" height="560" font-family="Georgia, 'Times New Roman', serif">
+  <rect width="860" height="560" fill="#fbfaf7"/>
+  <text x="430" y="28" text-anchor="middle" font-size="18" fill="#23303c">Internal architecture of the 8086</text>
+
+  <defs>
+    <marker id="ar6" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto">
+      <path d="M0 0 L9 4.5 L0 9 z" fill="#23303c"/>
+    </marker>
+    <marker id="ar6o" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto">
+      <path d="M0 0 L9 4.5 L0 9 z" fill="#b4562d"/>
+    </marker>
+  </defs>
+
+  <!-- ===== EU ===== -->
+  <rect x="30" y="52" width="360" height="460" rx="8" fill="#f4f2ec" stroke="#23303c" stroke-width="2"/>
+  <text x="210" y="76" text-anchor="middle" font-size="15" fill="#23303c">EXECUTION UNIT (EU)</text>
+  <text x="210" y="94" text-anchor="middle" font-size="11.5" fill="#6b747e" font-style="italic">no connection to the pins</text>
+
+  <!-- general registers -->
+  <rect x="52" y="108" width="316" height="132" rx="4" fill="#e4eaee" stroke="#23303c" stroke-width="1.4"/>
+  <text x="210" y="128" text-anchor="middle" font-size="13" fill="#23303c">General registers</text>
+  <g font-size="12" fill="#23303c" font-family="monospace">
+    <rect x="66" y="138" width="64" height="22" fill="#fbfaf7" stroke="#8a939d"/><text x="98" y="154" text-anchor="middle">AH  AL</text>
+    <rect x="142" y="138" width="64" height="22" fill="#fbfaf7" stroke="#8a939d"/><text x="174" y="154" text-anchor="middle">BH  BL</text>
+    <rect x="218" y="138" width="64" height="22" fill="#fbfaf7" stroke="#8a939d"/><text x="250" y="154" text-anchor="middle">CH  CL</text>
+    <rect x="294" y="138" width="64" height="22" fill="#fbfaf7" stroke="#8a939d"/><text x="326" y="154" text-anchor="middle">DH  DL</text>
+    <rect x="66" y="180" width="64" height="22" fill="#fbfaf7" stroke="#8a939d"/><text x="98" y="196" text-anchor="middle">SP</text>
+    <rect x="142" y="180" width="64" height="22" fill="#fbfaf7" stroke="#8a939d"/><text x="174" y="196" text-anchor="middle">BP</text>
+    <rect x="218" y="180" width="64" height="22" fill="#fbfaf7" stroke="#8a939d"/><text x="250" y="196" text-anchor="middle">SI</text>
+    <rect x="294" y="180" width="64" height="22" fill="#fbfaf7" stroke="#8a939d"/><text x="326" y="196" text-anchor="middle">DI</text>
+  </g>
+  <g font-size="10" fill="#6b747e" text-anchor="middle">
+    <text x="98" y="172">AX</text><text x="174" y="172">BX</text>
+    <text x="250" y="172">CX</text><text x="326" y="172">DX</text>
+    <text x="210" y="220">16-bit; the top four split into 8-bit halves</text>
+    <text x="210" y="234">SP BP SI DI cannot be split</text>
+  </g>
+
+  <!-- ALU -->
+  <path d="M96 268 h140 l-26 40 l26 40 h-140 l26 -40 z" fill="#e4eaee" stroke="#23303c" stroke-width="1.6"/>
+  <text x="166" y="300" text-anchor="middle" font-size="14" fill="#23303c">ALU</text>
+  <text x="166" y="320" text-anchor="middle" font-size="10.5" fill="#6b747e">16-bit</text>
+  <line x1="210" y1="240" x2="166" y2="266" stroke="#23303c" stroke-width="1.4" marker-end="url(#ar6)"/>
+
+  <!-- FLAGS -->
+  <rect x="252" y="286" width="116" height="34" rx="4" fill="#f2e7df" stroke="#23303c" stroke-width="1.4"/>
+  <text x="310" y="308" text-anchor="middle" font-size="13" fill="#23303c">FLAGS</text>
+  <line x1="238" y1="303" x2="248" y2="303" stroke="#23303c" stroke-width="1.4" marker-end="url(#ar6)"/>
+
+  <!-- control -->
+  <rect x="52" y="372" width="316" height="118" rx="4" fill="#e4eaee" stroke="#23303c" stroke-width="1.4"/>
+  <text x="210" y="394" text-anchor="middle" font-size="13" fill="#23303c">Decoder, timing and control</text>
+  <g font-size="11" fill="#3a4653" text-anchor="middle">
+    <text x="210" y="416">reads bytes from the queue</text>
+    <text x="210" y="434">identifies the instruction</text>
+    <text x="210" y="452">computes the effective address</text>
+    <text x="210" y="470">sequences the microcode</text>
+  </g>
+
+  <!-- ===== BIU ===== -->
+  <rect x="440" y="52" width="390" height="460" rx="8" fill="#f4f2ec" stroke="#23303c" stroke-width="2"/>
+  <text x="635" y="76" text-anchor="middle" font-size="15" fill="#23303c">BUS INTERFACE UNIT (BIU)</text>
+  <text x="635" y="94" text-anchor="middle" font-size="11.5" fill="#6b747e" font-style="italic">owns everything outside the chip</text>
+
+  <!-- segment regs -->
+  <rect x="462" y="108" width="346" height="90" rx="4" fill="#e4eaee" stroke="#23303c" stroke-width="1.4"/>
+  <text x="635" y="128" text-anchor="middle" font-size="13" fill="#23303c">Segment registers and IP</text>
+  <g font-size="12" fill="#23303c" font-family="monospace">
+    <rect x="476" y="140" width="58" height="22" fill="#fbfaf7" stroke="#8a939d"/><text x="505" y="156" text-anchor="middle">CS</text>
+    <rect x="544" y="140" width="58" height="22" fill="#fbfaf7" stroke="#8a939d"/><text x="573" y="156" text-anchor="middle">DS</text>
+    <rect x="612" y="140" width="58" height="22" fill="#fbfaf7" stroke="#8a939d"/><text x="641" y="156" text-anchor="middle">SS</text>
+    <rect x="680" y="140" width="58" height="22" fill="#fbfaf7" stroke="#8a939d"/><text x="709" y="156" text-anchor="middle">ES</text>
+    <rect x="748" y="140" width="52" height="22" fill="#f2e7df" stroke="#8a939d"/><text x="774" y="156" text-anchor="middle">IP</text>
+  </g>
+  <text x="635" y="182" text-anchor="middle" font-size="10.5" fill="#6b747e">each holds a paragraph number — the segment base ÷ 16</text>
+
+  <!-- adder -->
+  <rect x="500" y="222" width="270" height="56" rx="4" fill="#dfe6ea" stroke="#23303c" stroke-width="1.6"/>
+  <text x="635" y="244" text-anchor="middle" font-size="13.5" fill="#23303c">20-bit address adder</text>
+  <text x="635" y="264" text-anchor="middle" font-size="12" fill="#b4562d" font-family="monospace">(segment × 16) + offset</text>
+  <line x1="635" y1="198" x2="635" y2="220" stroke="#23303c" stroke-width="1.4" marker-end="url(#ar6)"/>
+
+  <!-- queue -->
+  <rect x="470" y="306" width="330" height="72" rx="4" fill="#e4eaee" stroke="#23303c" stroke-width="1.4"/>
+  <text x="635" y="326" text-anchor="middle" font-size="13" fill="#23303c">Instruction queue — 6 bytes, FIFO</text>
+  <g stroke="#23303c" stroke-width="1.2" fill="#fbfaf7">
+    <rect x="500" y="336" width="44" height="26"/><rect x="544" y="336" width="44" height="26"/>
+    <rect x="588" y="336" width="44" height="26"/><rect x="632" y="336" width="44" height="26"/>
+    <rect x="676" y="336" width="44" height="26"/><rect x="720" y="336" width="44" height="26"/>
+  </g>
+  <text x="496" y="374" text-anchor="end" font-size="10.5" fill="#6b747e">out</text>
+  <text x="770" y="374" font-size="10.5" fill="#6b747e">in</text>
+
+  <!-- bus control -->
+  <rect x="470" y="400" width="330" height="90" rx="4" fill="#e4eaee" stroke="#23303c" stroke-width="1.4"/>
+  <text x="635" y="422" text-anchor="middle" font-size="13" fill="#23303c">Bus control logic</text>
+  <g font-size="11" fill="#3a4653" text-anchor="middle">
+    <text x="635" y="444">runs the four T-states of every bus cycle</text>
+    <text x="635" y="462">drives ALE, RD, WR, M/IO, DT/R, DEN</text>
+    <text x="635" y="480">prefetches whenever ≥ 2 queue bytes are free</text>
+  </g>
+
+  <!-- queue -> EU arrow -->
+  <path d="M470 342 C 420 342 420 430 372 430" fill="none" stroke="#b4562d" stroke-width="2.4" marker-end="url(#ar6o)"/>
+  <text x="418" y="336" text-anchor="middle" font-size="11" fill="#b4562d">instruction bytes</text>
+
+  <!-- EU asks BIU -->
+  <path d="M372 300 C 410 300 430 250 498 250" fill="none" stroke="#2f6f6b" stroke-width="2" marker-end="url(#ar6)"/>
+  <text x="430" y="276" text-anchor="middle" font-size="11" fill="#2f6f6b">"fetch me this operand"</text>
+
+  <!-- pins -->
+  <line x1="830" y1="445" x2="856" y2="445" stroke="#23303c" stroke-width="3"/>
+  <text x="846" y="436" text-anchor="end" font-size="11" fill="#6b747e">to AD15–AD0, A19–A16, control pins</text>
+
+  <text x="430" y="538" text-anchor="middle" font-size="12" fill="#6b747e" font-style="italic">
+    The two units run semi-independently: while the EU executes, the BIU refills the queue with the bus cycles nobody else wants.
+  </text>
+</svg>

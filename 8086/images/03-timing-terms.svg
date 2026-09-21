@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 340" width="760" height="340" font-family="Georgia, 'Times New Roman', serif">
+  <rect width="760" height="340" fill="#fbfaf7"/>
+  <text x="380" y="28" text-anchor="middle" font-size="17" fill="#23303c">The five timing quantities</text>
+
+  <!-- CLOCK -->
+  <text x="94" y="80" text-anchor="end" font-size="13" fill="#23303c">CLK</text>
+  <polyline points="110,90 150,90 150,62 210,62 210,90 270,90 270,62 330,62 330,90 390,90 390,62 450,62 450,90 510,90 510,62 570,62 570,90 630,90"
+            fill="none" stroke="#23303c" stroke-width="2"/>
+  <!-- edge marker -->
+  <line x1="390" y1="50" x2="390" y2="230" stroke="#b4562d" stroke-width="1.4" stroke-dasharray="4 3"/>
+  <text x="396" y="48" font-size="12" fill="#b4562d">sampling edge ↑</text>
+
+  <!-- DATA -->
+  <text x="94" y="150" text-anchor="end" font-size="13" fill="#23303c">D input</text>
+  <polyline points="110,140 300,140" fill="none" stroke="#23303c" stroke-width="2"/>
+  <polyline points="110,160 300,160" fill="none" stroke="#23303c" stroke-width="2"/>
+  <line x1="300" y1="140" x2="320" y2="160" stroke="#23303c" stroke-width="2"/>
+  <line x1="300" y1="160" x2="320" y2="140" stroke="#23303c" stroke-width="2"/>
+  <rect x="320" y="140" width="130" height="20" fill="#dfe6ea" stroke="#23303c" stroke-width="2"/>
+  <text x="385" y="155" text-anchor="middle" font-size="12" fill="#23303c">valid</text>
+  <line x1="450" y1="140" x2="470" y2="160" stroke="#23303c" stroke-width="2"/>
+  <line x1="450" y1="160" x2="470" y2="140" stroke="#23303c" stroke-width="2"/>
+  <polyline points="470,140 630,140" fill="none" stroke="#23303c" stroke-width="2"/>
+  <polyline points="470,160 630,160" fill="none" stroke="#23303c" stroke-width="2"/>
+
+  <!-- setup arrow -->
+  <line x1="320" y1="188" x2="390" y2="188" stroke="#2f6f6b" stroke-width="1.6" marker-start="url(#al)" marker-end="url(#ar)"/>
+  <text x="355" y="204" text-anchor="middle" font-size="12" fill="#2f6f6b">t_SU</text>
+  <!-- hold arrow -->
+  <line x1="390" y1="188" x2="450" y2="188" stroke="#2f6f6b" stroke-width="1.6" marker-start="url(#al)" marker-end="url(#ar)"/>
+  <text x="420" y="204" text-anchor="middle" font-size="12" fill="#2f6f6b">t_H</text>
+
+  <defs>
+    <marker id="ar" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0 0 L8 4 L0 8 z" fill="#2f6f6b"/>
+    </marker>
+    <marker id="al" markerWidth="8" markerHeight="8" refX="1" refY="4" orient="auto">
+      <path d="M8 0 L0 4 L8 8 z" fill="#2f6f6b"/>
+    </marker>
+    <marker id="pr" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0 0 L8 4 L0 8 z" fill="#b4562d"/>
+    </marker>
+    <marker id="pl" markerWidth="8" markerHeight="8" refX="1" refY="4" orient="auto">
+      <path d="M8 0 L0 4 L8 8 z" fill="#b4562d"/>
+    </marker>
+  </defs>
+
+  <!-- OUTPUT -->
+  <text x="94" y="248" text-anchor="end" font-size="13" fill="#23303c">Q output</text>
+  <polyline points="110,258 430,258 430,238 630,238" fill="none" stroke="#23303c" stroke-width="2"/>
+  <line x1="390" y1="272" x2="430" y2="272" stroke="#b4562d" stroke-width="1.6" marker-start="url(#pl)" marker-end="url(#pr)"/>
+  <text x="410" y="288" text-anchor="middle" font-size="12" fill="#b4562d">t_PD</text>
+
+  <text x="380" y="316" text-anchor="middle" font-size="12" fill="#6b747e" font-style="italic">
+    Data must be stable from t_SU before the edge until t_H after it; the output changes t_PD later.
+  </text>
+  <text x="380" y="332" text-anchor="middle" font-size="12" fill="#6b747e" font-style="italic">
+    Crossed lines mean "changing / invalid"; a flat pair of lines means the bus is not being driven meaningfully.
+  </text>
+</svg>

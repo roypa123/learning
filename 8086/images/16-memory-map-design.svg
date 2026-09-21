@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 540" width="800" height="540" font-family="Georgia, 'Times New Roman', serif">
+  <rect width="800" height="540" fill="#fbfaf7"/>
+  <text x="400" y="30" text-anchor="middle" font-size="18" fill="#23303c">A worked memory map — and why it must have this shape</text>
+
+  <!-- column -->
+  <g stroke="#23303c" stroke-width="1.5">
+    <rect x="230" y="60" width="200" height="70" fill="#f2e7df"/>
+    <rect x="230" y="130" width="200" height="270" fill="#eceae4"/>
+    <rect x="230" y="400" width="200" height="90" fill="#dfe6ea"/>
+  </g>
+
+  <g text-anchor="middle" fill="#23303c">
+    <text x="330" y="86" font-size="14">EPROM — 2 × 2764</text>
+    <text x="330" y="106" font-size="12" fill="#3a4653">16 KiB</text>
+    <text x="330" y="122" font-size="11.5" fill="#b4562d">FC000 – FFFFF</text>
+
+    <text x="330" y="256" font-size="14" fill="#6b747e">unused</text>
+    <text x="330" y="276" font-size="11.5" fill="#9aa4ae">08000 – FBFFF</text>
+    <text x="330" y="296" font-size="11.5" fill="#9aa4ae">no device responds</text>
+
+    <text x="330" y="428" font-size="14">SRAM — 4 × 6264</text>
+    <text x="330" y="448" font-size="12" fill="#3a4653">32 KiB</text>
+    <text x="330" y="464" font-size="11.5" fill="#b4562d">00000 – 07FFF</text>
+  </g>
+
+  <g font-size="12" font-family="monospace" fill="#6b747e" text-anchor="end">
+    <text x="222" y="64">FFFFF</text>
+    <text x="222" y="134">FC000</text>
+    <text x="222" y="404">08000</text>
+    <text x="222" y="494">00000</text>
+  </g>
+
+  <!-- annotations -->
+  <text x="446" y="76" font-size="12.5" fill="#b4562d">reset vector at FFFF0 is in here —</text>
+  <text x="446" y="92" font-size="12.5" fill="#b4562d">it must be ROM, valid the instant power comes up</text>
+  <text x="446" y="112" font-size="11.5" fill="#6b747e">A19–A14 = 111111 · chips get A13–A1</text>
+
+  <text x="446" y="426" font-size="12.5" fill="#b4562d">interrupt vector table at 00000–003FF is in here —</text>
+  <text x="446" y="442" font-size="12.5" fill="#b4562d">it must be RAM, because handlers get installed at run time</text>
+  <text x="446" y="462" font-size="11.5" fill="#6b747e">A19–A15 = 00000 · A14 picks the pair · chips get A13–A1</text>
+
+  <!-- decode table -->
+  <rect x="60" y="506" width="680" height="26" rx="3" fill="#f4f2ec" stroke="#cfd5da"/>
+  <text x="400" y="524" text-anchor="middle" font-size="12" fill="#23303c">
+    No two devices share a fixed-bit pattern, so no two chip selects can assert together — this check prevents bus contention.
+  </text>
+
+  <!-- bank split diagram -->
+  <g stroke="#23303c" stroke-width="1.4">
+    <rect x="70" y="150" width="120" height="44" rx="3" fill="#e4eaee"/>
+    <rect x="70" y="204" width="120" height="44" rx="3" fill="#e4eaee"/>
+  </g>
+  <g text-anchor="middle" font-size="11.5" fill="#23303c">
+    <text x="130" y="170">even bank</text>
+    <text x="130" y="186" font-size="10.5" fill="#6b747e">CS = SEL or A0</text>
+    <text x="130" y="224">odd bank</text>
+    <text x="130" y="240" font-size="10.5" fill="#6b747e">CS = SEL or BHE</text>
+  </g>
+  <text x="130" y="138" text-anchor="middle" font-size="11.5" fill="#b4562d">every range splits in two</text>
+  <text x="130" y="268" text-anchor="middle" font-size="10.5" fill="#6b747e">D7–D0 and D15–D8</text>
+</svg>

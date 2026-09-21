@@ -1,0 +1,115 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 720" width="820" height="720" font-family="Georgia, 'Times New Roman', serif">
+  <rect width="820" height="720" fill="#fbfaf7"/>
+  <text x="410" y="30" text-anchor="middle" font-size="18" fill="#23303c">8086 pinout — 40-pin DIP</text>
+  <text x="410" y="52" text-anchor="middle" font-size="12.5" fill="#6b747e" font-style="italic">Names in brackets are the maximum-mode function of that pin. A bar over a name means active low.</text>
+
+  <!-- chip -->
+  <rect x="300" y="76" width="220" height="608" rx="4" fill="#2b3440" stroke="#151c24" stroke-width="2"/>
+  <path d="M385 76 a25 25 0 0 0 50 0" fill="#fbfaf7" stroke="#151c24" stroke-width="2"/>
+  <text x="410" y="376" text-anchor="middle" font-size="22" fill="#f2efe8" letter-spacing="2">8086</text>
+
+  <!-- left pins -->
+  <g fill="#8a939d">
+    <rect x="282" y="104" width="18" height="6"/><rect x="282" y="134" width="18" height="6"/>
+    <rect x="282" y="164" width="18" height="6"/><rect x="282" y="194" width="18" height="6"/>
+    <rect x="282" y="224" width="18" height="6"/><rect x="282" y="254" width="18" height="6"/>
+    <rect x="282" y="284" width="18" height="6"/><rect x="282" y="314" width="18" height="6"/>
+    <rect x="282" y="344" width="18" height="6"/><rect x="282" y="374" width="18" height="6"/>
+    <rect x="282" y="404" width="18" height="6"/><rect x="282" y="434" width="18" height="6"/>
+    <rect x="282" y="464" width="18" height="6"/><rect x="282" y="494" width="18" height="6"/>
+    <rect x="282" y="524" width="18" height="6"/><rect x="282" y="554" width="18" height="6"/>
+    <rect x="282" y="584" width="18" height="6"/><rect x="282" y="614" width="18" height="6"/>
+    <rect x="282" y="644" width="18" height="6"/><rect x="282" y="674" width="18" height="6"/>
+    <rect x="520" y="104" width="18" height="6"/><rect x="520" y="134" width="18" height="6"/>
+    <rect x="520" y="164" width="18" height="6"/><rect x="520" y="194" width="18" height="6"/>
+    <rect x="520" y="224" width="18" height="6"/><rect x="520" y="254" width="18" height="6"/>
+    <rect x="520" y="284" width="18" height="6"/><rect x="520" y="314" width="18" height="6"/>
+    <rect x="520" y="344" width="18" height="6"/><rect x="520" y="374" width="18" height="6"/>
+    <rect x="520" y="404" width="18" height="6"/><rect x="520" y="434" width="18" height="6"/>
+    <rect x="520" y="464" width="18" height="6"/><rect x="520" y="494" width="18" height="6"/>
+    <rect x="520" y="524" width="18" height="6"/><rect x="520" y="554" width="18" height="6"/>
+    <rect x="520" y="584" width="18" height="6"/><rect x="520" y="614" width="18" height="6"/>
+    <rect x="520" y="644" width="18" height="6"/><rect x="520" y="674" width="18" height="6"/>
+  </g>
+
+  <!-- left pin numbers inside chip -->
+  <g font-size="10.5" fill="#b9c2cc" font-family="monospace">
+    <text x="308" y="111">1</text><text x="308" y="141">2</text><text x="308" y="171">3</text>
+    <text x="308" y="201">4</text><text x="308" y="231">5</text><text x="308" y="261">6</text>
+    <text x="308" y="291">7</text><text x="308" y="321">8</text><text x="308" y="351">9</text>
+    <text x="305" y="381">10</text><text x="305" y="411">11</text><text x="305" y="441">12</text>
+    <text x="305" y="471">13</text><text x="305" y="501">14</text><text x="305" y="531">15</text>
+    <text x="305" y="561">16</text><text x="305" y="591">17</text><text x="305" y="621">18</text>
+    <text x="305" y="651">19</text><text x="305" y="681">20</text>
+  </g>
+  <g font-size="10.5" fill="#b9c2cc" font-family="monospace" text-anchor="end">
+    <text x="512" y="111">40</text><text x="512" y="141">39</text><text x="512" y="171">38</text>
+    <text x="512" y="201">37</text><text x="512" y="231">36</text><text x="512" y="261">35</text>
+    <text x="512" y="291">34</text><text x="512" y="321">33</text><text x="512" y="351">32</text>
+    <text x="512" y="381">31</text><text x="512" y="411">30</text><text x="512" y="441">29</text>
+    <text x="512" y="471">28</text><text x="512" y="501">27</text><text x="512" y="531">26</text>
+    <text x="512" y="561">25</text><text x="512" y="591">24</text><text x="512" y="621">23</text>
+    <text x="512" y="651">22</text><text x="512" y="681">21</text>
+  </g>
+
+  <!-- left labels -->
+  <g font-size="13" font-family="monospace" fill="#23303c" text-anchor="end">
+    <text x="274" y="111">GND</text>
+    <text x="274" y="141">AD14</text><text x="274" y="171">AD13</text>
+    <text x="274" y="201">AD12</text><text x="274" y="231">AD11</text>
+    <text x="274" y="261">AD10</text><text x="274" y="291">AD9</text>
+    <text x="274" y="321">AD8</text><text x="274" y="351">AD7</text>
+    <text x="274" y="381">AD6</text><text x="274" y="411">AD5</text>
+    <text x="274" y="441">AD4</text><text x="274" y="471">AD3</text>
+    <text x="274" y="501">AD2</text><text x="274" y="531">AD1</text>
+    <text x="274" y="561">AD0</text>
+    <text x="274" y="591">NMI</text><text x="274" y="621">INTR</text>
+    <text x="274" y="651">CLK</text><text x="274" y="681">GND</text>
+  </g>
+
+  <!-- right labels -->
+  <g font-size="13" font-family="monospace" fill="#23303c">
+    <text x="546" y="111">VCC  +5 V</text>
+    <text x="546" y="141">AD15</text>
+    <text x="546" y="171">A16/S3</text><text x="546" y="201">A17/S4</text>
+    <text x="546" y="231">A18/S5</text><text x="546" y="261">A19/S6</text>
+    <text x="546" y="291">BHE/S7</text>
+    <text x="546" y="321">MN/MX</text>
+    <text x="546" y="351">RD</text>
+    <text x="546" y="381">HOLD</text><text x="546" y="411">HLDA</text>
+    <text x="546" y="441">WR</text><text x="546" y="471">M/IO</text>
+    <text x="546" y="501">DT/R</text><text x="546" y="531">DEN</text>
+    <text x="546" y="561">ALE</text><text x="546" y="591">INTA</text>
+    <text x="546" y="621">TEST</text><text x="546" y="651">READY</text>
+    <text x="546" y="681">RESET</text>
+  </g>
+
+  <!-- max mode alternates -->
+  <g font-size="12" font-family="monospace" fill="#b4562d">
+    <text x="672" y="381">(RQ/GT0)</text><text x="672" y="411">(RQ/GT1)</text>
+    <text x="672" y="441">(LOCK)</text><text x="672" y="471">(S2)</text>
+    <text x="672" y="501">(S1)</text><text x="672" y="531">(S0)</text>
+    <text x="672" y="561">(QS0)</text><text x="672" y="591">(QS1)</text>
+  </g>
+  <rect x="664" y="364" width="96" height="240" rx="4" fill="none" stroke="#dcc3b4" stroke-width="1.4" stroke-dasharray="4 3"/>
+  <text x="712" y="356" text-anchor="middle" font-size="11" fill="#b4562d">maximum mode</text>
+
+  <!-- overbars: active-low right-side names -->
+  <g stroke="#23303c" stroke-width="1.2">
+    <line x1="546" y1="280" x2="586" y2="280"/>   <!-- BHE -->
+    <line x1="546" y1="340" x2="564" y2="340"/>   <!-- RD -->
+    <line x1="546" y1="430" x2="564" y2="430"/>   <!-- WR -->
+    <line x1="546" y1="520" x2="571" y2="520"/>   <!-- DEN -->
+    <line x1="546" y1="580" x2="580" y2="580"/>   <!-- INTA -->
+    <line x1="546" y1="610" x2="580" y2="610"/>   <!-- TEST -->
+  </g>
+
+  <!-- group brackets on the left -->
+  <path d="M170 134 h-14 v426 h14" fill="none" stroke="#2f6f6b" stroke-width="1.6"/>
+  <text x="150" y="342" text-anchor="end" font-size="12.5" fill="#2f6f6b">address in T1,</text>
+  <text x="150" y="360" text-anchor="end" font-size="12.5" fill="#2f6f6b">data in T2–T4</text>
+
+  <text x="410" y="708" text-anchor="middle" font-size="12" fill="#6b747e" font-style="italic">
+    MN/MX (pin 33) alone decides the meaning of pins 24–31. Tie it; never leave it floating.
+  </text>
+</svg>

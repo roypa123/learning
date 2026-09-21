@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 480" width="800" height="480" font-family="Georgia, 'Times New Roman', serif">
+  <rect width="800" height="480" fill="#fbfaf7"/>
+  <text x="400" y="28" text-anchor="middle" font-size="18" fill="#23303c">8086 memory WRITE cycle — the differences from a read</text>
+
+  <g stroke="#dcd7cd" stroke-width="1">
+    <line x1="140" y1="46" x2="140" y2="430"/>
+    <line x1="280" y1="46" x2="280" y2="430"/>
+    <line x1="420" y1="46" x2="420" y2="430"/>
+    <line x1="560" y1="46" x2="560" y2="430"/>
+    <line x1="700" y1="46" x2="700" y2="430"/>
+  </g>
+  <g font-size="13" fill="#b4562d" text-anchor="middle">
+    <text x="210" y="60">T1</text><text x="350" y="60">T2</text>
+    <text x="490" y="60">T3</text><text x="630" y="60">T4</text>
+  </g>
+
+  <!-- CLK -->
+  <text x="132" y="98" text-anchor="end" font-size="13" fill="#23303c">CLK</text>
+  <polyline points="100,106 140,106 140,84 187,84 187,106 280,106 280,84 327,84 327,106 420,106 420,84 467,84 467,106 560,106 560,84 607,84 607,106 700,106 700,84 747,84 747,106 770,106"
+            fill="none" stroke="#23303c" stroke-width="2"/>
+
+  <!-- ALE -->
+  <text x="132" y="144" text-anchor="end" font-size="13" fill="#23303c">ALE</text>
+  <polyline points="100,150 150,150 150,128 250,128 250,150 770,150" fill="none" stroke="#b4562d" stroke-width="2.2"/>
+
+  <!-- AD -->
+  <text x="132" y="204" text-anchor="end" font-size="12.5" fill="#23303c">AD15–AD0</text>
+  <polyline points="100,194 130,194 145,186 255,186 270,194" fill="none" stroke="#23303c" stroke-width="1.8"/>
+  <polyline points="100,204 130,204 145,212 255,212 270,204" fill="none" stroke="#23303c" stroke-width="1.8"/>
+  <text x="200" y="204" text-anchor="middle" font-size="11.5" fill="#23303c">A15–A0</text>
+  <polyline points="270,204 285,186 690,186 700,194" fill="none" stroke="#2f6f6b" stroke-width="2"/>
+  <polyline points="270,204 285,212 690,212 700,204" fill="none" stroke="#2f6f6b" stroke-width="2"/>
+  <text x="480" y="204" text-anchor="middle" font-size="11.5" fill="#2f6f6b">DATA OUT — the CPU drives, immediately, with no bus turnaround</text>
+
+  <!-- M/IO -->
+  <text x="132" y="252" text-anchor="end" font-size="12.5" fill="#23303c">M/IO</text>
+  <polyline points="100,256 130,256 145,242 690,242 700,249" fill="none" stroke="#23303c" stroke-width="1.8"/>
+  <text x="400" y="256" text-anchor="middle" font-size="11" fill="#23303c">HIGH — memory cycle</text>
+
+  <!-- WR -->
+  <text x="132" y="300" text-anchor="end" font-size="13" fill="#23303c">WR</text>
+  <line x1="110" y1="286" x2="132" y2="286" stroke="#23303c" stroke-width="1.3"/>
+  <polyline points="100,284 290,284 300,308 570,308 580,284 770,284" fill="none" stroke="#b4562d" stroke-width="2.2"/>
+  <circle cx="580" cy="284" r="4" fill="#b4562d"/>
+  <text x="596" y="280" font-size="11.5" fill="#b4562d">memory should latch the data on this RISING edge</text>
+  <text x="596" y="296" font-size="10.5" fill="#6b747e">data is guaranteed valid for 88 ns afterwards</text>
+
+  <!-- DT/R -->
+  <text x="132" y="348" text-anchor="end" font-size="12.5" fill="#23303c">DT/R</text>
+  <polyline points="100,352 135,352 148,336 690,336 700,346" fill="none" stroke="#23303c" stroke-width="1.8"/>
+  <text x="400" y="350" text-anchor="middle" font-size="11" fill="#23303c">HIGH — transmitting (the only T1 difference from a read)</text>
+
+  <!-- DEN -->
+  <text x="132" y="398" text-anchor="end" font-size="13" fill="#23303c">DEN</text>
+  <line x1="106" y1="384" x2="132" y2="384" stroke="#23303c" stroke-width="1.3"/>
+  <polyline points="100,386 300,386 310,406 620,406 630,386 770,386" fill="none" stroke="#23303c" stroke-width="2"/>
+
+  <rect x="60" y="440" width="680" height="30" rx="4" fill="#f4f2ec" stroke="#cfd5da"/>
+  <text x="400" y="460" text-anchor="middle" font-size="12.5" fill="#23303c">
+    Only three things differ from a read: DT/R is high, WR replaces RD, and the CPU drives AD15–AD0 in T2 instead of floating them.
+  </text>
+</svg>

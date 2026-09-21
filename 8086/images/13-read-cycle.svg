@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520" width="800" height="520" font-family="Georgia, 'Times New Roman', serif">
+  <rect width="800" height="520" fill="#fbfaf7"/>
+  <text x="400" y="28" text-anchor="middle" font-size="18" fill="#23303c">8086 memory READ cycle — four T-states</text>
+
+  <!-- T-state boundaries -->
+  <g stroke="#dcd7cd" stroke-width="1">
+    <line x1="140" y1="46" x2="140" y2="470"/>
+    <line x1="280" y1="46" x2="280" y2="470"/>
+    <line x1="420" y1="46" x2="420" y2="470"/>
+    <line x1="560" y1="46" x2="560" y2="470"/>
+    <line x1="700" y1="46" x2="700" y2="470"/>
+  </g>
+  <g font-size="13" fill="#b4562d" text-anchor="middle">
+    <text x="210" y="60">T1</text><text x="350" y="60">T2</text>
+    <text x="490" y="60">T3</text><text x="630" y="60">T4</text>
+  </g>
+  <text x="210" y="76" text-anchor="middle" font-size="10.5" fill="#6b747e">address phase</text>
+  <text x="490" y="76" text-anchor="middle" font-size="10.5" fill="#6b747e">data phase</text>
+
+  <!-- CLK -->
+  <text x="132" y="104" text-anchor="end" font-size="13" fill="#23303c">CLK</text>
+  <polyline points="100,112 140,112 140,90 187,90 187,112 280,112 280,90 327,90 327,112 420,112 420,90 467,90 467,112 560,112 560,90 607,90 607,112 700,112 700,90 747,90 747,112 770,112"
+            fill="none" stroke="#23303c" stroke-width="2"/>
+
+  <!-- ALE -->
+  <text x="132" y="150" text-anchor="end" font-size="13" fill="#23303c">ALE</text>
+  <polyline points="100,156 150,156 150,134 250,134 250,156 770,156" fill="none" stroke="#b4562d" stroke-width="2.2"/>
+  <text x="256" y="130" font-size="10.5" fill="#b4562d">latches capture the address on this falling edge</text>
+
+  <!-- A19-A16 -->
+  <text x="132" y="196" text-anchor="end" font-size="12.5" fill="#23303c">A19/S6–A16/S3</text>
+  <polyline points="100,186 130,186 145,178 265,178 280,186 295,178 690,178 700,186" fill="none" stroke="#23303c" stroke-width="1.8"/>
+  <polyline points="100,196 130,196 145,204 265,204 280,196 295,204 690,204 700,196" fill="none" stroke="#23303c" stroke-width="1.8"/>
+  <text x="205" y="196" text-anchor="middle" font-size="11.5" fill="#23303c">A19–A16</text>
+  <text x="490" y="196" text-anchor="middle" font-size="11.5" fill="#6b747e">status S6–S3</text>
+
+  <!-- AD15-AD0 -->
+  <text x="132" y="248" text-anchor="end" font-size="12.5" fill="#23303c">AD15–AD0</text>
+  <polyline points="100,238 130,238 145,230 255,230 270,238" fill="none" stroke="#23303c" stroke-width="1.8"/>
+  <polyline points="100,248 130,248 145,256 255,256 270,248" fill="none" stroke="#23303c" stroke-width="1.8"/>
+  <text x="200" y="248" text-anchor="middle" font-size="11.5" fill="#23303c">A15–A0</text>
+  <!-- float -->
+  <line x1="270" y1="243" x2="430" y2="243" stroke="#9aa4ae" stroke-width="1.6" stroke-dasharray="5 4"/>
+  <text x="350" y="236" text-anchor="middle" font-size="11" fill="#9aa4ae">CPU floats the bus</text>
+  <!-- data in -->
+  <polyline points="430,243 445,230 640,230 655,243" fill="none" stroke="#2f6f6b" stroke-width="2"/>
+  <polyline points="430,243 445,256 640,256 655,243" fill="none" stroke="#2f6f6b" stroke-width="2"/>
+  <text x="542" y="248" text-anchor="middle" font-size="11.5" fill="#2f6f6b">DATA IN — memory drives</text>
+
+  <!-- BHE -->
+  <text x="132" y="294" text-anchor="end" font-size="12.5" fill="#23303c">BHE/S7</text>
+  <line x1="88" y1="280" x2="118" y2="280" stroke="#23303c" stroke-width="1.2"/>
+  <polyline points="100,284 130,284 145,276 265,276 280,284 295,276 690,276 700,284" fill="none" stroke="#23303c" stroke-width="1.8"/>
+  <polyline points="100,294 130,294 145,302 265,302 280,294 295,302 690,302 700,294" fill="none" stroke="#23303c" stroke-width="1.8"/>
+  <text x="205" y="294" text-anchor="middle" font-size="11" fill="#23303c">BHE</text>
+  <text x="490" y="294" text-anchor="middle" font-size="11" fill="#6b747e">S7</text>
+
+  <!-- M/IO -->
+  <text x="132" y="336" text-anchor="end" font-size="12.5" fill="#23303c">M/IO</text>
+  <polyline points="100,340 130,340 145,326 690,326 700,333" fill="none" stroke="#23303c" stroke-width="1.8"/>
+  <text x="400" y="340" text-anchor="middle" font-size="11" fill="#23303c">HIGH throughout — this is a memory cycle</text>
+
+  <!-- RD -->
+  <text x="132" y="380" text-anchor="end" font-size="13" fill="#23303c">RD</text>
+  <line x1="112" y1="366" x2="132" y2="366" stroke="#23303c" stroke-width="1.3"/>
+  <polyline points="100,364 290,364 300,388 570,388 580,364 770,364" fill="none" stroke="#b4562d" stroke-width="2.2"/>
+  <text x="435" y="406" text-anchor="middle" font-size="11" fill="#b4562d">asserted through T2 and T3 — "drive the bus now"</text>
+
+  <!-- DT/R -->
+  <text x="132" y="432" text-anchor="end" font-size="12.5" fill="#23303c">DT/R</text>
+  <polyline points="100,420 135,420 148,442 690,442 700,432" fill="none" stroke="#23303c" stroke-width="1.8"/>
+  <text x="400" y="436" text-anchor="middle" font-size="11" fill="#23303c">LOW — receiving; transceiver direction set before any data exists</text>
+
+  <!-- DEN -->
+  <text x="132" y="468" text-anchor="end" font-size="13" fill="#23303c">DEN</text>
+  <line x1="106" y1="454" x2="132" y2="454" stroke="#23303c" stroke-width="1.3"/>
+  <polyline points="100,456 330,456 340,476 620,476 630,456 770,456" fill="none" stroke="#23303c" stroke-width="2"/>
+
+  <!-- READY sample marker -->
+  <line x1="530" y1="84" x2="530" y2="470" stroke="#2f6f6b" stroke-width="1.4" stroke-dasharray="4 3"/>
+  <text x="536" y="98" font-size="11" fill="#2f6f6b">READY sampled;</text>
+  <text x="536" y="112" font-size="11" fill="#2f6f6b">data must be valid</text>
+
+  <text x="400" y="502" text-anchor="middle" font-size="12" fill="#6b747e" font-style="italic">
+    Crossed lines mean the bus is changing; a dashed line means nobody is driving it. Memory has from ALE falling to the green marker to respond.
+  </text>
+</svg>

@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 400" width="720" height="400" font-family="Georgia, 'Times New Roman', serif">
+  <rect width="720" height="400" fill="#fbfaf7"/>
+  <text x="360" y="28" text-anchor="middle" font-size="17" fill="#23303c">74LS138 — 3-to-8 decoder used as an address decoder</text>
+
+  <!-- chip -->
+  <rect x="250" y="60" width="180" height="290" rx="4" fill="#eceae4" stroke="#23303c" stroke-width="2"/>
+  <text x="340" y="88" text-anchor="middle" font-size="16" fill="#23303c">74LS138</text>
+  <line x1="250" y1="100" x2="430" y2="100" stroke="#9aa4ae" stroke-width="1"/>
+
+  <!-- select inputs -->
+  <g font-size="13" fill="#23303c">
+    <text x="268" y="128">A</text><text x="268" y="152">B</text><text x="268" y="176">C</text>
+    <text x="268" y="224">G1</text><text x="268" y="252">G2A</text><text x="268" y="276">G2B</text>
+  </g>
+  <!-- overbars for G2A, G2B -->
+  <line x1="266" y1="241" x2="296" y2="241" stroke="#23303c" stroke-width="1.4"/>
+  <line x1="266" y1="265" x2="296" y2="265" stroke="#23303c" stroke-width="1.4"/>
+
+  <g stroke="#23303c" stroke-width="2">
+    <line x1="160" y1="124" x2="250" y2="124"/>
+    <line x1="160" y1="148" x2="250" y2="148"/>
+    <line x1="160" y1="172" x2="250" y2="172"/>
+    <line x1="160" y1="220" x2="250" y2="220"/>
+    <line x1="160" y1="248" x2="250" y2="248"/>
+    <line x1="160" y1="272" x2="250" y2="272"/>
+  </g>
+  <!-- input bubbles for active low enables -->
+  <circle cx="256" cy="248" r="5" fill="#eceae4" stroke="#23303c" stroke-width="2"/>
+  <circle cx="256" cy="272" r="5" fill="#eceae4" stroke="#23303c" stroke-width="2"/>
+
+  <g font-size="13" fill="#23303c" text-anchor="end">
+    <text x="154" y="128">A13</text>
+    <text x="154" y="152">A14</text>
+    <text x="154" y="176">A15</text>
+    <text x="154" y="224">+5 V</text>
+    <text x="154" y="252">GND</text>
+    <text x="154" y="276">GND</text>
+  </g>
+
+  <!-- outputs -->
+  <g stroke="#23303c" stroke-width="2">
+    <line x1="430" y1="112" x2="510" y2="112"/>
+    <line x1="430" y1="142" x2="510" y2="142"/>
+    <line x1="430" y1="172" x2="510" y2="172"/>
+    <line x1="430" y1="202" x2="510" y2="202"/>
+    <line x1="430" y1="232" x2="510" y2="232"/>
+    <line x1="430" y1="262" x2="510" y2="262"/>
+    <line x1="430" y1="292" x2="510" y2="292"/>
+    <line x1="430" y1="322" x2="510" y2="322"/>
+  </g>
+  <g fill="#eceae4" stroke="#23303c" stroke-width="2">
+    <circle cx="436" cy="112" r="5"/><circle cx="436" cy="142" r="5"/>
+    <circle cx="436" cy="172" r="5"/><circle cx="436" cy="202" r="5"/>
+    <circle cx="436" cy="232" r="5"/><circle cx="436" cy="262" r="5"/>
+    <circle cx="436" cy="292" r="5"/><circle cx="436" cy="322" r="5"/>
+  </g>
+  <g font-size="13" fill="#23303c" text-anchor="end">
+    <text x="424" y="116">Y0</text><text x="424" y="146">Y1</text>
+    <text x="424" y="176">Y2</text><text x="424" y="206">Y3</text>
+    <text x="424" y="236">Y4</text><text x="424" y="266">Y5</text>
+    <text x="424" y="296">Y6</text><text x="424" y="326">Y7</text>
+  </g>
+  <g stroke="#23303c" stroke-width="1.4">
+    <line x1="404" y1="104" x2="424" y2="104"/><line x1="404" y1="134" x2="424" y2="134"/>
+    <line x1="404" y1="164" x2="424" y2="164"/><line x1="404" y1="194" x2="424" y2="194"/>
+    <line x1="404" y1="224" x2="424" y2="224"/><line x1="404" y1="254" x2="424" y2="254"/>
+    <line x1="404" y1="284" x2="424" y2="284"/><line x1="404" y1="314" x2="424" y2="314"/>
+  </g>
+
+  <g font-size="12.5" fill="#3a4653">
+    <text x="518" y="116">0000–1FFF</text>
+    <text x="518" y="146">2000–3FFF</text>
+    <text x="518" y="176">4000–5FFF</text>
+    <text x="518" y="206">6000–7FFF</text>
+    <text x="518" y="236">8000–9FFF</text>
+    <text x="518" y="266">A000–BFFF</text>
+    <text x="518" y="296">C000–DFFF</text>
+    <text x="518" y="326">E000–FFFF</text>
+  </g>
+  <text x="586" y="94" text-anchor="middle" font-size="12" fill="#6b747e">selects 8 KiB block</text>
+
+  <text x="360" y="378" text-anchor="middle" font-size="12" fill="#6b747e" font-style="italic">
+    Enabled only when G1 = 1 and both G2 inputs = 0. Exactly one output then goes low; the rest stay high.
+  </text>
+</svg>

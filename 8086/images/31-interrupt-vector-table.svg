@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 600" width="860" height="600" font-family="Georgia, 'Times New Roman', serif">
+  <rect width="860" height="600" fill="#fbfaf7"/>
+  <text x="430" y="30" text-anchor="middle" font-size="18" fill="#23303c">The interrupt vector table, and what happens on INT 21h</text>
+
+  <defs>
+    <marker id="i31" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto">
+      <path d="M0 0 L9 4.5 L0 9 z" fill="#b4562d"/>
+    </marker>
+    <marker id="i31g" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto">
+      <path d="M0 0 L9 4.5 L0 9 z" fill="#2f6f6b"/>
+    </marker>
+  </defs>
+
+  <!-- the table -->
+  <text x="150" y="64" text-anchor="middle" font-size="14" fill="#b4562d">Interrupt vector table</text>
+  <text x="150" y="82" text-anchor="middle" font-size="11.5" fill="#6b747e">physical 00000–003FF · 256 × 4 bytes</text>
+
+  <g stroke="#23303c" stroke-width="1.4">
+    <rect x="70" y="96" width="160" height="26" fill="#e4eaee"/>
+    <rect x="70" y="122" width="160" height="26" fill="#e4eaee"/>
+    <rect x="70" y="148" width="160" height="26" fill="#e4eaee"/>
+    <rect x="70" y="174" width="160" height="26" fill="#eceae4"/>
+    <rect x="70" y="200" width="160" height="26" fill="#f4e3d6"/>
+    <rect x="70" y="226" width="160" height="26" fill="#f4e3d6"/>
+    <rect x="70" y="252" width="160" height="26" fill="#eceae4"/>
+    <rect x="70" y="278" width="160" height="26" fill="#e4eaee"/>
+  </g>
+  <g font-size="11.5" font-family="monospace" fill="#23303c">
+    <text x="82" y="114">IP of INT 0</text>
+    <text x="82" y="140">CS of INT 0</text>
+    <text x="82" y="166">IP of INT 1</text>
+    <text x="82" y="192">      …</text>
+    <text x="82" y="218" fill="#b4562d">IP of INT 21h</text>
+    <text x="82" y="244" fill="#b4562d">CS of INT 21h</text>
+    <text x="82" y="270">      …</text>
+    <text x="82" y="296">CS of INT FFh</text>
+  </g>
+  <g font-size="11" font-family="monospace" fill="#6b747e" text-anchor="end">
+    <text x="64" y="114">00000</text>
+    <text x="64" y="140">00002</text>
+    <text x="64" y="166">00004</text>
+    <text x="64" y="218">00084</text>
+    <text x="64" y="244">00086</text>
+    <text x="64" y="296">003FE</text>
+  </g>
+
+  <text x="150" y="330" text-anchor="middle" font-size="12.5" fill="#b4562d">vector n lives at physical 4n</text>
+  <text x="150" y="348" text-anchor="middle" font-size="12" fill="#6b747e">0x21 × 4 = 0x84</text>
+
+  <!-- the sequence -->
+  <text x="560" y="64" text-anchor="middle" font-size="14" fill="#b4562d">What the processor does — atomically</text>
+
+  <rect x="330" y="80" width="460" height="192" rx="5" fill="#f4f2ec" stroke="#cfd5da"/>
+  <g font-size="13" font-family="monospace" fill="#23303c">
+    <text x="352" y="106">1.  push FLAGS</text>
+    <text x="352" y="128">2.  IF = 0          ; no more maskable interrupts</text>
+    <text x="352" y="150">3.  TF = 0          ; no single-stepping the handler</text>
+    <text x="352" y="172">4.  push CS</text>
+    <text x="352" y="194">5.  push IP</text>
+    <text x="352" y="216" fill="#b4562d">6.  IP &lt;- word at 4n</text>
+    <text x="352" y="238" fill="#b4562d">7.  CS &lt;- word at 4n+2</text>
+    <text x="352" y="262" fill="#6b747e">     six bytes pushed; nothing can intervene</text>
+  </g>
+  <path d="M238 224 C 280 224 290 180 328 180" fill="none" stroke="#b4562d" stroke-width="2" marker-end="url(#i31)"/>
+
+  <!-- stack -->
+  <text x="430" y="320" text-anchor="middle" font-size="14" fill="#2f6f6b">The stack afterwards</text>
+  <g stroke="#23303c" stroke-width="1.4">
+    <rect x="340" y="336" width="180" height="30" fill="#dfe6ea"/>
+    <rect x="340" y="366" width="180" height="30" fill="#dfe6ea"/>
+    <rect x="340" y="396" width="180" height="30" fill="#dfe6ea"/>
+  </g>
+  <g font-size="12.5" text-anchor="middle" fill="#23303c">
+    <text x="430" y="356">FLAGS</text>
+    <text x="430" y="386">CS</text>
+    <text x="430" y="416">IP</text>
+  </g>
+  <text x="534" y="416" font-size="12" fill="#2f6f6b">◄── SP</text>
+  <text x="560" y="360" font-size="12" fill="#6b747e">IRET pops these three</text>
+  <text x="560" y="378" font-size="12" fill="#6b747e">in reverse — and restores</text>
+  <text x="560" y="396" font-size="12" fill="#6b747e">IF, TF and DF with them</text>
+
+  <!-- reserved types -->
+  <rect x="70" y="442" width="720" height="106" rx="5" fill="#f4f2ec" stroke="#cfd5da"/>
+  <text x="430" y="464" text-anchor="middle" font-size="13" fill="#b4562d">The five types the hardware defines</text>
+  <g font-size="12.5" font-family="monospace" fill="#23303c">
+    <text x="96" y="488">0  divide error — DIV/IDIV by zero, or a quotient too large</text>
+    <text x="96" y="506">1  single step  — generated after every instruction while TF = 1</text>
+    <text x="96" y="524">2  NMI          — the NMI pin; never maskable</text>
+    <text x="470" y="488">3  breakpoint   — the ONE-BYTE instruction 0xCC</text>
+    <text x="470" y="506">4  overflow     — INTO, only when OF = 1</text>
+    <text x="470" y="524" fill="#6b747e">5–31 reserved by Intel (the PC ignored that)</text>
+  </g>
+
+  <text x="430" y="578" text-anchor="middle" font-size="12" fill="#6b747e" font-style="italic">
+    Software INT, hardware INTR and processor exceptions all converge on exactly this sequence.
+  </text>
+</svg>

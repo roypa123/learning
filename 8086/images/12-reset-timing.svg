@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 380" width="820" height="380" font-family="Georgia, 'Times New Roman', serif">
+  <rect width="820" height="380" fill="#fbfaf7"/>
+  <text x="410" y="28" text-anchor="middle" font-size="17" fill="#23303c">Power-on reset timing</text>
+
+  <defs>
+    <marker id="ra" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0 0 L8 4 L0 8 z" fill="#2f6f6b"/>
+    </marker>
+    <marker id="ral" markerWidth="8" markerHeight="8" refX="1" refY="4" orient="auto">
+      <path d="M8 0 L0 4 L8 8 z" fill="#2f6f6b"/>
+    </marker>
+  </defs>
+
+  <!-- guide lines -->
+  <line x1="180" y1="46" x2="180" y2="330" stroke="#dcc3b4" stroke-width="1.2" stroke-dasharray="4 3"/>
+  <text x="180" y="42" text-anchor="middle" font-size="11" fill="#b4562d">power stable</text>
+  <line x1="560" y1="46" x2="560" y2="330" stroke="#dcc3b4" stroke-width="1.2" stroke-dasharray="4 3"/>
+  <text x="560" y="42" text-anchor="middle" font-size="11" fill="#b4562d">RESET released</text>
+
+  <!-- VCC -->
+  <text x="100" y="80" text-anchor="end" font-size="13" fill="#23303c">VCC</text>
+  <polyline points="120,92 150,92 180,64 780,64" fill="none" stroke="#23303c" stroke-width="2"/>
+  <text x="200" y="58" font-size="11" fill="#6b747e">+5 V</text>
+
+  <!-- CLK -->
+  <text x="100" y="134" text-anchor="end" font-size="13" fill="#23303c">CLK</text>
+  <polyline points="120,140 168,140" fill="none" stroke="#9aa4ae" stroke-width="2" stroke-dasharray="3 3"/>
+  <polyline points="168,140 180,140 180,118 204,118 204,140 228,140 228,118 252,118 252,140 276,140 276,118 300,118 300,140 324,140 324,118 348,118 348,140 372,140 372,118 396,118 396,140 420,140 420,118 444,118 444,140 468,140 468,118 492,118 492,140 516,140 516,118 540,118 540,140 564,140 564,118 588,118 588,140 612,140 612,118 636,118 636,140 660,140 660,118 684,118 684,140 708,140 708,118 732,118 732,140 780,140"
+            fill="none" stroke="#23303c" stroke-width="2"/>
+  <text x="152" y="156" text-anchor="middle" font-size="10.5" fill="#9aa4ae">starting</text>
+
+  <!-- RES# -->
+  <text x="100" y="196" text-anchor="end" font-size="13" fill="#23303c">RES</text>
+  <line x1="78" y1="182" x2="103" y2="182" stroke="#23303c" stroke-width="1.3"/>
+  <polyline points="120,206 500,206 540,176 780,176" fill="none" stroke="#23303c" stroke-width="2"/>
+  <text x="330" y="224" text-anchor="middle" font-size="11" fill="#6b747e">RC network charging — slow, asynchronous edge</text>
+
+  <!-- RESET -->
+  <text x="100" y="264" text-anchor="end" font-size="13" fill="#23303c">RESET</text>
+  <polyline points="120,274 190,274 190,244 564,244 564,274 780,274" fill="none" stroke="#b4562d" stroke-width="2.4"/>
+  <text x="376" y="238" text-anchor="middle" font-size="11" fill="#b4562d">synchronised by the 8284A — both edges land on a clock edge</text>
+
+  <!-- duration arrow -->
+  <line x1="190" y1="296" x2="564" y2="296" stroke="#2f6f6b" stroke-width="1.6" marker-start="url(#ral)" marker-end="url(#ra)"/>
+  <text x="377" y="312" text-anchor="middle" font-size="12" fill="#2f6f6b">≥ 4 clock periods (≥ 50 µs at power-on)</text>
+
+  <!-- after -->
+  <polyline points="564,274 600,274" fill="none" stroke="#b4562d" stroke-width="2.4"/>
+  <text x="600" y="296" font-size="11.5" fill="#23303c">CS = FFFF, IP = 0000, DS = SS = ES = 0000,</text>
+  <text x="600" y="312" font-size="11.5" fill="#23303c">FLAGS = 0000, queue empty</text>
+  <text x="600" y="328" font-size="11.5" fill="#b4562d">first fetch from physical FFFF0 →</text>
+
+  <text x="410" y="360" text-anchor="middle" font-size="12" fill="#6b747e" font-style="italic">
+    The 8086 samples RESET on a clock edge, so an unsynchronised release risks a metastable internal state. That is what the 8284A prevents.
+  </text>
+</svg>

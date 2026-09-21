@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 540" width="880" height="540" font-family="Georgia, 'Times New Roman', serif">
+  <rect width="880" height="540" fill="#fbfaf7"/>
+  <text x="440" y="30" text-anchor="middle" font-size="18" fill="#23303c">Maximum mode — the 8086 emits status, the 8288 emits commands</text>
+
+  <defs>
+    <marker id="m15" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto">
+      <path d="M0 0 L9 4.5 L0 9 z" fill="#23303c"/>
+    </marker>
+    <marker id="m15o" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto">
+      <path d="M0 0 L9 4.5 L0 9 z" fill="#b4562d"/>
+    </marker>
+  </defs>
+
+  <!-- 8086 -->
+  <rect x="50" y="90" width="160" height="230" rx="4" fill="#2b3440" stroke="#151c24" stroke-width="2"/>
+  <text x="130" y="120" text-anchor="middle" font-size="17" fill="#f2efe8">8086</text>
+  <text x="130" y="140" text-anchor="middle" font-size="11" fill="#b9c2cc">maximum mode</text>
+  <text x="130" y="158" text-anchor="middle" font-size="10.5" fill="#b4562d">MN/MX → GND</text>
+  <g font-size="11" fill="#b9c2cc" font-family="monospace" text-anchor="end">
+    <text x="202" y="190">S2 S1 S0</text>
+    <text x="202" y="216">LOCK</text>
+    <text x="202" y="242">QS1 QS0</text>
+    <text x="202" y="268">RQ/GT0</text>
+    <text x="202" y="294">RQ/GT1</text>
+  </g>
+
+  <!-- 8288 -->
+  <rect x="300" y="72" width="150" height="150" rx="4" fill="#e4eaee" stroke="#23303c" stroke-width="1.8"/>
+  <text x="375" y="98" text-anchor="middle" font-size="16" fill="#23303c">8288</text>
+  <text x="375" y="116" text-anchor="middle" font-size="11" fill="#6b747e">bus controller</text>
+  <text x="375" y="140" text-anchor="middle" font-size="10.5" fill="#3a4653">CLK from the same 8284A</text>
+  <text x="375" y="164" text-anchor="middle" font-size="10.5" fill="#3a4653">IOB = AEN = GND</text>
+  <text x="375" y="182" text-anchor="middle" font-size="10.5" fill="#3a4653">CEN = +5 V</text>
+  <text x="375" y="206" text-anchor="middle" font-size="10.5" fill="#b4562d">decodes S2–S0 each cycle</text>
+
+  <line x1="212" y1="186" x2="298" y2="140" stroke="#23303c" stroke-width="2.4" marker-end="url(#m15)"/>
+
+  <!-- commands out -->
+  <g stroke="#b4562d" stroke-width="1.8" marker-end="url(#m15o)">
+    <line x1="450" y1="92" x2="560" y2="92"/>
+    <line x1="450" y1="114" x2="560" y2="114"/>
+    <line x1="450" y1="136" x2="560" y2="136"/>
+    <line x1="450" y1="158" x2="560" y2="158"/>
+    <line x1="450" y1="180" x2="560" y2="180"/>
+    <line x1="450" y1="202" x2="560" y2="202"/>
+  </g>
+  <g font-size="12" fill="#23303c" font-family="monospace">
+    <text x="568" y="96">MRDC</text><text x="568" y="118">MWTC / AMWC</text>
+    <text x="568" y="140">IORC</text><text x="568" y="162">IOWC / AIOWC</text>
+    <text x="568" y="184">INTA</text><text x="568" y="206">ALE, DT/R, DEN</text>
+  </g>
+  <text x="700" y="228" font-size="11" fill="#b4562d">DEN here is active HIGH —</text>
+  <text x="700" y="244" font-size="11" fill="#b4562d">it needs an inverter for a 74LS245</text>
+
+  <!-- 8087 -->
+  <rect x="300" y="250" width="150" height="110" rx="4" fill="#f2e7df" stroke="#23303c" stroke-width="1.8"/>
+  <text x="375" y="276" text-anchor="middle" font-size="16" fill="#23303c">8087</text>
+  <text x="375" y="294" text-anchor="middle" font-size="11" fill="#6b747e">numeric coprocessor</text>
+  <text x="375" y="318" text-anchor="middle" font-size="10.5" fill="#3a4653">shadows the instruction</text>
+  <text x="375" y="334" text-anchor="middle" font-size="10.5" fill="#3a4653">queue using QS1/QS0</text>
+  <text x="375" y="352" text-anchor="middle" font-size="10.5" fill="#b4562d">requires maximum mode</text>
+
+  <line x1="212" y1="242" x2="298" y2="280" stroke="#23303c" stroke-width="1.8" marker-end="url(#m15)"/>
+  <line x1="212" y1="268" x2="298" y2="320" stroke="#23303c" stroke-width="1.8"/>
+  <line x1="298" y1="320" x2="212" y2="268" stroke="#23303c" stroke-width="1.8" marker-end="url(#m15)"/>
+
+  <!-- 8289 -->
+  <rect x="50" y="356" width="160" height="90" rx="4" fill="#eceae4" stroke="#23303c" stroke-width="1.6"/>
+  <text x="130" y="382" text-anchor="middle" font-size="15" fill="#23303c">8289</text>
+  <text x="130" y="400" text-anchor="middle" font-size="11" fill="#6b747e">bus arbiter (optional)</text>
+  <text x="130" y="422" text-anchor="middle" font-size="10.5" fill="#3a4653">BREQ BPRN BPRO BUSY</text>
+  <text x="130" y="438" text-anchor="middle" font-size="10.5" fill="#3a4653">→ shared Multibus</text>
+  <line x1="130" y1="320" x2="130" y2="354" stroke="#23303c" stroke-width="1.8" marker-end="url(#m15)"/>
+
+  <!-- status table -->
+  <rect x="60" y="470" width="760" height="52" rx="4" fill="#f4f2ec" stroke="#cfd5da"/>
+  <g font-size="12" font-family="monospace" fill="#23303c">
+    <text x="80" y="490">S2 S1 S0 :  000 INTA    001 IOR     010 IOW     011 halt</text>
+    <text x="80" y="510">            100 FETCH   101 MEM RD  110 MEM WR  111 passive (idle)</text>
+  </g>
+  <text x="700" y="500" font-size="11" fill="#b4562d">fetch ≠ read — only maximum mode can tell them apart</text>
+
+  <text x="440" y="60" text-anchor="middle" font-size="12.5" fill="#6b747e" font-style="italic">
+    One extra chip buys separate memory/IO commands, bus arbitration, and — the real reason — the ability to attach an 8087.
+  </text>
+</svg>

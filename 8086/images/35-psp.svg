@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 620" width="820" height="620" font-family="Georgia, 'Times New Roman', serif">
+  <rect width="820" height="620" fill="#fbfaf7"/>
+  <text x="410" y="30" text-anchor="middle" font-size="18" fill="#23303c">The Program Segment Prefix, and the .COM memory model</text>
+
+  <!-- PSP detail -->
+  <text x="230" y="62" text-anchor="middle" font-size="14" fill="#b4562d">PSP — 256 bytes, built by DOS</text>
+
+  <g stroke="#23303c" stroke-width="1.3">
+    <rect x="120" y="76" width="220" height="30" fill="#f2e7df"/>
+    <rect x="120" y="106" width="220" height="30" fill="#f2e7df"/>
+    <rect x="120" y="136" width="220" height="30" fill="#eceae4"/>
+    <rect x="120" y="166" width="220" height="30" fill="#eceae4"/>
+    <rect x="120" y="196" width="220" height="30" fill="#f2e7df"/>
+    <rect x="120" y="226" width="220" height="30" fill="#eceae4"/>
+    <rect x="120" y="256" width="220" height="30" fill="#e4eaee"/>
+    <rect x="120" y="286" width="220" height="30" fill="#f4e3d6"/>
+    <rect x="120" y="316" width="220" height="44" fill="#f4e3d6"/>
+  </g>
+
+  <g font-size="11.5" fill="#23303c">
+    <text x="132" y="95">CD 20 — an INT 20h</text>
+    <text x="132" y="125">top-of-memory segment</text>
+    <text x="132" y="155">CP/M dispatcher call</text>
+    <text x="132" y="185">INT 22h/23h/24h vectors</text>
+    <text x="132" y="215">environment segment</text>
+    <text x="132" y="245">reserved</text>
+    <text x="132" y="275">FCB 1 and FCB 2</text>
+    <text x="132" y="305">command-tail LENGTH</text>
+    <text x="132" y="335">command-tail TEXT,</text>
+    <text x="132" y="351">terminated by 0x0D</text>
+  </g>
+
+  <g font-size="11" font-family="monospace" fill="#6b747e" text-anchor="end">
+    <text x="112" y="95">00</text>
+    <text x="112" y="125">02</text>
+    <text x="112" y="155">05</text>
+    <text x="112" y="185">0A</text>
+    <text x="112" y="215">2C</text>
+    <text x="112" y="245">2E</text>
+    <text x="112" y="275">5C</text>
+    <text x="112" y="305">80</text>
+    <text x="112" y="335">81</text>
+  </g>
+
+  <g font-size="11" fill="#b4562d">
+    <text x="350" y="95">so a plain RET terminates the program</text>
+    <text x="350" y="125">how much memory you own</text>
+    <text x="350" y="215">PATH, COMSPEC… and your own full path</text>
+    <text x="350" y="305">0 if nothing was typed</text>
+    <text x="350" y="335">note the LEADING SPACE is included</text>
+  </g>
+
+  <!-- memory model -->
+  <text x="620" y="62" text-anchor="middle" font-size="14" fill="#b4562d">.COM memory model</text>
+  <g stroke="#23303c" stroke-width="1.5">
+    <rect x="540" y="76" width="160" height="40" fill="#f2e7df"/>
+    <rect x="540" y="116" width="160" height="60" fill="#e4eaee"/>
+    <rect x="540" y="176" width="160" height="50" fill="#dfe6ea"/>
+    <rect x="540" y="226" width="160" height="140" fill="#f4f2ec"/>
+    <rect x="540" y="366" width="160" height="34" fill="#eceae4"/>
+  </g>
+  <g font-size="12" text-anchor="middle" fill="#23303c">
+    <text x="620" y="101">PSP</text>
+    <text x="620" y="144">your code</text>
+    <text x="620" y="206">your data</text>
+    <text x="620" y="292">free</text>
+    <text x="620" y="387">stack ↓</text>
+  </g>
+  <g font-size="11" font-family="monospace" fill="#6b747e" text-anchor="end">
+    <text x="532" y="95">0000</text>
+    <text x="532" y="135">0100</text>
+    <text x="532" y="396">FFFE</text>
+  </g>
+  <text x="712" y="135" font-size="11" fill="#b4562d">entry point — CS:IP</text>
+  <text x="712" y="396" font-size="11" fill="#b4562d">SP</text>
+  <text x="620" y="422" text-anchor="middle" font-size="11" fill="#6b747e">one 64 KiB segment · CS = DS = ES = SS</text>
+  <text x="620" y="438" text-anchor="middle" font-size="11" fill="#6b747e">no protection — data can grow into the stack</text>
+
+  <!-- comparison strip -->
+  <rect x="60" y="466" width="700" height="130" rx="5" fill="#f4f2ec" stroke="#cfd5da"/>
+  <text x="410" y="490" text-anchor="middle" font-size="13.5" fill="#b4562d">.COM versus .EXE at entry</text>
+  <g font-size="12.5" font-family="monospace" fill="#23303c">
+    <text x="96" y="516">.COM   CS = DS = ES = SS = PSP segment     IP = 0x0100   SP = 0xFFFE</text>
+    <text x="96" y="538">.EXE   CS:IP and SS:SP from the header</text>
+    <text x="96" y="560" fill="#b4562d">       DS = ES = the PSP segment — NOT your data segment</text>
+    <text x="96" y="582" fill="#6b747e">       so every .EXE begins:  mov ax, @data  /  mov ds, ax</text>
+  </g>
+</svg>
