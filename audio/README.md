@@ -45,19 +45,40 @@ This book is plain Markdown, so it has no fixed page count. We use the publishin
 convention of **400 words per page**. `tools/count.sh` reports the running total.
 The target is **700+ pages**; the outline below is sized for roughly 800.
 
+### Building the library
+
+From Chapter 17 onward everything lives in one CMake project:
+
+```bash
+cmake -S . -B build          # configure (once)
+cmake --build build          # build library, tests and examples
+./build/bin/audio_tests      # run the test suite
+./build/bin/ch17_tour        # run an example
+```
+
+Chapters 5-16 use standalone programs in `code/chNN/`, compiled directly:
+
+```bash
+g++ -std=c++17 -Wall -Wextra -O2 sine.cpp ../ch09/wavwriter.cpp -o sine.exe
+```
+
 ### Folder layout
 
 ```
 audio/
   README.md          <- you are here (master table of contents)
   PROGRESS.md        <- which chapters are written, running page count
+  CMakeLists.txt     <- top-level build (Chapter 17 onward)
   book/              <- the chapters, in reading order
-  code/              <- every program in the book, ready to compile
-    ch07/ ch08/ ...  <- one folder per chapter
-    libaudio/        <- the reusable library we build up from Chapter 17
-    solutions/       <- exercise solutions
+  code/              <- standalone programs for Chapters 5-16
+    ch05/ ch06/ ...  <- one folder per chapter
+  lib/               <- libaudio: the library we build in Chapter 17
+    include/audio/   <- public headers
+    src/             <- implementation
+  tests/             <- the test suite
+  examples/          <- programs that link libaudio
   assets/            <- .wav files your programs render
-  tools/             <- helper scripts (word count, build all)
+  tools/             <- helper scripts (word count)
 ```
 
 ---

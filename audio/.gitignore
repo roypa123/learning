@@ -1,0 +1,21 @@
+# Build output
+build/
+*.o
+*.a
+*.exe
+*.lib
+*.dll
+*.obj
+*.pdb
+
+# Rendered audio: large, binary, and regenerable by running the code.
+# Commit the program, not its output.
+*.wav
+*.bin
+!assets/reference/*.wav      # except deliberately-kept regression references
+
+# Editor / tooling
+.vscode/ipch/
+.cache/
+compile_commands.json
+.DS_Store
