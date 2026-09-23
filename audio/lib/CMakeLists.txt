@@ -3,6 +3,7 @@ add_library(audio STATIC
     src/wav_writer.cpp
     src/wav_reader.cpp
     src/osc.cpp
+    src/oversample.cpp
 )
 
 target_include_directories(audio

@@ -2,7 +2,7 @@
 
 Target: **700+ pages** (400 words = 1 page). Run `bash tools/count.sh` for the live count.
 
-**Current: 190 pages / 700.**
+**Current: 341 pages / 700.**
 
 ## Status by part
 
@@ -10,8 +10,8 @@ Target: **700+ pages** (400 words = 1 page). Run `bash tools/count.sh` for the l
 |---|---|---|
 | 0 — Before the first sound | 1–7 | **complete (84 pp)** |
 | I — Making your first sounds | 8–17 | **complete (106 pp)** |
-| II — DSP core | 18–29 | next |
-| III — Synthesis | 30–41 | not started |
+| II — DSP core | 18–29 | **complete (95 pp)** |
+| III — Synthesis | 30–41 | in progress (9 of 12, 45 pp) |
 | IV — Effects | 42–55 | not started |
 | V — Real-time audio | 56–65 | not started |
 | VI — Music, time, structure | 66–71 | not started |
@@ -43,11 +43,33 @@ Target: **700+ pages** (400 words = 1 page). Run `bash tools/count.sh` for the l
 - [x] 16 Reading WAV Files Back In — 8 pp
 - [x] 17 Building `libaudio` — 10 pp
 
-**Part II — next**
-- [ ] 18 Signals and Samples: The Notation You Need
-- [ ] 19 Complex Numbers and Phasors
-- [ ] 20 Linearity, Time-Invariance, and the Impulse Response
-- [ ] 21 Convolution From Scratch
+**Part II**
+- [x] 18 Signals and Samples: The Notation You Need — 9 pp
+- [x] 19 Complex Numbers and Phasors — 9 pp
+- [x] 20 Linearity, Time-Invariance, and the Impulse Response — 9 pp
+- [x] 21 Convolution From Scratch — 11 pp
+- [x] 22 FIR Filters and Windowed-Sinc Design — 9 pp
+- [x] 23 IIR Filters and the Biquad — 9 pp
+- [x] 24 Poles, Zeros, and Filter Stability — 7 pp
+- [x] 25 The DFT, and Then the FFT — 9 pp
+- [x] 26 Windowing and Spectral Leakage — 6 pp
+- [x] 27 The STFT and Spectrograms — 6 pp
+- [x] 28 Resampling and Interpolation — 5 pp
+- [x] 29 Aliasing In Depth, and Oversampling — 6 pp
+
+**Part III**
+- [x] 30 Oscillator Architecture — 6 pp
+- [x] 31 Band-Limited Oscillators: PolyBLEP and BLIT — 5 pp
+- [x] 32 Wavetable Synthesis — 4 pp
+- [x] 33 Subtractive Synthesis and the Voice — 6 pp
+- [x] 34 LFOs and Modulation Routing — 5 pp
+- [x] 35 FM and Phase-Modulation Synthesis — 5 pp
+- [x] 36 Additive Synthesis — 5 pp
+- [x] 37 Granular Synthesis — 5 pp
+- [x] 38 Karplus-Strong and Digital Waveguides — 6 pp
+- [ ] 39 Modal Synthesis and Resonators
+- [ ] 40 Procedural Sound Design
+- [ ] 41 Project: A Polyphonic Synthesizer
 
 ## libaudio
 
@@ -62,11 +84,30 @@ Built in Chapter 17. `cmake -S . -B build && cmake --build build`
 | `audio/envelope.h` | `ADSR` | 13 |
 | `audio/noise.h` | `FastRandom`, `PinkVoss`, `PinkKellett`, `Brown`, `Blue` | 15 |
 | `audio/filter.h` | `DCBlocker` | 14 |
+| `audio/signal.h` | impulse/step/exponential/sine generators, shift/scale/add/multiply, energy | 18 |
+| `audio/convolve.h` | `convolve`, `correlate`, `autocorrelate`, `OverlapAddConvolver` | 21 |
+| `audio/fir.h` | windowed-sinc design (6 windows, Kaiser from spec), `FIRFilter` | 22 |
+| `audio/biquad.h` | `BiquadCoeffs` (RBJ cookbook, 8 types), `Biquad`, `BiquadCascade` | 23 |
+| `audio/fft.h` | `fft`, `fftReal`, `dft`, `fastConvolve`, Parseval check | 25 |
+| `audio/window.h` | 7 analysis windows, coherent/power gain | 26 |
+| `audio/stft.h` | `STFT` analyse/synthesise, spectrograms, PGM/PPM output | 27 |
+| `audio/resample.h` | 4 interpolators, `resample`, `VariableRateReader` | 28 |
+| `audio/oversample.h` | `Oversampler`, waveshapers, `aliasingEnergyDb` | 29 |
+| `audio/oscillator.h` | `Osc` with PolyBLEP, PM/FM, cents helpers | 30, 31 |
+| `audio/wavetable.h` | `WavetableMipmap`, `WavetableOsc` (morphing) | 32 |
 | `audio/processor.h` | `Processor` interface, `Gain`, `Chain` | 17 |
 | `audio/test.h` | `CHECK`, `CHECK_CLOSE`, `summary()` | 17 |
 
 `tests/test_main.cpp` — ~90 checks across every component.
-`examples/ch17_tour.cpp` — the whole of Part I in 70 lines.
+**Examples** (`examples/`, built by CMake):
+- `ch17_tour.cpp` — the whole of Part I in 70 lines
+- `ch19_phasors.cpp` — rotation by j, Euler, a phasor oscillator, negative frequency
+- `ch20_lti.cpp` — the linearity / time-invariance / convolution-equivalence table
+- `ch21_convreverb.cpp` — synthetic room IRs and real convolution reverb
+- `ch22_fir.cpp` — window and tap-count comparison, Kaiser from spec, filter sweep
+- `ch23_biquad.cpp` — eight filter types, Q/resonance, Butterworth cascades, the classic sweep
+- `ch24_polezero.cpp` — ASCII z-plane plots, stability triangle, resonators by pole radius
+- `ch25_fft.cpp` — four-way FFT verification, leakage, DFT-vs-FFT timing, fast convolution
 
 > **Not yet compiled.** No C++ compiler is installed on this machine (see Chapter 5).
 > The library and tests are written but unverified. Install MSYS2/GCC and run
