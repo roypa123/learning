@@ -2,7 +2,7 @@
 
 Target: **700+ pages** (400 words = 1 page). Run `bash tools/count.sh` for the live count.
 
-**Current: 341 pages / 700.**
+**Current: 438 pages / 700.**
 
 ## Status by part
 
@@ -11,9 +11,9 @@ Target: **700+ pages** (400 words = 1 page). Run `bash tools/count.sh` for the l
 | 0 — Before the first sound | 1–7 | **complete (84 pp)** |
 | I — Making your first sounds | 8–17 | **complete (106 pp)** |
 | II — DSP core | 18–29 | **complete (95 pp)** |
-| III — Synthesis | 30–41 | in progress (9 of 12, 45 pp) |
-| IV — Effects | 42–55 | not started |
-| V — Real-time audio | 56–65 | not started |
+| III — Synthesis | 30–41 | **complete (59 pp)** |
+| IV — Effects | 42–55 | **complete (77 pp)** |
+| V — Real-time audio | 56–65 | next |
 | VI — Music, time, structure | 66–71 | not started |
 | VII — Psychoacoustics & spatial | 72–79 | not started |
 | VIII — Cinematic sound | 80–91 | not started |
@@ -67,9 +67,25 @@ Target: **700+ pages** (400 words = 1 page). Run `bash tools/count.sh` for the l
 - [x] 36 Additive Synthesis — 5 pp
 - [x] 37 Granular Synthesis — 5 pp
 - [x] 38 Karplus-Strong and Digital Waveguides — 6 pp
-- [ ] 39 Modal Synthesis and Resonators
-- [ ] 40 Procedural Sound Design
-- [ ] 41 Project: A Polyphonic Synthesizer
+- [x] 39 Modal Synthesis and Resonators — 6 pp
+- [x] 40 Procedural Sound Design — 6 pp
+- [x] 41 Project: A Polyphonic Synthesizer — 6 pp
+
+**Part IV**
+- [x] 42 Delay Lines and Circular Buffers — 5 pp
+- [x] 43 Echo, Feedback, and Stability — 5 pp
+- [x] 44 Chorus, Flanger, and Fractional Delay — 5 pp
+- [x] 45 Phasers and Allpass Filters — 5 pp
+- [x] 46 Reverb I: Schroeder, Combs, Freeverb — 5 pp
+- [x] 47 Reverb II: Feedback Delay Networks — 6 pp
+- [x] 48 Reverb III: Convolution — 5 pp
+- [x] 49 Reverb IV: Partitioned Low-Latency Convolution — 6 pp
+- [x] 50 Dynamics I: Envelope Followers and Compressors — 6 pp
+- [x] 51 Dynamics II: Limiters, Gates, Sidechains, Multiband — 6 pp
+- [x] 52 Distortion, Saturation, and Waveshaping — 5 pp
+- [x] 53 Equalisation — 6 pp
+- [x] 54 Pitch Shifting and Time Stretching — 5 pp
+- [x] 55 Vocoders, Formants, and Voice Processing — 6 pp
 
 ## libaudio
 
