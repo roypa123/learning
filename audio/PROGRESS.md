@@ -2,7 +2,7 @@
 
 Target: **700+ pages** (400 words = 1 page). Run `bash tools/count.sh` for the live count.
 
-**Current: 438 pages / 700.**
+**Current: 522 pages / 700.**
 
 ## Status by part
 
@@ -13,9 +13,9 @@ Target: **700+ pages** (400 words = 1 page). Run `bash tools/count.sh` for the l
 | II — DSP core | 18–29 | **complete (95 pp)** |
 | III — Synthesis | 30–41 | **complete (59 pp)** |
 | IV — Effects | 42–55 | **complete (77 pp)** |
-| V — Real-time audio | 56–65 | next |
-| VI — Music, time, structure | 66–71 | not started |
-| VII — Psychoacoustics & spatial | 72–79 | not started |
+| V — Real-time audio | 56–65 | **complete (55 pp)** |
+| VI — Music, time, structure | 66–71 | **complete (33 pp)** |
+| VII — Psychoacoustics & spatial | 72–79 | next |
 | VIII — Cinematic sound | 80–91 | not started |
 | IX — Capstones | 92–95 | not started |
 | Appendices | A–H | not started |
@@ -86,6 +86,26 @@ Target: **700+ pages** (400 words = 1 page). Run `bash tools/count.sh` for the l
 - [x] 53 Equalisation — 6 pp
 - [x] 54 Pitch Shifting and Time Stretching — 5 pp
 - [x] 55 Vocoders, Formants, and Voice Processing — 6 pp
+
+**Part V**
+- [x] 56 What "Real-Time" Actually Means — 5 pp
+- [x] 57 Audio APIs on Windows — 5 pp
+- [x] 58 Your First Real-Time Program with miniaudio — 5 pp
+- [x] 59 The Real-Time Rules — 6 pp
+- [x] 60 Lock-Free Ring Buffers and Thread Communication — 6 pp
+- [x] 61 Parameter Smoothing — 5 pp
+- [x] 62 MIDI Input — 6 pp
+- [x] 63 Optimisation: Profiling, SIMD, Cache — 6 pp
+- [x] 64 Graph-Based Audio Engines — 6 pp
+- [x] 65 Audio Plugins: VST3, AU, CLAP — 5 pp
+
+**Part VI**
+- [x] 66 Pitch, Tuning Systems, and Cents — 5 pp
+- [x] 67 Tempo and Sample-Accurate Timing — 6 pp
+- [x] 68 Building a Sequencer — 6 pp
+- [x] 69 Sample Playback and Disk Streaming — 6 pp
+- [x] 70 Algorithmic and Generative Music — 5 pp
+- [x] 71 Adaptive Music: Layers, Transitions, Stingers — 5 pp
 
 ## libaudio
 
